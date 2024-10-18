@@ -7,20 +7,39 @@ import Icon from '../../../../components/Icon'
 
 // 語言選單
 function LanguageDropdown() {
-  const [show, setShow] = useState(false)
-  const toggleDropdown = () => setShow((prevShow) => !prevShow)
+  const [showDropdown, setShowDropdown] = useState(false)
+  const toggleDropdown = () => setShowDropdown((prevState) => !prevState)
+
+  const currentLang = 'zh'
 
   return (
-    <button className={S.languageDropdown} onClick={toggleDropdown}>
-      <div className={`${S.flipCard} ${show ? S.flip : ''}`}>
+    <div className={S.languageDropdown} onClick={toggleDropdown}>
+      <button className={`${S.dropdownButton} ${showDropdown ? S.flip : ''}`}>
         <div className={S.front}>
           <Icon style={S.earthAmericas} icon="faEarthAmericas" />
         </div>
         <div className={S.back}>
           <Icon style={S.earthAsia} icon="faEarthAsia" />
         </div>
-      </div>
-    </button>
+      </button>
+      <ul
+        className={`${S.dropdown} ${showDropdown ? S.show : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <li className={`${S.li} ${currentLang === 'zh' ? S.active : ''}`}>
+          <img src="https://hatscripts.github.io/circle-flags/flags/tw.svg" />
+          <span>中文</span>
+        </li>
+        <li className={`${S.li} ${currentLang === 'en' ? S.active : ''}`}>
+          <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" />
+          <span>English</span>
+        </li>
+        <li className={`${S.li} ${currentLang === 'es' ? S.active : ''}`}>
+          <img src="https://hatscripts.github.io/circle-flags/flags/uy.svg" />
+          <span>Español</span>
+        </li>
+      </ul>
+    </div>
   )
 }
 

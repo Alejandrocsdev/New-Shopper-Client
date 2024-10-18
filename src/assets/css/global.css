@@ -7,6 +7,15 @@
   font-family: 'Noto Sans TC', 'Onest', sans-serif;
 }
 
+body {
+  color: var(--theme-primary-text);
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
 :root {
   --nav-height: 35px;
   --header-height: 85px;
@@ -15,10 +24,14 @@
 [data-theme="light"] {
   --theme-primary-background: hsl(246, 33%, 94%);
   --theme-secondary-background: hsl(246, 33%, 84%);
-  --theme-tertiary-background: hsl(246, 33%, 74%);
+  --theme-tertiary-background: hsl(245, 33%, 78%);
   --theme-primary-text: rgb(45, 45, 45);
   --theme-primary-border: rgb(45, 45, 45);
-  --theme-icon-hover-background: hsl(246, 27%, 64%);
+  --theme-icon-hover-background: hsl(247, 30%, 70%);
+  --theme-primary-list: hsl(0, 0%, 70%);
+  --theme-secondary-list: hsl(0, 0%, 75%);
+  --theme-tertiary-list: hsl(0, 0%, 80%);
+  --theme-globe: blue;
 }
 
 [data-theme="dark"] {
@@ -28,4 +41,8 @@
   --theme-primary-text: rgb(210, 210, 210);
   --theme-primary-border: rgb(210, 210, 210);
   --theme-icon-hover-background: hsl(250, 38%, 43%);
+  --theme-primary-list: hsl(0, 0%, 20%);
+  --theme-secondary-list: hsl(0, 0%, 15%);
+  --theme-tertiary-list: hsl(0, 0%, 10%);
+  --theme-globe: green;
 }

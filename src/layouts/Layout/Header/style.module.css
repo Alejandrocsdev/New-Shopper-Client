@@ -2,7 +2,7 @@
 
 .nav {
   height: var(--nav-height);
-  color: var(--theme-primary-text);
+  /* color: var(--theme-primary-text); */
   background-color: var(--theme-secondary-background);
   display: flex;
   justify-content: space-between;
@@ -17,6 +17,6 @@
 
 .header {
   height: var(--header-height);
-  color: var(--theme-primary-text);
+  /* color: var(--theme-primary-text); */
   background-color: var(--theme-tertiary-background);
 }
