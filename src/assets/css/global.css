@@ -18,7 +18,7 @@
   --theme-tertiary-background: hsl(246, 33%, 74%);
   --theme-primary-text: rgb(45, 45, 45);
   --theme-primary-border: rgb(45, 45, 45);
-  --theme-icon-hover-background: hsl(246, 44%, 61%);
+  --theme-icon-hover-background: hsl(246, 27%, 64%);
 }
 
 [data-theme="dark"] {

@@ -2,9 +2,8 @@
 import S from './style.module.css'
 // 函式庫 (library)
 import { useState, useEffect } from 'react'
-// Font Awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
+// 組件 (component)
+import Icon from '../../../../components/Icon'
 
 // 主題切換
 function ThemeToggle() {
@@ -19,10 +18,7 @@ function ThemeToggle() {
 
   return (
     <button className={S.themeToggle} onClick={toggleTheme}>
-      <FontAwesomeIcon
-        className={`${S.circleHalfStroke} ${isDark ? S.rotate : ''}`}
-        icon={faCircleHalfStroke}
-      />
+      <Icon style={`${S.circleHalfStroke} ${isDark ? S.rotate : ''}`} icon="faCircleHalfStroke" />
     </button>
   )
 }
