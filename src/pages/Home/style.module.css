@@ -1,5 +1,5 @@
 .main {
-  height: 100vh;
+  min-height: calc(100vh - var(--nav-height) - var(--header-height));
   background-color: tomato;
   display: flex;
   flex-direction: column;

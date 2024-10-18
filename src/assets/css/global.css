@@ -6,3 +6,8 @@
   box-sizing: border-box;
   font-family: 'Noto Sans TC', 'Onest', sans-serif;
 }
+
+:root {
+  --nav-height: 35px;
+  --header-height: 85px;
+}

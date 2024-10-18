@@ -1,0 +1,13 @@
+/* .headerWrapper {} */
+
+.nav {
+  height: var(--nav-height);
+  color: white;
+  background-color: blue;
+}
+
+.header {
+  height: var(--header-height);
+  color: white;
+  background-color: darkblue;
+}

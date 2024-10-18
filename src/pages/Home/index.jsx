@@ -5,8 +5,7 @@ import S from './style.module.css'
 function Home() {
   return (
     <main className={S.main}>
-      <button className={S.button}>首頁: Noto Sans TC</button>
-      <button className={S.button}>Home: Onest</button>
+      <button className={S.button}>首頁</button>
     </main>
   )
 }
