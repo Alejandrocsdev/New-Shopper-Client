@@ -1,9 +1,9 @@
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
+import { faCircleHalfStroke, faEarthAmericas, faEarthAsia } from '@fortawesome/free-solid-svg-icons'
 
 // Icon mapping
-const iconMap = { faCircleHalfStroke }
+const iconMap = { faCircleHalfStroke, faEarthAmericas, faEarthAsia }
 
 // 圖示
 function Icon({ style, icon }) {

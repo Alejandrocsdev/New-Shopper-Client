@@ -11,7 +11,9 @@
 
 /* .navLeft {} */
 
-/* .navRight {} */
+.navRight {
+  display: flex;
+}
 
 .header {
   height: var(--header-height);

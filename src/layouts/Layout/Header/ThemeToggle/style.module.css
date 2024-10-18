@@ -1,4 +1,6 @@
 .themeToggle {
+  width: 2rem;
+  height: 2rem;
   padding: .3rem;
   color: var(--theme-primary-text);
   border-radius: .3rem;

@@ -2,6 +2,7 @@
 import S from './style.module.css'
 // 組件 (component)
 import ThemeToggle from './ThemeToggle'
+import LanguageDropdown from './LanguageDropdown'
 
 // 頁首
 function Header() {
@@ -11,6 +12,7 @@ function Header() {
         <div className={S.navLeft}>Left</div>
         <div className={S.navRight}>
           <ThemeToggle />
+          <LanguageDropdown />
         </div>
       </nav>
       <header className={S.header}>Header</header>
