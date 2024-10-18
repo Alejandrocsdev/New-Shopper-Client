@@ -4,7 +4,6 @@
   padding: .3rem;
   border-radius: .3rem;
   position: relative;
-  cursor: pointer;
   /* new styles to learn */
   perspective: 1000px;
 }
