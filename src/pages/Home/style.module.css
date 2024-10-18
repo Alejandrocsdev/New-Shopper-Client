@@ -1,0 +1,22 @@
+.main {
+  height: 100vh;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  border: .15rem solid black;
+  background-color: lightpink;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: lightblue;
+}
