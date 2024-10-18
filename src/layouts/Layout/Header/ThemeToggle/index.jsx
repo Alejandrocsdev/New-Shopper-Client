@@ -7,12 +7,24 @@ import Icon from '../../../../components/Icon'
 
 // 主題切換
 function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(() => {
+    const storedTheme = localStorage.getItem('theme')
+    // theme => boolan
+    return storedTheme === 'dark' ? true : false
+  })
 
-  const toggleTheme = () => setIsDark(!isDark)
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const newTheme = !prev
+      // boolan => theme
+      localStorage.setItem('theme', newTheme ? 'dark' : 'light')
+      return newTheme
+    })
+  }
 
   useEffect(() => {
     const rootElement = document.documentElement
+    // boolan => theme
     rootElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
   }, [isDark])
 
