@@ -5,7 +5,9 @@ import S from './style.module.css'
 function Home() {
   return (
     <main className={S.main}>
-      <button className={S.button}>首頁</button>
+      <div className={S.div1}>primary</div>
+      <div className={S.div2}>secondary</div>
+      <div className={S.div3}>tertiary</div>
     </main>
   )
 }

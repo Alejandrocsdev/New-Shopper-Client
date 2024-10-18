@@ -2,12 +2,19 @@
 
 .nav {
   height: var(--nav-height);
-  color: white;
-  background-color: blue;
+  color: var(--theme-primary-text);
+  background-color: var(--theme-secondary-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+/* .navLeft {} */
+
+/* .navRight {} */
 
 .header {
   height: var(--header-height);
-  color: white;
-  background-color: darkblue;
+  color: var(--theme-primary-text);
+  background-color: var(--theme-tertiary-background);
 }

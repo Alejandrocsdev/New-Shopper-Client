@@ -1,24 +1,30 @@
 .main {
   min-height: calc(100vh - var(--nav-height) - var(--header-height));
-  background-color: tomato;
+  background-color: var(--theme-primary-background);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 }
 
-.button {
-  padding: 1.25rem 2.5rem;
-  border-radius: 1rem;
-  border: .15rem solid black;
-  background-color: lightpink;
-  font-size: 2rem;
-  font-weight: 500;
-  transition: background-color .3s;
-  cursor: pointer;
+.div1,
+.div2,
+.div3 {
+  width: 9rem;
+  color: var(--theme-primary-text);
+  border: .1rem solid var(--theme-primary-border);
+  text-align: center;
 }
 
-.button:hover {
-  background-color: lightblue;
+.div1 {
+  background-color: var(--theme-primary-background);
+}
+
+.div2 {
+  background-color: var(--theme-secondary-background);
+}
+
+.div3 {
+  background-color: var(--theme-tertiary-background);
 }
