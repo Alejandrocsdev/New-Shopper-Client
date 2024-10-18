@@ -2,8 +2,10 @@
   height: 100vh;
   background-color: tomato;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .button {
@@ -12,7 +14,7 @@
   border: .15rem solid black;
   background-color: lightpink;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   transition: background-color .3s;
   cursor: pointer;
 }

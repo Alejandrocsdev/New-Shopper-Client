@@ -1,5 +1,6 @@
 // 樣式 (css)
 import './assets/css/global.css'
+import './assets/css/font.css'
 // 函式庫 (library)
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // 頁面 (pages)
