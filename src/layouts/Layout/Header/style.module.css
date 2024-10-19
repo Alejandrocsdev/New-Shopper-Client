@@ -2,7 +2,6 @@
 
 .nav {
   height: var(--nav-height);
-  /* color: var(--theme-primary-text); */
   background-color: var(--theme-secondary-background);
   display: flex;
   justify-content: space-between;
@@ -17,6 +16,28 @@
 
 .header {
   height: var(--header-height);
-  /* color: var(--theme-primary-text); */
-  background-color: var(--theme-tertiary-background);
+  background-color: var(--theme-primary-background);
+  display: flex;
+  align-items: center;
+}
+
+.logo>img {
+  height: 4.375rem;
+  margin-right: .625rem;
+}
+
+.large {
+  display: inline;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
+.small {
+  display: none;
+
+  @media (max-width: 800px) {
+    display: inline;
+  }
 }
