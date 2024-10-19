@@ -12,7 +12,7 @@ import Icon from '../../../../components/Icon'
 import languages from '../../../../assets/locales/languages'
 
 // 語言選單
-function LanguageDropdown() {
+function LangDrop() {
   const location = useLocation()
   const navigate = useNavigate()
   const { lang } = useParams()
@@ -37,9 +37,9 @@ function LanguageDropdown() {
   useClickOutside(dropdownRef, () => setShowDropdown(false))
 
   return (
-    <div className={S.languageDropdown} onClick={toggleDropdown} ref={dropdownRef}>
+    <div className={S.langDrop} onClick={toggleDropdown} ref={dropdownRef}>
       {/* 語言按鈕 */}
-      <button className={`${S.dropdownButton} ${showDropdown ? S.flip : ''}`}>
+      <button className={`${S.dropButton} ${showDropdown ? S.flip : ''}`}>
         <div className={S.front}>
           <Icon style={S.earthAmericas} icon="faEarthAmericas" />
         </div>
@@ -67,4 +67,4 @@ function LanguageDropdown() {
   )
 }
 
-export default LanguageDropdown
+export default LangDrop

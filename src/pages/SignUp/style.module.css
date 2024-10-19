@@ -9,6 +9,6 @@
 .div {
   padding: 1rem;
   border-radius: .3rem;
-  border: .1rem solid black;
-  background-color: aquamarine;
+  border: .1rem solid var(--theme-primary-border);
+  background-color: var(--theme-tertiary-background);
 }

@@ -1,0 +1,18 @@
+.signLink {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.signUp,
+.signIn {
+  padding: .2rem .3rem;
+  color: var(--theme-primary-text);
+}
+
+.signUp:hover,
+.signIn:hover {
+  border-radius: .3rem;
+  background-color: var(--theme-background-hover);
+}

@@ -3,21 +3,24 @@
     "translation": {
       "shopper.title": "Shopper ZH",
        "home.primary": "主要",
-       "share.signUp": "註冊"
+       "share.signUp": "註冊",
+       "share.signIn": "登入"
     }
   },
   "en": {
     "translation": {
       "shopper.title": "Shopper EN",
        "home.primary": "Primary",
-       "share.signUp": "Sign Up"
+       "share.signUp": "Sign Up",
+       "share.signIn": "Sign In"
     }
   },
   "es": {
     "translation": {
       "shopper.title": "Shopper ES",
        "home.primary": "Primero",
-       "share.signUp": "Registrarse"
+       "share.signUp": "Registrarse",
+       "share.signIn": "Iniciar Sesión"
     }
   }
 }
