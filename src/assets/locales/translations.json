@@ -1,17 +1,20 @@
 {
   "zh": {
     "translation": {
-      "shopper.title": "Shopper ZH"
+      "shopper.title": "Shopper ZH",
+       "home.primary": "主要"
     }
   },
   "en": {
     "translation": {
-      "shopper.title": "Shopper EN"
+      "shopper.title": "Shopper EN",
+       "home.primary": "Primary"
     }
   },
   "es": {
     "translation": {
-      "shopper.title": "Shopper ES"
+      "shopper.title": "Shopper ES",
+       "home.primary": "Primero"
     }
   }
 }

@@ -3,18 +3,24 @@ import S from './style.module.css'
 // 函式庫 (library)
 import { useState, useRef } from 'react'
 // 自訂函式 (custom function)
+import { i18next } from '../../../../utils/i18next'
 import useClickOutside from '../../../../hooks/useClickOutside'
-import useChangeLanguage from '../../../../hooks/useChangeLanguage'
 // 組件 (component)
 import Icon from '../../../../components/Icon'
+// 資料 (data)
+import languages from '../../../../assets/locales/languages'
 
 // 語言選單
 function LanguageDropdown() {
-  const {currentLang, languages, changeLanguage} = useChangeLanguage()
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef(null)
 
   const toggleDropdown = () => setShowDropdown((prevState) => !prevState)
+  
+  const changeLanguage = (code) => {
+    i18next.changeLanguage(code)
+    localStorage.setItem('lang', code)
+  }
 
   useClickOutside(dropdownRef, () => setShowDropdown(false))
 
@@ -37,7 +43,7 @@ function LanguageDropdown() {
         {languages.map((language) => (
           <li
             key={language.code}
-            className={`${S.li} ${currentLang === language.code ? S.active : ''}`}
+            className={`${S.li} ${i18next.language === language.code ? S.active : ''}`}
             onClick={() => changeLanguage(language.code)}
           >
             <img src={`https://hatscripts.github.io/circle-flags/flags/${language.flag}.svg`} />
