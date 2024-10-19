@@ -1,0 +1,14 @@
+.main {
+  min-height: calc(100vh - var(--nav-height) - var(--header-height));
+  background-color: var(--theme-primary-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div {
+  padding: 1rem;
+  border-radius: .3rem;
+  border: .1rem solid black;
+  background-color: aquamarine;
+}

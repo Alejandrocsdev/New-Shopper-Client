@@ -2,19 +2,22 @@
   "zh": {
     "translation": {
       "shopper.title": "Shopper ZH",
-       "home.primary": "主要"
+       "home.primary": "主要",
+       "share.signUp": "註冊"
     }
   },
   "en": {
     "translation": {
       "shopper.title": "Shopper EN",
-       "home.primary": "Primary"
+       "home.primary": "Primary",
+       "share.signUp": "Sign Up"
     }
   },
   "es": {
     "translation": {
       "shopper.title": "Shopper ES",
-       "home.primary": "Primero"
+       "home.primary": "Primero",
+       "share.signUp": "Registrarse"
     }
   }
 }

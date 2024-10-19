@@ -14,4 +14,6 @@ i18next.use(initReactI18next).init({
   interpolation: { escapeValue: false }
 })
 
-export { i18next }
+const supportedLngs = i18next.options.supportedLngs
+
+export { i18next, supportedLngs }
