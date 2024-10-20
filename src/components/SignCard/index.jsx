@@ -5,6 +5,7 @@ import { Trans, useTranslation } from 'react-i18next'
 // 組件 (component)
 import Logo from '../Logo'
 import Anchor from '../Anchor'
+import ThirdPartySign from './ThirdPartySign'
 
 // 表單樣板: 密碼登入樣板 / 簡訊登入樣板 / 註冊樣板
 function SignCard() {
@@ -48,7 +49,7 @@ function SignCard() {
         </div>
 
         {/* 第三方登入/註冊 */}
-        {/* <ThirdPartySign /> */}
+        <ThirdPartySign />
 
         {/* 條款與政策 */}
         <div className={S.policy}>

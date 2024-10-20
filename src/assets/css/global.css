@@ -28,6 +28,8 @@ a {
   --accent-text: #a5a4ab;
   --link-text: #219ebc;
   --link-text-hover: #176d82;
+  --third-party-border: #2d2d2d;
+  --third-party-background-hover: #a19cc9;
 }
 
 [data-theme="light"] {
