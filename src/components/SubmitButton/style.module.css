@@ -11,7 +11,7 @@
 }
 
 .submit:hover {
-  background-color: var(--open-submit-background);
+  background-color: var(--theme-submit-background-hover);
 }
 
 .notAllowed {
@@ -24,5 +24,5 @@
 }
 
 .allowed:hover {
-  background-color: var(--open-submit-background);
+  background-color: var(--theme-submit-background-hover);
 }

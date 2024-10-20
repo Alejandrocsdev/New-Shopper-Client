@@ -2,7 +2,7 @@
   margin-bottom: 1.875rem;
   padding: .75rem .9375rem;
   background-color: var(--error-background);
-  border: .0625rem solid var(--error-border);
+  border: .0625rem solid var(--error-red);
   display: flex;
 }
 

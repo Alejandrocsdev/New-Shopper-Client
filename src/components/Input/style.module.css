@@ -1,0 +1,35 @@
+.inputWrapper {
+  height: 2.5rem;
+  display: flex;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: .75rem;
+  border: .0625rem solid gray;
+  background-color: white;
+  outline: 0;
+}
+
+.input:focus {
+  border: .0625rem solid black;
+}
+
+.errMsg {
+  width: 100%;
+  height: 1.3125rem;
+  padding-top: .3125rem;
+  margin-bottom: .625rem;
+  color: var(--error-red);
+  font-size: .75rem;
+}
+
+.invalid {
+  background-color: #ffeaed;
+  border: .0625rem solid #ff424f;
+}
+
+.invalid:focus {
+  border: .0625rem solid #ff424f;
+}

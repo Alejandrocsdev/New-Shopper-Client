@@ -1,4 +1,5 @@
 // 函式庫 (library)
+import { useEffect } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 // 組件 (component)
 import { joiResolver } from '@hookform/resolvers/joi'
@@ -6,7 +7,7 @@ import FormError from '../FormError'
 import SubmitButton from '../SubmitButton'
 
 // 錨點
-function Form({ schema, onSubmit, submitText, children }) {
+function Form({ schema, onSubmit, submitText, setFormContext, children }) {
   const methods = useForm({
     resolver: schema ? joiResolver(schema) : undefined,
     mode: 'onChange',
@@ -16,6 +17,14 @@ function Form({ schema, onSubmit, submitText, children }) {
   const errors = methods.formState.errors
   const isValid = methods.formState.isValid
   const isSubmitting = methods.formState.isSubmitting
+
+  useEffect(() => {
+    if (setFormContext) {
+      setFormContext({
+        setError: methods.setError
+      })
+    }
+  }, [setFormContext, methods])
 
   return (
     <FormProvider {...methods}>

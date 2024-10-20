@@ -25,14 +25,13 @@ a {
   --nav-height: 35px;
   --header-height: 85px;
   --card-background: #d9d7e4;
-  --open-submit-background: #423597;
   --close-submit-background: #808080;
   --sub-text: #a5a4ab;
   --link-text: #219ebc;
   --link-text-hover: #176d82;
   --third-party-border: #2d2d2d;
   --third-party-background-hover: #a19cc9;
-  --error-border: #ff424f;
+  --error-red: #ff424f;
   --error-background: #ffdae0;
 }
 
@@ -49,6 +48,7 @@ a {
   --theme-secondary-list: #bfbfbf;
   --theme-tertiary-list: #cccccc;
   --theme-icon-globe: #0000ff;
+  --theme-submit-background-hover: #7568ca;
 }
 
 [data-theme="dark"] {
@@ -64,4 +64,5 @@ a {
   --theme-secondary-list: #262626;
   --theme-tertiary-list: #1a1a1a;
   --theme-icon-globe: #008000;
+  --theme-submit-background-hover: #423597;
 }
