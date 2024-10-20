@@ -9,12 +9,14 @@ import { LangProvider } from './context/LangContext'
 import { ThemeProvider } from './context/ThemeContext'
 // 佈局組件
 import Layout from './layouts/Layout'
+import AuthLayout from './layouts/AuthLayout'
 // 頁面 (pages)
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 
 const LangRoutes = () => {
   return (
+    // must be wrapped inside LangRoutes to access useParams
     <LangProvider>
       <Outlet />
     </LangProvider>
@@ -27,9 +29,12 @@ function App() {
       <ThemeProvider>
         <Routes>
           <Route path="/:lang/*" element={<LangRoutes />}>
+            <Route path="" element={<AuthLayout />}>
+              <Route path="sign-up" element={<SignUp />} />
+            </Route>
+
             <Route path="" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="sign-up" element={<SignUp />} />
             </Route>
           </Route>
           {/* host/ => host/:lang */}

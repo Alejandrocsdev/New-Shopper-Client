@@ -3,13 +3,13 @@ import S from './style.module.css'
 // 函式庫 (library)
 import { Outlet } from 'react-router-dom'
 // 組件 (component)
-import Header from './Header'
+import AuthHeader from './AuthHeader'
 
-// 佈局組件
-function Layout() {
+// 佈局組件 (Auth)
+function AuthLayout() {
   return (
     <>
-      <Header />
+      <AuthHeader />
       <div className={S.container}>
         <Outlet />
       </div>
@@ -17,4 +17,4 @@ function Layout() {
   )
 }
 
-export default Layout
+export default AuthLayout

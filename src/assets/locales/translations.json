@@ -4,7 +4,8 @@
       "shopper.title": "Shopper ZH",
        "home.primary": "主要",
        "share.signUp": "註冊",
-       "share.signIn": "登入"
+       "share.signIn": "登入",
+       "share.reset": "重設"
     }
   },
   "en": {
@@ -12,7 +13,8 @@
       "shopper.title": "Shopper EN",
        "home.primary": "Primary",
        "share.signUp": "Sign Up",
-       "share.signIn": "Sign In"
+       "share.signIn": "Sign In",
+       "share.reset": "Reset"
     }
   },
   "es": {
@@ -20,7 +22,8 @@
       "shopper.title": "Shopper ES",
        "home.primary": "Primero",
        "share.signUp": "Registrarse",
-       "share.signIn": "Iniciar Sesión"
+       "share.signIn": "Iniciar Sesión",
+       "share.reset": "Restablecer"
     }
   }
 }

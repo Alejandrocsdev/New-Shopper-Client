@@ -1,9 +1,6 @@
 .main {
-  min-height: calc(100vh - var(--nav-height) - var(--header-height));
-  background-color: var(--theme-tertiary-background);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
 }

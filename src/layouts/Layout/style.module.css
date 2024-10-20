@@ -1,0 +1,4 @@
+.container {
+  min-height: calc(100vh - var(--nav-height) - var(--header-height));
+  background-color: var(--theme-tertiary-background);
+}
