@@ -14,6 +14,7 @@ function Logo({ style, isBanner, shape, text, unlink }) {
     if (isBanner) {
       return `${frontUrl}/img/logo/banner-${color}.png`
     } else {
+      console.log(`${frontUrl}/img/logo/${shape}-${text ? 'text-' : ''}${color}.png`)
       return `${frontUrl}/img/logo/${shape}-${text ? 'text-' : ''}${color}.png`
     }
   }

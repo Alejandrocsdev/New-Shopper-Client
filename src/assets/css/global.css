@@ -17,6 +17,7 @@ ul {
 }
 
 a {
+  color: var(--theme-primary-text);
   text-decoration: none;
 }
 
@@ -27,9 +28,10 @@ a {
 
 [data-theme="light"] {
   --theme-primary-background: hsl(246, 33%, 94%);
-  --theme-secondary-background: hsl(246, 33%, 84%);
-  --theme-tertiary-background: hsl(245, 33%, 78%);
+  --theme-secondary-background: hsl(246, 100%, 84%);
+  --theme-tertiary-background: hsl(246, 33%, 74%);
   --theme-primary-text: rgb(45, 45, 45);
+  --theme-primary-text-hover: gray;
   --theme-primary-border: rgb(45, 45, 45);
   --theme-background-hover: hsl(247, 30%, 70%);
   --theme-primary-list: hsl(0, 0%, 70%);
@@ -40,9 +42,10 @@ a {
 
 [data-theme="dark"] {
   --theme-primary-background: hsl(250, 49%, 10%);
-  --theme-secondary-background: hsl(250, 49%, 20%);
+  --theme-secondary-background: hsl(250, 72%, 20%);
   --theme-tertiary-background: hsl(250, 49%, 30%);
   --theme-primary-text: rgb(210, 210, 210);
+  --theme-primary-text-hover: gray;
   --theme-primary-border: rgb(210, 210, 210);
   --theme-background-hover: hsl(250, 38%, 43%);
   --theme-primary-list: hsl(0, 0%, 20%);

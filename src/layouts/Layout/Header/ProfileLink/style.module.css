@@ -1,0 +1,20 @@
+.profileLink {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+}
+
+.avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 1.125rem;
+}
+
+.username:hover {
+  color: var(--theme-primary-text-hover);
+}
