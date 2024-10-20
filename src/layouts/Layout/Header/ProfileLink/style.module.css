@@ -16,5 +16,5 @@
 }
 
 .username:hover {
-  color: var(--theme-primary-text-hover);
+  color: var(--link-text-hover);
 }

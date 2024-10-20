@@ -5,6 +5,7 @@ import { Trans, useTranslation } from 'react-i18next'
 // 組件 (component)
 import Logo from '../Logo'
 import Anchor from '../Anchor'
+import SignForm from './SignForm'
 import ThirdPartySign from './ThirdPartySign'
 
 // 表單樣板: 密碼登入樣板 / 簡訊登入樣板 / 註冊樣板
@@ -27,7 +28,7 @@ function SignCard() {
         <h1 className={S.cardName}>{t(isSignUp ? 'sign.signUp' : 'sign.signIn')}</h1>
 
         {/* 表單 */}
-        {/* <SignForm /> */}
+        <SignForm />
 
         {/* 幫助 */}
         <div className={S.help}>

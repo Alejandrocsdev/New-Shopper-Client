@@ -58,13 +58,13 @@
   width: 100%;
   height: .03125rem;
   margin: auto 0;
-  background-color: var(--accent-text);
+  background-color: var(--sub-text);
 }
 
 .breakLine .or {
   padding: 0 1rem;
   font-size: .75rem;
-  color: var(--accent-text);
+  color: var(--sub-text);
 }
 
 .adjust {
@@ -87,7 +87,7 @@
 
 .switch .text {
   margin-right: .3125rem;
-  color: var(--accent-text);
+  color: var(--sub-text);
 }
 
 /* 通用 */
