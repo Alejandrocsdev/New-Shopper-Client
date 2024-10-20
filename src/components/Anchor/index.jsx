@@ -5,19 +5,17 @@ import { Link, useParams } from 'react-router-dom'
 function Anchor({ int, ext, style, target, onClick, children }) {
   const { lang } = useParams()
 
-  const internalLink = (
-    <Link to={`/${lang}${int}`} className={style} target={target || '_self'} onClick={onClick}>
-      {children}
-    </Link>
+  return (
+    <>
+      {int 
+      ? <Link to={`/${lang}${int !== '/' ? int : ''}`} className={style} target={target || '_self'} onClick={onClick}>
+          {children}
+        </Link>
+      : <a href={ext} className={style} target={target || '_blank'} onClick={onClick}>
+          {children}
+        </a>}
+    </>
   )
-
-  const externalLink = (
-    <a href={ext} className={style} target={target || '_blank'} onClick={onClick}>
-      {children}
-    </a>
-  )
-
-  return <>{int ? internalLink : externalLink}</>
 }
 
 export default Anchor

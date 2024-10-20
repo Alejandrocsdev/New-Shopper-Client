@@ -2,7 +2,6 @@
 import S from './style.module.css'
 // 函式庫 (library)
 import { useTheme } from '../../../../context/ThemeContext'
-import { useState, useEffect } from 'react'
 // 組件 (component)
 import Icon from '../../../../components/Icon'
 

@@ -1,3 +1,4 @@
+// 函式庫 (library)
 import { createContext, useContext, useState, useEffect } from 'react'
 
 const ThemeContext = createContext()
