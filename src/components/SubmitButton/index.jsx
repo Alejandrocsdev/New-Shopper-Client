@@ -1,5 +1,7 @@
 // 模組樣式 (module css)
 import S from './style.module.css'
+// 組件 (component)
+import Loading from '../Laoding'
 
 // 提交按鈕
 const SubmitButton = ({ type = 'submit', isValid, isSubmitting, children }) => {
@@ -11,7 +13,7 @@ const SubmitButton = ({ type = 'submit', isValid, isSubmitting, children }) => {
           type={type}
           disabled={!isValid || isSubmitting}
         >
-          {isSubmitting ? 'Loading...' : children}
+          {isSubmitting ? <Loading /> : children}
         </button>
       : <button className={S.submit} type={type}>
           {children}

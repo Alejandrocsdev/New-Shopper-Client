@@ -32,6 +32,8 @@ a {
   --link-text-hover: #176d82;
   --third-party-border: #2d2d2d;
   --third-party-background-hover: #a19cc9;
+  --error-border: #ff424f;
+  --error-background: #ffdae0;
 }
 
 [data-theme="light"] {

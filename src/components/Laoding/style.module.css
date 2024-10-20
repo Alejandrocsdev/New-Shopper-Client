@@ -1,0 +1,24 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  height: 1.875rem;
+  border: calc(1.875rem / 100 * 16) solid #d1cfdb;
+  border-top: calc(1.875rem / 100 * 16) solid #219ebc;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

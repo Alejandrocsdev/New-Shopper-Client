@@ -2,6 +2,7 @@
 import { useForm, FormProvider } from 'react-hook-form'
 // 組件 (component)
 import { joiResolver } from '@hookform/resolvers/joi'
+import FormError from '../FormError'
 import SubmitButton from '../SubmitButton'
 
 // 錨點
@@ -12,12 +13,14 @@ function Form({ schema, onSubmit, submitText, children }) {
     shouldFocusError: false
   })
 
+  const errors = methods.formState.errors
   const isValid = methods.formState.isValid
   const isSubmitting = methods.formState.isSubmitting
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
+        {errors.root && <FormError message={errors.root.message} />}
         {children}
         <SubmitButton isValid={isValid} isSubmitting={isSubmitting}>
           {submitText}
