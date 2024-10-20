@@ -1,23 +1,24 @@
 .header {
   height: var(--header-height);
-  padding: 0 160px;
-  background-color: var(--theme-primary-background);
+  padding: 0 10rem;
+  background-color: var(--theme-primary-background-contrast);
   display: flex;
   justify-content: left;
   align-items: center;
+  gap: .625rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 37.5rem) {
     justify-content: center;
   }
 }
 
 .logo>img {
-  height: 70px;
+  height: 4.375rem;
 }
 
 .pageName {
-  min-width: 48px;
-  margin-left: 10px;
-  font-size: 24px;
+  min-width: 3rem;
+  color: var(--theme-primary-text-contrast);
+  font-size: 1.5rem;
   font-weight: 700;
 }

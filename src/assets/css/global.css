@@ -24,32 +24,40 @@ a {
 :root {
   --nav-height: 35px;
   --header-height: 85px;
+  --card-background: #d9d7e4;
+  --accent-text: #a5a4ab;
+  --link-text: #219ebc;
+  --link-text-hover: #176d82;
 }
 
 [data-theme="light"] {
-  --theme-primary-background: hsl(246, 33%, 94%);
-  --theme-secondary-background: hsl(246, 100%, 84%);
-  --theme-tertiary-background: hsl(246, 33%, 74%);
-  --theme-primary-text: rgb(45, 45, 45);
-  --theme-primary-text-hover: gray;
-  --theme-primary-border: rgb(45, 45, 45);
-  --theme-background-hover: hsl(247, 30%, 70%);
-  --theme-primary-list: hsl(0, 0%, 70%);
-  --theme-secondary-list: hsl(0, 0%, 75%);
-  --theme-tertiary-list: hsl(0, 0%, 80%);
-  --theme-globe: blue;
+  --theme-primary-background: #EBE9F4;
+  --theme-primary-background-contrast: #110d26;
+  --theme-secondary-background: #b6adff;
+  --theme-tertiary-background: #aba7d3;
+  --theme-primary-text: #2d2d2d;
+  --theme-primary-text-contrast: #d2d2d2;
+  --theme-primary-text-hover: #808080;
+  --theme-primary-border: #2d2d2d;
+  --theme-background-hover: #a19cc9;
+  --theme-primary-list: #b3b3b3;
+  --theme-secondary-list: #bfbfbf;
+  --theme-tertiary-list: #cccccc;
+  --theme-icon-globe: #0000ff;
 }
 
 [data-theme="dark"] {
-  --theme-primary-background: hsl(250, 49%, 10%);
-  --theme-secondary-background: hsl(250, 72%, 20%);
-  --theme-tertiary-background: hsl(250, 49%, 30%);
-  --theme-primary-text: rgb(210, 210, 210);
-  --theme-primary-text-hover: gray;
-  --theme-primary-border: rgb(210, 210, 210);
-  --theme-background-hover: hsl(250, 38%, 43%);
-  --theme-primary-list: hsl(0, 0%, 20%);
-  --theme-secondary-list: hsl(0, 0%, 15%);
-  --theme-tertiary-list: hsl(0, 0%, 10%);
-  --theme-globe: green;
+  --theme-primary-background: #110d26;
+  --theme-primary-background-contrast: #EBE9F4;
+  --theme-secondary-background: #1b0e58;
+  --theme-tertiary-background: #342772;
+  --theme-primary-text: #d2d2d2;
+  --theme-primary-text-contrast: #2d2d2d;
+  --theme-primary-text-hover: #808080;
+  --theme-primary-border: #d2d2d2;
+  --theme-background-hover: #524497;
+  --theme-primary-list: #333333;
+  --theme-secondary-list: #262626;
+  --theme-tertiary-list: #1a1a1a;
+  --theme-icon-globe: #008000;
 }

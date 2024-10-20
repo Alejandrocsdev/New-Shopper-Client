@@ -11,7 +11,7 @@ function AuthHeader() {
   
   return (
     <header className={S.header}>
-      <Logo style={S.logo} isBanner />
+      <Logo style={S.logo} isBanner contrast />
       <h1 className={S.pageName}>{t('mode')}</h1>
     </header>
   )

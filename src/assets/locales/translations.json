@@ -2,28 +2,46 @@
   "zh": {
     "translation": {
       "shopper.title": "Shopper ZH",
-       "home.primary": "主要",
-       "share.signUp": "註冊",
-       "share.signIn": "登入",
-       "share.reset": "重設"
+      "sign.signUp": "註冊",
+      "sign.signIn": "登入",
+      "sign.reset": "重設",
+      "signCard.forgotPwd": "忘記密碼",
+      "signCard.or": "或",
+      "signCard.smsSignIn": "簡訊登入",
+      "signCard.pwdSignIn": "密碼登入",
+      "signCard.agreement": "點擊「下一步」或繼續註冊，即表示您已閱讀並同意瞎皮爾購物的<0>服務條款</0>與<0>隱私權政策</0>",
+      "signCard.alreadyHaveAnAccount?": "已經有帳號了嗎?",
+      "signCard.newToShopper?": "蝦皮爾新朋友?"
     }
   },
   "en": {
     "translation": {
       "shopper.title": "Shopper EN",
-       "home.primary": "Primary",
-       "share.signUp": "Sign Up",
-       "share.signIn": "Sign In",
-       "share.reset": "Reset"
+      "sign.signUp": "Sign Up",
+      "sign.signIn": "Sign In",
+      "sign.reset": "Reset",
+      "signCard.forgotPwd": "Forgot Password",
+      "signCard.or": "or",
+      "signCard.smsSignIn": "Sign in with Password",
+      "signCard.pwdSignIn": "Sign in with SMS",
+      "signCard.agreement": "By clicking 'Next' or continuing to register, you indicate that you have read and agree to Shopper E-commerce Co., Ltd.<0> Terms of Service</0> and<0> Privacy Policy</0>",
+      "signCard.alreadyHaveAnAccount?": "Already have an account?",
+      "signCard.newToShopper?": "New to Shopper?"
     }
   },
   "es": {
     "translation": {
       "shopper.title": "Shopper ES",
-       "home.primary": "Primero",
-       "share.signUp": "Registrarse",
-       "share.signIn": "Iniciar Sesión",
-       "share.reset": "Restablecer"
+      "sign.signUp": "Registrarse",
+      "sign.signIn": "Iniciar Sesión",
+      "sign.reset": "Restablecer",
+      "signCard.forgotPwd": "¿Olvidó su contraseña?",
+      "signCard.or": "o",
+      "signCard.smsSignIn": "Iniciar sesión con contraseña",
+      "signCard.pwdSignIn": "Iniciar sesión con SMS",
+      "signCard.agreement": "Al hacer clic en 'Siguiente' o continuar con el registro, indicas que has leído y aceptas los términos de Shopper Comercio Electrónico S.A.<0> Términos de servicio</0> y<0> Política de privacidad</0>",
+      "signCard.alreadyHaveAnAccount?": "¿Ya tiene una cuenta?",
+      "signCard.newToShopper?": "¿Es nuevo en Shopper?"
     }
   }
 }

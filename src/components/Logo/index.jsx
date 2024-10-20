@@ -6,15 +6,21 @@ import { useTheme } from '../../context/ThemeContext'
 import Anchor from '../Anchor'
 
 // Logo
-function Logo({ style, isBanner, shape, text, unlink }) {
+function Logo({ style, isBanner, shape, text, unlink, contrast }) {
   const { isDark } = useTheme()
-  const color = isDark ? 'dark' : 'light'
+
+  let color
+  
+  if (contrast) {
+    color = isDark ? 'light' : 'dark'
+  } else {
+    color = isDark ? 'dark' : 'light'
+  }
 
   const src = (color) => {
     if (isBanner) {
       return `${frontUrl}/img/logo/banner-${color}.png`
     } else {
-      console.log(`${frontUrl}/img/logo/${shape}-${text ? 'text-' : ''}${color}.png`)
       return `${frontUrl}/img/logo/${shape}-${text ? 'text-' : ''}${color}.png`
     }
   }

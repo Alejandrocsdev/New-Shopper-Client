@@ -12,10 +12,10 @@ function SignLink() {
   return (
     <div className={S.signLink}>
       <Anchor style={S.signUp} int="/sign-up">
-        {t('share.signUp')}
+        {t('sign.signUp')}
       </Anchor>
       <Anchor style={S.signIn} int="/sign-in">
-        {t('share.signIn')}
+        {t('sign.signIn')}
       </Anchor>
     </div>
   )

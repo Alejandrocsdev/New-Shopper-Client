@@ -44,7 +44,7 @@
 .earthAsia {
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--theme-globe);
+  color: var(--theme-icon-globe);
 }
 
 .dropdown {

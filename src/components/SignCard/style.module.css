@@ -1,0 +1,102 @@
+.main {
+  width: 65rem;
+  padding: 3.125rem 0;
+  display: flex;
+  justify-content: space-around;
+
+  @media (max-width: 65rem) {
+    width: 21.25rem;
+    justify-content: center;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 65rem) {
+    display: none;
+  }
+}
+
+.logo>img {
+  width: 25rem;
+}
+
+.card {
+  width: 25rem;
+  padding: 1.875rem;
+  color: black;
+  background-color: var(--card-background);
+  border-radius: .3125rem;
+}
+
+/* 標題 */
+.cardName {
+  padding-bottom: 1.625rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* 幫助 */
+.help {
+  margin: .625rem 0;
+  font-size: .75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 分隔線 */
+.breakLine {
+  display: flex;
+  margin: .6125rem 0;
+}
+
+.breakLine .line {
+  width: 100%;
+  height: .03125rem;
+  margin: auto 0;
+  background-color: var(--accent-text);
+}
+
+.breakLine .or {
+  padding: 0 1rem;
+  font-size: .75rem;
+  color: var(--accent-text);
+}
+
+.adjust {
+  margin: 1.5625rem 0;
+}
+
+/* 條款與政策 */
+.policy {
+  margin-top: 1.875rem;
+  font-size: .75rem;
+  text-align: center;
+}
+
+/* 切換 */
+.switch {
+  margin-top: 1.875rem;
+  font-size: .875rem;
+  text-align: center;
+}
+
+.switch .text {
+  margin-right: .3125rem;
+  color: var(--accent-text);
+}
+
+/* 通用 */
+.link {
+  color: var(--link-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--link-text-hover);
+}
