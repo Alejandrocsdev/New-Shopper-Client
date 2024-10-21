@@ -5,15 +5,15 @@ import { useEffect } from 'react'
 // 自訂函式 (custom function)
 import { useAuthMode } from '../../context/AuthModeContext'
 
-// 註冊流程
-function SignUp() {
+// 登入流程
+function SignIn() {
   const { setMode } = useAuthMode()
   
   useEffect(() => {
-    setMode('signUp')
+    setMode('signIn')
   }, [])
 
   return <SignCard />
 }
 
-export default SignUp
+export default SignIn

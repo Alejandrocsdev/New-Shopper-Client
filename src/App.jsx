@@ -13,6 +13,7 @@ import AuthLayout from './layouts/AuthLayout'
 // 頁面 (pages)
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
 
 const LangRoutes = () => {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/:lang/*" element={<LangRoutes />}>
             <Route path="" element={<AuthLayout />}>
               <Route path="sign-up" element={<SignUp />} />
+              <Route path="sign-in" element={<SignIn />} />
             </Route>
 
             <Route path="" element={<Layout />}>

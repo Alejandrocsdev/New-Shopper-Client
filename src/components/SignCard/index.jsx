@@ -2,6 +2,8 @@
 import S from './style.module.css'
 // 函式庫 (library)
 import { Trans, useTranslation } from 'react-i18next'
+// 自訂函式 (custom function)
+import { useAuthMode } from '../../context/AuthModeContext'
 // 組件 (component)
 import Logo from '../Logo'
 import Anchor from '../Anchor'
@@ -12,10 +14,8 @@ import ThirdPartySign from './ThirdPartySign'
 function SignCard() {
   const { t } = useTranslation()
 
-  const isSignUp = true
-  const isSignIn = false
-  const isPwdSignIn = false
-  const isSmsSignIn = false
+  const { modeStates, toggleSmsSignIn } = useAuthMode()
+  const { isSignUp, isSignIn, isPwdSignIn, isSmsSignIn } = modeStates
 
   return (
     <div className={S.main}>
@@ -36,7 +36,7 @@ function SignCard() {
             {t(isSignIn ? 'signCard.forgotPwd' : '')}
           </Anchor>
           {isSignIn && (
-            <div className={S.link}>
+            <div className={S.link} onClick={toggleSmsSignIn}>
               {t(isPwdSignIn ? 'signCard.smsSignIn' : 'signCard.pwdSignIn')}
             </div>
           )}

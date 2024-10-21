@@ -3,7 +3,9 @@ import S from './style.module.css'
 // 函式庫 (library)
 import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+// 自訂函式 (custom function)
+import { useAuthMode } from '../../../context/AuthModeContext'
 // 組件 (component)
 import Form from '../../Form'
 import Input from '../../Input'
@@ -16,10 +18,7 @@ const SignForm = () => {
 
   const [formContext, setFormContext] = useState(null)
 
-  const isSignUp = false
-  const isSignIn = false
-  const isPwdSignIn = true
-  const isSmsSignIn = false
+  const { isSignUp, isSignIn, isPwdSignIn, isSmsSignIn } = useAuthMode().modeStates
 
   const pwdSchema = Joi.object({
     signInKey: Joi.string().required(),
@@ -29,6 +28,11 @@ const SignForm = () => {
   const smsSchema = Joi.object({
     phone: Joi.string().regex(/^09/).length(10).required()
   })
+
+  useEffect(() => {
+    const reset = formContext?.reset
+    if (reset) reset()
+  }, [isSignUp, isPwdSignIn, isSmsSignIn])
 
   const onSubmit = async (data) => {
     try {
@@ -57,7 +61,7 @@ const SignForm = () => {
       )}
 
       {/* password */}
-      {isPwdSignIn && <PasswordInput name="password"/>}
+      {isPwdSignIn && <PasswordInput name="password" />}
 
       {/* phone */}
       {(isSignUp || isSmsSignIn) && <PhoneInput name="phone" />}
