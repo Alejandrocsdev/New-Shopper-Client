@@ -2,6 +2,7 @@
 import S from './style.module.css'
 // 自訂函式 (custom function)
 import { sendOtp } from '../../../api/request/verif'
+import { useAuthStep } from '../../../context/AuthStepContext'
 // 函式庫 (library)
 import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
@@ -17,6 +18,7 @@ import PhoneInput from '../../Input/PhoneInput'
 // 表單: 密碼登入 / 簡訊登入 / 註冊
 const SignForm = () => {
   const { t } = useTranslation()
+  const { to } = useAuthStep()
 
   const [formContext, setFormContext] = useState(null)
 
@@ -44,6 +46,7 @@ const SignForm = () => {
       if (isSignUp || isSmsSignIn) {
         const response = await sendOtp(phone)
         console.log('Send OTP Response:', response.message)
+        to('+', { phone })
       }
     } catch (error) {
       console.error(error.message)

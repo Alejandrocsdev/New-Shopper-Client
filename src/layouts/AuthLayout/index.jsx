@@ -4,6 +4,7 @@ import S from './style.module.css'
 import { Outlet } from 'react-router-dom'
 // 自訂函式 (custom function)
 import { AuthModeProvider } from '../../context/AuthModeContext'
+import { AuthStepProvider } from '../../context/AuthStepContext'
 // 組件 (component)
 import AuthHeader from './AuthHeader'
 
@@ -11,10 +12,12 @@ import AuthHeader from './AuthHeader'
 function AuthLayout() {
   return (
     <AuthModeProvider>
-      <AuthHeader />
-      <div className={S.container}>
-        <Outlet />
-      </div>
+      <AuthStepProvider>
+        <AuthHeader />
+        <div className={S.container}>
+          <Outlet />
+        </div>
+      </AuthStepProvider>
     </AuthModeProvider>
   )
 }

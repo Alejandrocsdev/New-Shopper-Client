@@ -24,7 +24,14 @@
       "error.defaultError": "發生了未知錯誤",
       "error.routeNotFound": "查無此路由",
       "error.invalidPayload": "無效的主體資料",
-      "error.unsignedPhone": "未註冊電話號碼"
+      "error.unsignedPhone": "未註冊電話號碼",
+      "error.twsmsMissingUsr": "缺少 TwSMS 帳號",
+      "error.twsmsMissingPwd": "缺少 TwSMS 密碼",
+      "error.twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
+      "error.twilioMissingPhone": "缺少 Twilio 電話號碼",
+      "error.twilioMissingSid": "缺少 Twilio Account SID",
+      "error.twilioMissingToken": "缺少 Twilio Auth Token",
+      "error.twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)"
     }
   },
   "en": {
@@ -52,7 +59,14 @@
       "error.defaultError": "An unknown error occurred",
       "error.routeNotFound": "Route not found",
       "error.invalidPayload": "Invalid Payload",
-      "error.unsignedPhone": "Unregistered phone number"
+      "error.unsignedPhone": "Unregistered phone number",
+      "error.twsmsMissingUsr": "缺少 TwSMS 帳號",
+      "error.twsmsMissingPwd": "缺少 TwSMS 密碼",
+      "error.twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
+      "error.twilioMissingPhone": "缺少 Twilio 電話號碼",
+      "error.twilioMissingSid": "缺少 Twilio Account SID",
+      "error.twilioMissingToken": "缺少 Twilio Auth Token",
+      "error.twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)"
     }
   },
   "es": {
@@ -80,7 +94,14 @@
       "error.defaultError": "Ocurrió un error desconocido",
       "error.routeNotFound": "Ruta no encontrada",
       "error.invalidPayload": "Cuerpo de la solicitud inválida",
-      "error.unsignedPhone": "Número de teléfono no registrado"
+      "error.unsignedPhone": "Número de teléfono no registrado",
+      "error.twsmsMissingUsr": "缺少 TwSMS 帳號",
+      "error.twsmsMissingPwd": "缺少 TwSMS 密碼",
+      "error.twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
+      "error.twilioMissingPhone": "缺少 Twilio 電話號碼",
+      "error.twilioMissingSid": "缺少 Twilio Account SID",
+      "error.twilioMissingToken": "缺少 Twilio Auth Token",
+      "error.twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)"
     }
   }
 }
