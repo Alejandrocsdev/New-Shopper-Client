@@ -1,0 +1,76 @@
+.inputWrapper {
+  /* height: 2.5rem; */
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gray);
+  outline: 0;
+}
+
+.input:focus {
+  border: 1px solid black;
+}
+
+.iconContainer {
+  position: absolute;
+  right: 10px;
+  /* input height = 2.5rem / icon height = 1.45rem */
+  top: calc((2.5rem - 1.45rem) / 2);
+}
+
+.eyeIcon {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.criteria {
+  margin-bottom: 20px;
+}
+
+.criteriaText {
+  margin-top: 8px;
+  color: gray;
+}
+
+.valIcon {
+  margin: 0 5px
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+.textWarning {
+  width: 100%;
+  height: 21px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  color: var(--error-red);
+  font-size: 12px;
+}
+
+.inputWarning {
+  background-color: #ffeaed;
+  border: 1px solid #ff424f;
+}
+
+.inputWarning:focus {
+  border: 1px solid #ff424f;
+}
+
+@media (max-width: 650px) {
+  .text {
+    font-size: 14px;
+  }
+
+  .criteriaText {
+    font-size: 14px;
+  }
+}

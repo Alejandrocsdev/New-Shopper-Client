@@ -4,22 +4,21 @@ import S from './style.module.css'
 import { useFormContext } from 'react-hook-form'
 
 // 錨點
-function Input({ name, placeholder, errMsg }) {
+function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) {
   const { register, formState } = useFormContext()
   const errors = formState.errors
 
   return (
     <>
-      <div className={S.inputWrapper}>
-        <input
-          className={`${S.input} ${errors[name] ? S.invalid : ''}`}
-          type="text"
-          placeholder={placeholder}
-          {...register(name)}
-        />
-      </div>
+      <input
+        className={`${S.input} ${errors[name] ? S.invalid : ''}`}
+        type={type}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        {...register(name)}
+      />
       {/* 錯誤訊息 */}
-      <div className={S.errMsg}>{errors[name] ? errMsg : ''}</div>
+      {!errOff && <div className={S.errMsg}>{errors[name] ? errMsg : ''}</div>}
     </>
   )
 }
