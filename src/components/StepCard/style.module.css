@@ -1,0 +1,63 @@
+.main {
+  width: 31.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 40.625rem) {
+    width: 21.25rem;
+  }
+}
+
+.card {
+  padding-bottom: 1.875rem;
+  color: black;
+  border-radius: .3125rem;
+  background-color: var(--card-background);
+  position: relative;
+}
+
+.cardHeader {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  width: 5rem;
+  font-size: 1.625rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+
+  @media (max-width: 40.625rem) {
+    width: 2.5rem;
+    font-size: 1.25rem;
+    padding-left: 1.25rem;
+  }
+}
+
+.back:hover {
+  color: hsl(0, 0%, 30%);
+}
+
+.cardName {
+  width: 26.25rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+
+  @media (max-width: 40.625rem) {
+    width: 18.75rem;
+  }
+}
+
+.cardMain {
+  margin: 0 5rem;
+
+  @media (max-width: 40.625rem) {
+    margin: 0 2.5rem;
+  }
+}

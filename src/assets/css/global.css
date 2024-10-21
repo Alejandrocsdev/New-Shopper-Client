@@ -35,6 +35,7 @@ a {
   --error-red: #ff424f;
   --error-background: #ffdae0;
   --valid-green: #66CC00;
+  --active-yelow: #FCC30E;
 }
 
 [data-theme="light"] {

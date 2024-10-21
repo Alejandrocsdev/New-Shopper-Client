@@ -1,11 +1,12 @@
-// 自訂函式 (custom function)
-import { useAuthStep } from '../../../context/AuthStepContext'
+// 組件 (component)
+import StepCard from '../../../components/StepCard'
 
 function Step1() {
-  const { user } = useAuthStep()
-  console.log('This is Step 1 from Sign Up flow')
-  console.log('user', user)
-  return <div>This is Step 1 from Sign Up flow</div>
+  return (
+    <StepCard title="輸入驗證碼" back steps>
+      <div>This is Step 1 from Sign Up</div>
+    </StepCard>
+  )
 }
 
 export default Step1
