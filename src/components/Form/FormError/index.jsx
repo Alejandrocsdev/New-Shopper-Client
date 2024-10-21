@@ -1,7 +1,7 @@
 // 模組樣式
 import S from './style.module.css'
 // 組件 (component)
-import Icon from '../Icon'
+import Icon from '../../Icon'
 
 // 表單錯誤
 const FormError = ({ message }) => {

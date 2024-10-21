@@ -1,0 +1,43 @@
+.cardText {
+  margin: .625rem 0;
+}
+
+.text {
+  font-size: .875rem;
+  margin-bottom: .625rem;
+  text-align: center;
+}
+
+.phone {
+  color: orangered;
+  font-weight: 700;
+  letter-spacing: .125rem;
+  text-align: center;
+}
+
+.countdown,
+.resend {
+  height: 2.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  color: var(--sub-text);
+}
+
+.resend span:nth-child(2) {
+  color: var(--link-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.resend span:nth-child(2):hover {
+  color: var(--link-text-hover);
+}
+
+.resendText {
+  text-align: center;
+}

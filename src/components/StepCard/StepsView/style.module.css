@@ -31,7 +31,8 @@
 .circleText {
   font-size: .75rem;
   margin-top: .3125rem;
-  color: var(--card-background);
+  color: var(--theme-primary-text);
+  text-align: center;
 }
 
 .bgOn {

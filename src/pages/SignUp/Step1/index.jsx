@@ -1,10 +1,15 @@
+// 函式庫 (library)
+import { useTranslation } from 'react-i18next'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
+import OtpForm from '../../../components/StepCard/OtpForm'
 
 function Step1() {
+  const { t } = useTranslation()
+
   return (
-    <StepCard title="輸入驗證碼" back steps>
-      <div>This is Step 1 from Sign Up</div>
+    <StepCard title={t('title.enterCode')} back steps>
+      <OtpForm />
     </StepCard>
   )
 }

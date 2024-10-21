@@ -1,0 +1,31 @@
+.inputFields {
+  margin: 1.25rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.otpInput {
+  width: 3.125rem;
+  height: 3.75rem;
+  font-size: 1.5625rem;
+  text-align: center;
+  border-radius: .3125rem;
+  border: none;
+  background: rgb(196, 196, 196);
+
+  @media (max-width: 40.625rem) {
+    width: 2.1875rem;
+    height: 3.125rem;
+    font-size: 1.25rem;
+  }
+}
+
+.otpInput:focus {
+  outline: .1875rem solid #00b991;
+  outline-offset: .125rem;
+}
+
+.hide {
+  display: none;
+}

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 // 組件 (component)
 import { joiResolver } from '@hookform/resolvers/joi'
-import FormError from '../FormError'
+import FormError from './FormError'
 import SubmitButton from '../SubmitButton'
 
 // 錨點
