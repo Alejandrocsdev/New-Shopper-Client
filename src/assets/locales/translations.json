@@ -16,7 +16,11 @@
       "input.password": "密碼",
       "input.phoneNumber": "手機號碼",
       "input.fillInput": "請填寫此欄位",
-      "input.fillPhone": "請輸入有效行動電話號碼"
+      "input.fillPhone": "請輸入有效行動電話號碼",
+      "password.lowerCase": "包含至少一個小寫字母",
+      "password.upperCase": "包含至少一個大寫字母",
+      "password.number": "包含至少一個數字",
+      "password.length": "密碼長度8-16個字元"
     }
   },
   "en": {
@@ -36,7 +40,11 @@
       "input.password": "Password",
       "input.phoneNumber": "Phone Number",
       "input.fillInput": "Please fill in this field",
-      "input.fillPhone": "Please enter a valid mobile phone number"
+      "input.fillPhone": "Please enter a valid mobile phone number",
+      "password.lowerCase": "Contains at least one lowercase letter",
+      "password.upperCase": "Contains at least one uppercase letter",
+      "password.number": "Contains at least one number",
+      "password.length": "Password length 8-16 characters"
     }
   },
   "es": {
@@ -56,7 +64,11 @@
       "input.password": "Contraseña",
       "input.phoneNumber": "Número de teléfono",
       "input.fillInput": "Por favor complete este campo",
-      "input.fillPhone": "Por favor, ingrese un número de teléfono móvil válido"
+      "input.fillPhone": "Por favor, ingrese un número de teléfono móvil válido",
+      "password.lowerCase": "Contiene al menos una letra minúscula",
+      "password.upperCase": "Contiene al menos una letra mayúscula",
+      "password.number": "Contiene al menos un número",
+      "password.length": "Debe tener entre 8 y 16 caracteres"
     }
   }
 }

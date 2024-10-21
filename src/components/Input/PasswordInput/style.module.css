@@ -2,17 +2,6 @@
   position: relative;
 }
 
-.input {
-  width: 100%;
-  padding: .75rem;
-  border: .0625rem solid var(--gray);
-  outline: 0;
-}
-
-.input:focus {
-  border: .0625rem solid black;
-}
-
 .iconContainer {
   position: absolute;
   right: .625rem;
@@ -23,47 +12,4 @@
 .eyeIcon {
   font-size: 1.125rem;
   cursor: pointer;
-}
-
-.criteria {
-  margin-bottom: 1.25rem;
-}
-
-.criteriaText {
-  margin-top: .5rem;
-  color: gray;
-
-  @media (max-width: 40.625rem) {
-    font-size: .875rem;
-  }
-}
-
-.valIcon {
-  margin: 0 .3125rem
-}
-
-.valid {
-  color: green;
-}
-
-.invalid {
-  color: red;
-}
-
-.textWarning {
-  width: 100%;
-  height: 1.3125rem;
-  padding-top: .3125rem;
-  margin-bottom: .625rem;
-  color: var(--error-red);
-  font-size: .75rem;
-}
-
-.inputWarning {
-  background-color: #ffeaed;
-  border: .0625rem solid #ff424f;
-}
-
-.inputWarning:focus {
-  border: .0625rem solid #ff424f;
 }

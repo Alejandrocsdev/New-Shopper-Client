@@ -16,9 +16,9 @@ const SignForm = () => {
 
   const [formContext, setFormContext] = useState(null)
 
-  const isSignUp = true
+  const isSignUp = false
   const isSignIn = false
-  const isPwdSignIn = false
+  const isPwdSignIn = true
   const isSmsSignIn = false
 
   const pwdSchema = Joi.object({
@@ -57,7 +57,7 @@ const SignForm = () => {
       )}
 
       {/* password */}
-      {isPwdSignIn && <PasswordInput name="password" />}
+      {isPwdSignIn && <PasswordInput name="password"/>}
 
       {/* phone */}
       {(isSignUp || isSmsSignIn) && <PhoneInput name="phone" />}
