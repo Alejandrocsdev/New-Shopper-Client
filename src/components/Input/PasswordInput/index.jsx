@@ -10,8 +10,7 @@ import Input from '../index'
 
 // 密碼輸入欄
 const PasswordInput = ({ name, criteria }) => {
-  const { watch, formState } = useFormContext()
-  const { dirtyFields } = formState
+  const { watch, formState: { dirtyFields } } = useFormContext()
 
   const { t } = useTranslation()
   const [showPwd, setShowPwd] = useState(false)
@@ -22,7 +21,7 @@ const PasswordInput = ({ name, criteria }) => {
   const [isLength, setIsLength] = useState(false)
   const [isNumber, setIsNumber] = useState(false)
 
-  const password = watch('password', '')
+  const password = watch(name, '')
   const isDirty = dirtyFields.password
 
   useEffect(() => {
@@ -48,9 +47,9 @@ const PasswordInput = ({ name, criteria }) => {
         <Input
           name={name}
           type={showPwd ? 'text' : 'password'}
-          placeholder={t('password')}
+          placeholder={t('input.password')}
           maxLength="16"
-          errMsg={t('signForm.fillInput')}
+          errMsg={t('input.fillInput')}
           errOff={criteria}
         />
 

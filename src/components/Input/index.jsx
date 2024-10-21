@@ -5,8 +5,7 @@ import { useFormContext } from 'react-hook-form'
 
 // 錨點
 function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) {
-  const { register, formState } = useFormContext()
-  const errors = formState.errors
+  const { register, formState: { errors } } = useFormContext()
 
   return (
     <>

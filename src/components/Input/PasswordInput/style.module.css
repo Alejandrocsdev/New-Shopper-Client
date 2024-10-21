@@ -1,42 +1,45 @@
 .inputWrapper {
-  /* height: 2.5rem; */
   position: relative;
 }
 
 .input {
   width: 100%;
-  padding: 12px;
-  border: 1px solid var(--gray);
+  padding: .75rem;
+  border: .0625rem solid var(--gray);
   outline: 0;
 }
 
 .input:focus {
-  border: 1px solid black;
+  border: .0625rem solid black;
 }
 
 .iconContainer {
   position: absolute;
-  right: 10px;
+  right: .625rem;
   /* input height = 2.5rem / icon height = 1.45rem */
   top: calc((2.5rem - 1.45rem) / 2);
 }
 
 .eyeIcon {
-  font-size: 18px;
+  font-size: 1.125rem;
   cursor: pointer;
 }
 
 .criteria {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .criteriaText {
-  margin-top: 8px;
+  margin-top: .5rem;
   color: gray;
+
+  @media (max-width: 40.625rem) {
+    font-size: .875rem;
+  }
 }
 
 .valIcon {
-  margin: 0 5px
+  margin: 0 .3125rem
 }
 
 .valid {
@@ -49,28 +52,18 @@
 
 .textWarning {
   width: 100%;
-  height: 21px;
-  padding-top: 5px;
-  margin-bottom: 10px;
+  height: 1.3125rem;
+  padding-top: .3125rem;
+  margin-bottom: .625rem;
   color: var(--error-red);
-  font-size: 12px;
+  font-size: .75rem;
 }
 
 .inputWarning {
   background-color: #ffeaed;
-  border: 1px solid #ff424f;
+  border: .0625rem solid #ff424f;
 }
 
 .inputWarning:focus {
-  border: 1px solid #ff424f;
-}
-
-@media (max-width: 650px) {
-  .text {
-    font-size: 14px;
-  }
-
-  .criteriaText {
-    font-size: 14px;
-  }
+  border: .0625rem solid #ff424f;
 }

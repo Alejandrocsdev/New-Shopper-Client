@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Form from '../../Form'
 import Input from '../../Input'
 import PasswordInput from '../../Input/PasswordInput'
-// import PhoneInput from '../../Input/PhoneInput'
+import PhoneInput from '../../Input/PhoneInput'
 
 // 表單: 密碼登入 / 簡訊登入 / 註冊
 const SignForm = () => {
@@ -21,9 +21,13 @@ const SignForm = () => {
   const isPwdSignIn = false
   const isSmsSignIn = false
 
-  const schema = Joi.object({
+  const pwdSchema = Joi.object({
     signInKey: Joi.string().required(),
     password: Joi.string().required()
+  })
+
+  const smsSchema = Joi.object({
+    phone: Joi.string().regex(/^09/).length(10).required()
   })
 
   const onSubmit = async (data) => {
@@ -37,7 +41,7 @@ const SignForm = () => {
 
   return (
     <Form
-      schema={schema}
+      schema={isPwdSignIn ? pwdSchema : smsSchema}
       onSubmit={onSubmit}
       submitText={t(isSignIn ? 'sign.signIn' : 'sign.signUp')}
       setFormContext={setFormContext}
@@ -46,8 +50,8 @@ const SignForm = () => {
       {isPwdSignIn && (
         <Input
           name="signInKey"
-          placeholder={t('signForm.phoneUserEmail')}
-          errMsg={t('signForm.fillInput')}
+          placeholder={t('input.phoneUserEmail')}
+          errMsg={t('input.fillInput')}
           maxLength="16"
         />
       )}
@@ -56,7 +60,7 @@ const SignForm = () => {
       {isPwdSignIn && <PasswordInput name="password" />}
 
       {/* phone */}
-      {/* {(isSignUp || isSmsSignIn) && <PhoneInput name="phone" />} */}
+      {(isSignUp || isSmsSignIn) && <PhoneInput name="phone" />}
     </Form>
   )
 }

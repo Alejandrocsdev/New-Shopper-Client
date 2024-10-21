@@ -33,6 +33,7 @@ a {
   --third-party-background-hover: #a19cc9;
   --error-red: #ff424f;
   --error-background: #ffdae0;
+  --valid-green: #66CC00;
 }
 
 [data-theme="light"] {

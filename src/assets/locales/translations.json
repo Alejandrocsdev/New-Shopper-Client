@@ -12,8 +12,11 @@
       "signCard.agreement": "點擊「下一步」或繼續註冊，即表示您已閱讀並同意瞎皮爾購物的<0>服務條款</0>與<0>隱私權政策</0>",
       "signCard.alreadyHaveAnAccount?": "已經有帳號了嗎?",
       "signCard.newToShopper?": "蝦皮爾新朋友?",
-      "signForm.phoneUserEmail": "電話號碼/使用者名稱/Email",
-      "signForm.fillInput": "請填寫此欄位"
+      "input.phoneUserEmail": "電話號碼/使用者名稱/Email",
+      "input.password": "密碼",
+      "input.phoneNumber": "手機號碼",
+      "input.fillInput": "請填寫此欄位",
+      "input.fillPhone": "請輸入有效行動電話號碼"
     }
   },
   "en": {
@@ -29,8 +32,11 @@
       "signCard.agreement": "By clicking 'Next' or continuing to register, you indicate that you have read and agree to Shopper E-commerce Co., Ltd.<0> Terms of Service</0> and<0> Privacy Policy</0>",
       "signCard.alreadyHaveAnAccount?": "Already have an account?",
       "signCard.newToShopper?": "New to Shopper?",
-      "signForm.phoneUserEmail": "Phone Number/Username/Email",
-      "signForm.fillInput": "Please fill in this field"
+      "input.phoneUserEmail": "Phone Number/Username/Email",
+      "input.password": "Password",
+      "input.phoneNumber": "Phone Number",
+      "input.fillInput": "Please fill in this field",
+      "input.fillPhone": "Please enter a valid mobile phone number"
     }
   },
   "es": {
@@ -46,8 +52,11 @@
       "signCard.agreement": "Al hacer clic en 'Siguiente' o continuar con el registro, indicas que has leído y aceptas los términos de Shopper Comercio Electrónico S.A.<0> Términos de servicio</0> y<0> Política de privacidad</0>",
       "signCard.alreadyHaveAnAccount?": "¿Ya tiene una cuenta?",
       "signCard.newToShopper?": "¿Es nuevo en Shopper?",
-      "signForm.phoneUserEmail": "Número de teléfono/Nombre de usuario/Email",
-      "signForm.fillInput": "Por favor complete este campo"
+      "input.phoneUserEmail": "Número de teléfono/Nombre de usuario/Email",
+      "input.password": "Contraseña",
+      "input.phoneNumber": "Número de teléfono",
+      "input.fillInput": "Por favor complete este campo",
+      "input.fillPhone": "Por favor, ingrese un número de teléfono móvil válido"
     }
   }
 }
