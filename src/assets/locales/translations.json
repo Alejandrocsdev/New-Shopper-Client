@@ -20,7 +20,11 @@
       "password.lowerCase": "包含至少一個小寫字母",
       "password.upperCase": "包含至少一個大寫字母",
       "password.number": "包含至少一個數字",
-      "password.length": "密碼長度8-16個字元"
+      "password.length": "密碼長度8-16個字元",
+      "error.defaultError": "發生了未知錯誤",
+      "error.routeNotFound": "查無此路由",
+      "error.invalidPayload": "無效的主體資料",
+      "error.unsignedPhone": "未註冊電話號碼"
     }
   },
   "en": {
@@ -44,7 +48,11 @@
       "password.lowerCase": "Contains at least one lowercase letter",
       "password.upperCase": "Contains at least one uppercase letter",
       "password.number": "Contains at least one number",
-      "password.length": "Password length 8-16 characters"
+      "password.length": "Password length 8-16 characters",
+      "error.defaultError": "An unknown error occurred",
+      "error.routeNotFound": "Route not found",
+      "error.invalidPayload": "Invalid Payload",
+      "error.unsignedPhone": "Unregistered phone number"
     }
   },
   "es": {
@@ -68,7 +76,11 @@
       "password.lowerCase": "Contiene al menos una letra minúscula",
       "password.upperCase": "Contiene al menos una letra mayúscula",
       "password.number": "Contiene al menos un número",
-      "password.length": "Debe tener entre 8 y 16 caracteres"
+      "password.length": "Debe tener entre 8 y 16 caracteres",
+      "error.defaultError": "Ocurrió un error desconocido",
+      "error.routeNotFound": "Ruta no encontrada",
+      "error.invalidPayload": "Cuerpo de la solicitud inválida",
+      "error.unsignedPhone": "Número de teléfono no registrado"
     }
   }
 }

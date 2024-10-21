@@ -1,5 +1,7 @@
 // 模組樣式
 import S from './style.module.css'
+// 自訂函式 (custom function)
+import { sendOtp } from '../../../api/request/verif'
 // 函式庫 (library)
 import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
@@ -35,8 +37,14 @@ const SignForm = () => {
   }, [isSignUp, isPwdSignIn, isSmsSignIn])
 
   const onSubmit = async (data) => {
+    const { phone } = data
+    console.log('Sent Data:', data)
+
     try {
-      console.log(data)
+      if (isSignUp || isSmsSignIn) {
+        const response = await sendOtp(phone)
+        console.log('Send OTP Response:', response.message)
+      }
     } catch (error) {
       console.error(error.message)
       formContext.setError('root', { message: t(error.i18n) })
