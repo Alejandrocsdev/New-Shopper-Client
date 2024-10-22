@@ -7,6 +7,7 @@ import { AuthModeProvider } from '../../context/AuthModeContext'
 import { AuthStepProvider } from '../../context/AuthStepContext'
 // 組件 (component)
 import AuthHeader from './AuthHeader'
+import Footer from '../Footer'
 
 // 佈局組件 (Auth)
 function AuthLayout() {
@@ -17,6 +18,7 @@ function AuthLayout() {
         <div className={S.container}>
           <Outlet />
         </div>
+        <Footer />
       </AuthStepProvider>
     </AuthModeProvider>
   )

@@ -9,6 +9,14 @@
         "signIn": "登入",
         "reset": "重設"
       },
+      "footer": {
+        "paymentOptions": "付款選項",
+        "logistic": "物流合作",
+        "aboutUs": "關注我們",
+        "shopperCompany": "瞎皮爾電商有限公司",
+        "registerNumber": "統一編號",
+        "allRightsReserved": "版權所有。"
+      },
       "signCard": {
         "forgotPwd": "忘記密碼",
         "or": "或",
@@ -104,6 +112,14 @@
         "signIn": "Sign In",
         "reset": "Reset"
       },
+      "footer": {
+        "paymentOptions": "Opciones de Pago",
+        "logistic": "Socios Logísticos",
+        "aboutUs": "Sobre Nosotros",
+        "shopperCompany": "Shopper Comercio Electrónico S.A.",
+        "registerNumber": "Número de Registro",
+        "allRightsReserved": "Todos los Derechos Reservados."
+      },
       "signCard": {
         "forgotPwd": "Forgot Password",
         "or": "or",
@@ -198,6 +214,14 @@
         "signUp": "Registrarse",
         "signIn": "Iniciar Sesión",
         "reset": "Restablecer"
+      },
+      "footer": {
+        "paymentOptions": "Payment Options",
+        "logistic": "Logistics Partners",
+        "aboutUs": "About Us",
+        "shopperCompany": "Shopper E-commerce Co., Ltd.",
+        "registerNumber": "Registration Number",
+        "allRightsReserved": "All Rights Reserved."
       },
       "signCard": {
         "forgotPwd": "¿Olvidó su contraseña?",

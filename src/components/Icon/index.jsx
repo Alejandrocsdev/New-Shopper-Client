@@ -1,5 +1,6 @@
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquareFacebook, faInstagram, faLine } from '@fortawesome/free-brands-svg-icons'
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-regular-svg-icons'
 import {
   faCircleHalfStroke,
@@ -14,6 +15,9 @@ import {
 
 // Icon mapping
 const iconMap = {
+  faSquareFacebook,
+  faInstagram,
+  faLine,
   faCircleCheck,
   faCircleXmark,
   faCircleHalfStroke,
