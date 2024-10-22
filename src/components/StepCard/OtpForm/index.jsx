@@ -47,7 +47,6 @@ function OtpForm() {
     try {
       const { otp } = data
       console.log('Sent Data:', data)
-      console.log(phone)
 
       if (isSignUp) {
         const [otpResponse, userResponse] = await Promise.all([

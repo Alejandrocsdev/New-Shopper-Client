@@ -4,7 +4,7 @@ import S from './style.module.css'
 import { useEffect } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 // 自訂函式
-// import { autoSignIn } from '../../../api/request/auth'
+import { autoSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 import useCountdown from '../../../hooks/useCountdown'
@@ -27,11 +27,10 @@ function Success() {
   async function onRedirect() {
     if (isSignUp) {
       try {
-        // const response = await autoSignIn(id)
-        // console.log('Auto Sign In Response:', response.message)
+        const response = await autoSignIn(id)
+        console.log('Auto Sign In Response:', response.message)
 
-        // console.log('Access Token:', response.accessToken)
-        console.log('Auto Signed In')
+        console.log('Access Token:', response.accessToken)
         to('/')
       } catch (err) {
         console.error(err.message)

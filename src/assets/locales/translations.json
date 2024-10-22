@@ -98,7 +98,10 @@
         "otpExpired": "您輸入的驗證碼已經過期。請再次嘗試請求新的驗證碼。",
         "tooManyAttempts": "輸入錯誤達5次。請再次嘗試請求新的驗證碼。",
         "invalidOtp": "無效的驗證碼。",
-        "invalidParamsId": "無效參數ID"
+        "invalidParamsId": "無效參數ID",
+        "wrongSignInCredential": "輸入資料錯誤",
+        "wrongPassword": "輸入密碼錯誤",
+        "idNotSigned": "此ID無註冊帳號"
       }
     }
   },
@@ -201,7 +204,10 @@
         "otpExpired": "The verification code you entered has expired. Please try requesting a new code.",
         "tooManyAttempts": "5 incorrect attempts. Please try requesting a new verification code.",
         "invalidOtp": "Invalid verification code.",
-        "invalidParamsId": "Invalid parameter ID"
+        "invalidParamsId": "Invalid parameter ID",
+        "wrongSignInCredential": "Incorrect input data",
+        "wrongPassword": "Incorrect password entered",
+        "idNotSigned": "This ID is not registered"
       }
     }
   },
@@ -304,7 +310,10 @@
         "otpExpired": "El código de verificación que ingresó ha expirado. Por favor, intente solicitar un nuevo código.",
         "tooManyAttempts": "5 intentos incorrectos. Por favor, intente solicitar un nuevo código de verificación.",
         "invalidOtp": "Código de verificación inválido.",
-        "invalidParamsId": "ID de parámetro inválido"
+        "invalidParamsId": "ID de parámetro inválido",
+        "wrongSignInCredential": "Datos de entrada incorrectos",
+        "wrongPassword": "Contraseña incorrecta ingresada",
+        "idNotSigned": "Este ID no está registrado"
       }
     }
   }
