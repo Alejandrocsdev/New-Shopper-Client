@@ -21,6 +21,7 @@ function Form({ schema, onSubmit, submitText, setFormContext, children }) {
   useEffect(() => {
     if (setFormContext) {
       setFormContext({
+        watch: methods.watch,
         reset: methods.reset,
         setError: methods.setError,
         clearErrors: methods.clearErrors

@@ -35,8 +35,10 @@
         "phoneUserEmail": "電話號碼/使用者名稱/Email",
         "password": "密碼",
         "phoneNumber": "手機號碼",
+        "phoneOrEmail": "電話號碼/Email",
         "fillInput": "請填寫此欄位",
-        "fillPhone": "請輸入有效行動電話號碼"
+        "fillPhone": "請輸入有效行動電話號碼",
+        "fillEmail": "請輸入有效行動電子信箱"
       },
       "password": {
         "lowerCase": "包含至少一個小寫字母",
@@ -56,7 +58,8 @@
         "enterCode": "輸入驗證碼",
         "setPassword": "設定您的密碼",
         "signUpSuccess": "註冊成功!",
-        "isYourAccount?": "這是您的帳號嗎?"
+        "isYourAccount?": "這是您的帳號嗎?",
+        "resetPassword": "重新設定密碼"
       },
       "otpForm": {
         "otpSent": "您的驗證碼已透過簡訊傳送至",
@@ -150,8 +153,10 @@
         "phoneUserEmail": "Phone Number/Username/Email",
         "password": "Password",
         "phoneNumber": "Phone Number",
+        "phoneOrEmail": "Phone number/Email",
         "fillInput": "Please fill in this field",
-        "fillPhone": "Please enter a valid mobile phone number"
+        "fillPhone": "Please enter a valid mobile phone number",
+        "fillEmail": "Please enter a valid email"
       },
       "password": {
         "lowerCase": "Contains at least one lowercase letter",
@@ -170,7 +175,8 @@
       "title": {
         "enterCode": "Enter the verification code",
         "setPassword": "Set your password",
-        "signUpSuccess": "Sign Up Successfully!"
+        "signUpSuccess": "Sign Up Successfully!",
+        "resetPassword": "Reset Password"
       },
       "otpForm": {
         "otpSent": "Your verification code has been sent via SMS to",
@@ -265,8 +271,10 @@
         "phoneUserEmail": "Número de teléfono/Nombre de usuario/Email",
         "password": "Contraseña",
         "phoneNumber": "Número de teléfono",
+        "phoneOrEmail": "Número de teléfono/Email",
         "fillInput": "Por favor complete este campo",
-        "fillPhone": "Por favor, ingrese un número de teléfono móvil válido"
+        "fillPhone": "Por favor, ingrese un número de teléfono móvil válido",
+        "fillEmail": "Por favor, ingrese un correo electrónico válido"
       },
       "password": {
         "lowerCase": "Contiene al menos una letra minúscula",
@@ -285,7 +293,8 @@
       "title": {
         "enterCode": "Ingrese el código de verificación",
         "setPassword": "Establece tu contraseña",
-        "signUpSuccess": "¡Se ha registrado con éxito!"
+        "signUpSuccess": "¡Se ha registrado con éxito!",
+        "resetPassword": "Reestablecer Contraseña"
       },
       "otpForm": {
         "otpSent": "Su código de verificación ha sido enviado por SMS a",

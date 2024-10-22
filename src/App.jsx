@@ -14,6 +14,7 @@ import AuthLayout from './layouts/AuthLayout'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import Reset from './pages/Reset'
 
 const LangRoutes = () => {
   return (
@@ -33,11 +34,14 @@ function App() {
             <Route path="" element={<AuthLayout />}>
               <Route path="sign-up" element={<SignUp />} />
               <Route path="sign-in" element={<SignIn />} />
+              <Route path="reset" element={<Reset />} />
             </Route>
 
             <Route path="" element={<Layout />}>
               <Route index element={<Home />} />
             </Route>
+
+            <Route path="*" element={<Navigate to='/' />} />
           </Route>
           {/* host/ => host/:lang */}
           <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />

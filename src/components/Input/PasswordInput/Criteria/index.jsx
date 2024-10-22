@@ -11,11 +11,7 @@ import Icon from '../../../Icon'
 const Criteria = ({ name }) => {
   const { t } = useTranslation()
 
-  const {
-    watch,
-    formState: { dirtyFields }
-  } = useFormContext()
-
+  const { watch, formState: { dirtyFields } } = useFormContext()
   const password = watch(name, '')
   const isDirty = dirtyFields.password
 
