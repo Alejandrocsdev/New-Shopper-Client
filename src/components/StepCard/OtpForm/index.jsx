@@ -68,6 +68,10 @@ function OtpForm() {
         console.log('Access Token', response.accessToken)
 
         to('/')
+      } else if (isReset) {
+        const response = await verifyOtp(phone, otp)
+        console.log('Verify OTP Response:', response.message)
+        to('+', { phone })
       }
     } catch (error) {
       console.error(error.message)

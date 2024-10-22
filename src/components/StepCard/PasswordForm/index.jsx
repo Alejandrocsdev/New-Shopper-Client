@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
 import { signUp } from '../../../api/request/auth'
-// import { putPwdByInfo } from '../../../api/request/user'
+import { putPwdByInfo } from '../../../api/request/user'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 // 組件 (component)
@@ -38,6 +38,11 @@ function PasswordForm() {
 
         const { id } = response.user
         to('+', { id, phone })
+      } else if (isReset && phone) {
+        const response = await putPwdByInfo(`phone:${phone}`, password)
+        console.log('Change Password Response:', response.message)
+        console.log('Jump to Step 4')
+        // to(4)
       }
     } catch (error) {
       console.error(error.message)
@@ -54,9 +59,7 @@ function PasswordForm() {
     >
       {/* 表單文字 */}
       <div className={S.cardText}>
-        <div className={S.text}>
-          {t(isSignUp ? 'passwordForm.signUp' : 'passwordForm.reset')}
-        </div>
+        <div className={S.text}>{t(isSignUp ? 'passwordForm.signUp' : 'passwordForm.reset')}</div>
         {isReset && <div className={S.method}>{phone || 'email'}</div>}
       </div>
 

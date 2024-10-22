@@ -5,6 +5,8 @@ import { useAuthMode } from '../../context/AuthModeContext'
 import { useAuthStep } from '../../context/AuthStepContext'
 // 組件
 import ResetStep from './ResetStep'
+import Step1 from './Step1'
+import Step2 from './Step2'
 
 // 重設流程
 function Reset() {
@@ -19,6 +21,10 @@ function Reset() {
     <>
       {/* 重設密碼頁面 */}
       {step === 0 && <ResetStep />}
+      {/* OtpForm || 獨立: 信箱連結發送成功 */}
+      {step === 1 && <Step1 />}
+      {/* PasswordForm */}
+      {step === 2 && <Step2 />}
     </>
   )
 }
