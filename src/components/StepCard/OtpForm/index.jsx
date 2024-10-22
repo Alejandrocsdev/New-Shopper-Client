@@ -61,8 +61,7 @@ function OtpForm() {
           console.log('Jump to Step 4')
           // to(4, { id, username, avatar, phone })
         } else {
-          console.log('Jump to PasswordForm')
-          // to('+', { phone })
+          to('+', { phone })
         }
       }
     } catch (error) {

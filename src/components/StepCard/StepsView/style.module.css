@@ -33,6 +33,7 @@
   margin-top: .3125rem;
   color: var(--theme-primary-text);
   text-align: center;
+  text-wrap: nowrap;
 }
 
 .bgOn {
