@@ -27,7 +27,7 @@
         "or": "或",
         "smsSignIn": "使用簡訊登入",
         "pwdSignIn": "使用密碼登入",
-        "agreement": "點擊「下一步」或繼續註冊，即表示您已閱讀並同意瞎皮爾購物的<0>服務條款</0>與<0>隱私權政策</0>",
+        "agreement": "點擊「註冊」，即表示您已閱讀並同意瞎皮爾購物的<0>服務條款</0>與<0>隱私權政策</0>",
         "alreadyHaveAnAccount?": "已經有帳號了嗎?",
         "newToShopper?": "瞎皮爾新朋友?"
       },
@@ -108,7 +108,8 @@
         "wrongSignInCredential": "輸入資料錯誤",
         "wrongPassword": "輸入密碼錯誤",
         "autoSignInFail": "自動登入失敗",
-        "pwdSignInFail": "密碼登入失敗"
+        "pwdSignInFail": "密碼登入失敗",
+        "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼"
       }
     }
   },
@@ -141,7 +142,7 @@
         "or": "or",
         "smsSignIn": "Sign in with Password",
         "pwdSignIn": "Sign in with SMS",
-        "agreement": "By clicking 'Next' or continuing to register, you indicate that you have read and agree to Shopper E-commerce Co., Ltd.<0> Terms of Service</0> and<0> Privacy Policy</0>",
+        "agreement": "By clicking 'Sign Up', you indicate that you have read and agree to Shopper E-commerce Co., Ltd.<0> Terms of Service</0> and<0> Privacy Policy</0>",
         "alreadyHaveAnAccount?": "Already have an account?",
         "newToShopper?": "New to Shopper?"
       },
@@ -222,7 +223,8 @@
         "wrongPassword": "Incorrect password entered",
         "idNotSigned": "This ID is not registered",
         "autoSignInFail": "Automatic sign-in failed",
-        "pwdSignInFail": "Password sign-in failed"
+        "pwdSignInFail": "Password sign-in failed",
+        "missingPhoneOrOtp": "Missing phone number or OTP verification code"
       }
     }
   },
@@ -232,7 +234,7 @@
         "title": "Shopper ES"
       },
       "sign": {
-        "signUp": "Registrarse",
+        "signUp": "Registro",
         "signIn": "Iniciar Sesión",
         "reset": "Restablecer"
       },
@@ -255,7 +257,7 @@
         "or": "o",
         "smsSignIn": "Iniciar sesión con contraseña",
         "pwdSignIn": "Iniciar sesión con SMS",
-        "agreement": "Al hacer clic en 'Siguiente' o continuar con el registro, indicas que has leído y aceptas los términos de Shopper Comercio Electrónico S.A.<0> Términos de servicio</0> y<0> Política de privacidad</0>",
+        "agreement": "Al hacer clic en 'Registro', indicas que has leído y aceptas los términos de Shopper Comercio Electrónico S.A.<0> Términos de servicio</0> y<0> Política de privacidad</0>",
         "alreadyHaveAnAccount?": "¿Ya tiene una cuenta?",
         "newToShopper?": "¿Es nuevo en Shopper?"
       },
@@ -336,7 +338,8 @@
         "wrongPassword": "Contraseña incorrecta ingresada",
         "idNotSigned": "Este ID no está registrado",
         "autoSignInFail": "Error en el inicio de sesión automático",
-        "pwdSignInFail": "Error en el inicio de sesión con contraseña"
+        "pwdSignInFail": "Error en el inicio de sesión con contraseña",
+        "missingPhoneOrOtp": "Falta el número de teléfono o el código de verificación OTP"
       }
     }
   }

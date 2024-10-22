@@ -9,6 +9,9 @@ export const autoSignIn = (userId) => {
 export const pwdSignIn = (signInKey, password) => {
   return axiosRequest(true, 'post', `${base}/sign-in/pwd`, { signInKey, password })
 }
+export const smsSignIn = (phone, otp) => {
+  return axiosRequest(true, 'post', `${base}/sign-in/sms`, { phone, otp })
+}
 
 // Public Requests
 export const signUp = (phone, password) => {

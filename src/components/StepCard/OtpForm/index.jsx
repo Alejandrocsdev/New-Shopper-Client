@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 // 自訂函式 (custom function)
 import { sendOtp, verifyOtp } from '../../../api/request/verif'
 import { findUserByInfo } from '../../../api/request/user'
-// import { smsSignIn } from '../../../api/request/auth'
+import { smsSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 import useCountdown from '../../../hooks/useCountdown'
@@ -31,7 +31,7 @@ function OtpForm() {
     startCountdown()
   }, [])
 
-  const handleResend = async () => {
+  const onResend = async () => {
     try {
       formContext.clearErrors('root')
       const response = await sendOtp(phone)
@@ -61,6 +61,13 @@ function OtpForm() {
         } else {
           to('+', { phone })
         }
+      } else if (isSmsSignIn) {
+        const response = await smsSignIn(phone, otp)
+        console.log('SMS Sign In Response:', response.message)
+
+        console.log('Access Token', response.accessToken)
+
+        to('/')
       }
     } catch (error) {
       console.error(error.message)
@@ -92,7 +99,7 @@ function OtpForm() {
           </div>
         : <div className={S.resendText}>
             <span>{t('otpForm.otpNotReceived')}</span>{' '}
-            <span onClick={handleResend}>{t('otpForm.resend')}</span>
+            <span onClick={onResend}>{t('otpForm.resend')}</span>
           </div>}
       </div>
     </Form>

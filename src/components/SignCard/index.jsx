@@ -43,7 +43,7 @@ function SignCard() {
         </div>
 
         {/* 分隔線 */}
-        <div className={`${S.breakLine} ${isSignUp ? S.adjust : ''}`}>
+        <div className={`${S.breakLine} ${isSmsSignIn ? S.adjust : ''}`}>
           <div className={S.line}></div>
           <div className={S.or}>{t('signCard.or')}</div>
           <div className={S.line}></div>
@@ -53,9 +53,9 @@ function SignCard() {
         <ThirdPartySign />
 
         {/* 條款與政策 */}
-        <div className={S.policy}>
+        {isSignUp && <div className={S.policy}>
           <Trans i18nKey="signCard.agreement" components={[<span className={S.link} />]} />
-        </div>
+        </div>}
 
         {/* 切換 */}
         <div className={S.switch}>

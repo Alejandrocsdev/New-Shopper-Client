@@ -5,7 +5,7 @@ import { useAuthMode } from '../../context/AuthModeContext'
 import { useAuthStep } from '../../context/AuthStepContext'
 // 組件
 import SignCard from '../../components/SignCard'
-// import Step1 from './Step1'
+import Step1 from './Step1'
 
 // 登入流程
 function SignIn() {
@@ -20,7 +20,7 @@ function SignIn() {
     <>
       {/* 登入頁面 */}
       {step === 0 && <SignCard />}
-      {/* {step === 1 && <Step1 />} */}
+      {step === 1 && <Step1 />}
     </>
   )
 }
