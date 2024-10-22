@@ -7,6 +7,7 @@ import { useAuthStep } from '../../context/AuthStepContext'
 import SignCard from '../../components/SignCard'
 import Step1 from './Step1'
 import Step2 from './Step2'
+import Step3 from './Step3'
 
 // 註冊流程
 function SignUp() {
@@ -25,6 +26,8 @@ function SignUp() {
       {step === 1 && <Step1 />}
       {/* PasswordForm */}
       {step === 2 && <Step2 />}
+      {/* Success */}
+      {step === 3 && <Step3 />}
     </>
   )
 }

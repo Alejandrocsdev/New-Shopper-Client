@@ -2,16 +2,16 @@
 import { useTranslation } from 'react-i18next'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
-import PasswordForm from '../../../components/StepCard/PasswordForm'
+import Success from '../../../components/StepCard/Success'
 
-function Step2() {
+function Step3() {
   const { t } = useTranslation()
 
   return (
-    <StepCard title={t('title.setPassword')} steps>
-      <PasswordForm />
+    <StepCard title={t('title.signUpSuccess')} steps>
+      <Success />
     </StepCard>
   )
 }
 
-export default Step2
+export default Step3

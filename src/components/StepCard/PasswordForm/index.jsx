@@ -37,8 +37,7 @@ function PasswordForm() {
         console.log('Sign Up Response:', response.message)
 
         const { id } = response.user
-        console.log('Jump to Success')
-        // to('+', { id, phone })
+        to('+', { id, phone })
       }
     } catch (error) {
       console.error(error.message)

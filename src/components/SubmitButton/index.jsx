@@ -4,7 +4,7 @@ import S from './style.module.css'
 import Loading from '../Laoding'
 
 // 提交按鈕
-const SubmitButton = ({ type = 'submit', isValid, isSubmitting, children }) => {
+const SubmitButton = ({ type = 'submit', isValid, isSubmitting, onClick, children }) => {
   return (
     <>
       {type === 'submit' 
@@ -15,7 +15,7 @@ const SubmitButton = ({ type = 'submit', isValid, isSubmitting, children }) => {
         >
           {isSubmitting ? <Loading /> : children}
         </button>
-      : <button className={S.submit} type={type}>
+      : <button className={S.submit} type={type} onClick={onClick}>
           {children}
         </button>}
     </>

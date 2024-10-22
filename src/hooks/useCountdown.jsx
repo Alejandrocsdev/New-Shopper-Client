@@ -1,7 +1,8 @@
 // 函式庫 (library)
 import { useState, useEffect, useRef } from 'react'
 
-const useCountdown = (initialCount, onFinish) => {
+const useCountdown = (initialCount, onFinish, options = { once: true }) => {
+  const { once } = options
   const [count, setCount] = useState(initialCount)
   const [isCounting, setIsCounting] = useState(false)
   // 歸零觸發函式(只觸發1次: 未觸發)
@@ -14,19 +15,22 @@ const useCountdown = (initialCount, onFinish) => {
       timer = setInterval(() => {
         setCount((prevCount) => prevCount - 1)
       }, 1000)
-    } 
-    // 歸零 (歸零觸發函式(只觸發1次: 已觸發/未觸發))
-    else if (count === 0 && !isFinished.current) {
-      if (onFinish) {
+    }
+    // 歸零
+    else if (count === 0) {
+      if (onFinish && once && !isFinished.current) {
+        // 只觸發1次
+        isFinished.current = true
+        onFinish()
+      } else if (onFinish && !once) {
+        // 歸零就觸發
         onFinish()
       }
       setIsCounting(false)
-      // 歸零觸發函式(只觸發1次: 觸發)
-      isFinished.current = true
     }
 
     return () => clearInterval(timer)
-  }, [isCounting, count, onFinish])
+  }, [isCounting, count, onFinish, once])
 
   // 倒數開始
   const startCountdown = () => {
@@ -47,9 +51,12 @@ const useCountdown = (initialCount, onFinish) => {
   //   isFinished.current = false
   // }
 
-  return { count, isCounting, startCountdown, 
-    // stopCountdown, 
-    // resetCountdown 
+  return {
+    count,
+    isCounting,
+    startCountdown
+    // stopCountdown,
+    // resetCountdown
   }
 }
 

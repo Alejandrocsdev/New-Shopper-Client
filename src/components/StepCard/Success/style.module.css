@@ -1,0 +1,33 @@
+.successIcon {
+  font-size: 4.375rem;
+  color: green;
+  text-align: center;
+}
+
+.cardText {
+  margin: .625rem 0;
+}
+
+.text {
+  font-size: 1rem;
+  line-height: normal;
+  margin: .9375rem 0;
+  text-align: center;
+
+  @media (max-width: 40.625rem) {
+    font-size: .875rem;
+  }
+}
+
+.method {
+  color: orangered;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .125rem;
+  text-align: center;
+}
+
+.count {
+  color: orangered;
+  font-weight: 700;
+}

@@ -1,176 +1,287 @@
 {
   "zh": {
     "translation": {
-      "shopper.title": "Shopper ZH",
-      "sign.signUp": "註冊",
-      "sign.signIn": "登入",
-      "sign.reset": "重設",
-      "signCard.forgotPwd": "忘記密碼",
-      "signCard.or": "或",
-      "signCard.smsSignIn": "使用簡訊登入",
-      "signCard.pwdSignIn": "使用密碼登入",
-      "signCard.agreement": "點擊「下一步」或繼續註冊，即表示您已閱讀並同意瞎皮爾購物的<0>服務條款</0>與<0>隱私權政策</0>",
-      "signCard.alreadyHaveAnAccount?": "已經有帳號了嗎?",
-      "signCard.newToShopper?": "蝦皮爾新朋友?",
-      "input.phoneUserEmail": "電話號碼/使用者名稱/Email",
-      "input.password": "密碼",
-      "input.phoneNumber": "手機號碼",
-      "input.fillInput": "請填寫此欄位",
-      "input.fillPhone": "請輸入有效行動電話號碼",
-      "password.lowerCase": "包含至少一個小寫字母",
-      "password.upperCase": "包含至少一個大寫字母",
-      "password.number": "包含至少一個數字",
-      "password.length": "密碼長度8-16個字元",
-      "step.next": "下一步",
-      "stepsView.step1": "驗證電話號碼",
-      "stepsView.step2": "設定密碼",
-      "stepsView.step3": "完成",
-      "title.enterCode": "輸入驗證碼",
-      "title.setPassword": "設定您的密碼",
-      "otpForm.otpSent": "您的驗證碼已透過簡訊傳送至",
-      "otpForm.counting": "<0>{{count}}</0>秒後重新傳送",
-      "otpForm.otpNotReceived": "沒有收到驗證碼嗎？",
-      "otpForm.resend": "重新傳送",
-      "passwordForm.signUp": "最後一步! 請設定您的密碼以完成登入",
-      "passwordForm.reset": "設定一組新密碼給",
-      "error.defaultError": "發生了未知錯誤",
-      "error.routeNotFound": "查無此路由",
-      "error.invalidPayload": "無效的主體資料",
-      "error.unsignedPhone": "未註冊電話號碼",
-      "error.twsmsMissingUsr": "缺少 TwSMS 帳號",
-      "error.twsmsMissingPwd": "缺少 TwSMS 密碼",
-      "error.twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
-      "error.twilioMissingPhone": "缺少 Twilio 電話號碼",
-      "error.twilioMissingSid": "缺少 Twilio Account SID",
-      "error.twilioMissingToken": "缺少 Twilio Auth Token",
-      "error.twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)",
-      "error.phoneNoOtpRecord": "此電話沒有發送OTP紀錄",
-      "error.otpExpired": "您輸入的驗證碼已經過期。請再次嘗試請求新的驗證碼。",
-      "error.tooManyAttempts": "輸入錯誤達5次。請再次嘗試請求新的驗證碼。",
-      "error.invalidOtp": "無效的驗證碼。",
-      "error.invalidParamsId": "無效參數ID",
-      "encrypt.hashFail": "雜湊失敗",
-      "encrypt.hashCompareFail": "雜湊比對失敗",
-      "encrypt.secretGenerateFail": "密鑰生成失敗",
-      "encrypt.otpGenerateFail": "生成OTP失敗",
-      "encrypt.randowmCredentialFail": "隨機帳號生成失敗",
-      "encrypt.uniqueUsernameFail": "生成唯一帳號失敗"
+      "shopper": {
+        "title": "Shopper ZH"
+      },
+      "sign": {
+        "signUp": "註冊",
+        "signIn": "登入",
+        "reset": "重設"
+      },
+      "signCard": {
+        "forgotPwd": "忘記密碼",
+        "or": "或",
+        "smsSignIn": "使用簡訊登入",
+        "pwdSignIn": "使用密碼登入",
+        "agreement": "點擊「下一步」或繼續註冊，即表示您已閱讀並同意瞎皮爾購物的<0>服務條款</0>與<0>隱私權政策</0>",
+        "alreadyHaveAnAccount?": "已經有帳號了嗎?",
+        "newToShopper?": "瞎皮爾新朋友?"
+      },
+      "input": {
+        "phoneUserEmail": "電話號碼/使用者名稱/Email",
+        "password": "密碼",
+        "phoneNumber": "手機號碼",
+        "fillInput": "請填寫此欄位",
+        "fillPhone": "請輸入有效行動電話號碼"
+      },
+      "password": {
+        "lowerCase": "包含至少一個小寫字母",
+        "upperCase": "包含至少一個大寫字母",
+        "number": "包含至少一個數字",
+        "length": "密碼長度8-16個字元"
+      },
+      "step": {
+        "next": "下一步"
+      },
+      "stepsView": {
+        "step1": "驗證電話號碼",
+        "step2": "設定密碼",
+        "step3": "完成"
+      },
+      "title": {
+        "enterCode": "輸入驗證碼",
+        "setPassword": "設定您的密碼",
+        "signUpSuccess": "註冊成功!"
+      },
+      "otpForm": {
+        "otpSent": "您的驗證碼已透過簡訊傳送至",
+        "counting": "<0>{{count}}</0>秒後重新傳送",
+        "otpNotReceived": "沒有收到驗證碼嗎？",
+        "resend": "重新傳送"
+      },
+      "success": {
+        "successMessage": "您已成功使用{{method}} <0>{{data}}</0><1>{{action}}</1>",
+        "phone": "電話號碼",
+        "email": "Email",
+        "signUp": "建立瞎皮爾購物帳號",
+        "resetPassword": "重設密碼",
+        "redirectMessage": "您將在 <0>{{count}}</0> 秒內回到{{page}}",
+        "home": "瞎皮爾購物",
+        "signIn": "登入頁面",
+        "backToHome": "回到瞎皮爾購物",
+        "backToSignIn": "回到登入頁面"
+      },
+      "passwordForm": {
+        "signUp": "最後一步! 請設定您的密碼以完成登入",
+        "reset": "設定一組新密碼給"
+      },
+      "encrypt": {
+        "hashFail": "雜湊失敗",
+        "hashCompareFail": "雜湊比對失敗",
+        "secretGenerateFail": "密鑰生成失敗",
+        "otpGenerateFail": "生成OTP失敗",
+        "randowmCredentialFail": "隨機帳號生成失敗",
+        "uniqueUsernameFail": "生成唯一帳號失敗"
+      },
+      "error": {
+        "defaultError": "發生了未知錯誤",
+        "routeNotFound": "查無此路由",
+        "invalidPayload": "無效的主體資料",
+        "unsignedPhone": "未註冊電話號碼",
+        "twsmsMissingUsr": "缺少 TwSMS 帳號",
+        "twsmsMissingPwd": "缺少 TwSMS 密碼",
+        "twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
+        "twilioMissingPhone": "缺少 Twilio 電話號碼",
+        "twilioMissingSid": "缺少 Twilio Account SID",
+        "twilioMissingToken": "缺少 Twilio Auth Token",
+        "twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)",
+        "phoneNoOtpRecord": "此電話沒有發送OTP紀錄",
+        "otpExpired": "您輸入的驗證碼已經過期。請再次嘗試請求新的驗證碼。",
+        "tooManyAttempts": "輸入錯誤達5次。請再次嘗試請求新的驗證碼。",
+        "invalidOtp": "無效的驗證碼。",
+        "invalidParamsId": "無效參數ID"
+      }
     }
   },
   "en": {
     "translation": {
-      "shopper.title": "Shopper EN",
-      "sign.signUp": "Sign Up",
-      "sign.signIn": "Sign In",
-      "sign.reset": "Reset",
-      "signCard.forgotPwd": "Forgot Password",
-      "signCard.or": "or",
-      "signCard.smsSignIn": "Sign in with Password",
-      "signCard.pwdSignIn": "Sign in with SMS",
-      "signCard.agreement": "By clicking 'Next' or continuing to register, you indicate that you have read and agree to Shopper E-commerce Co., Ltd.<0> Terms of Service</0> and<0> Privacy Policy</0>",
-      "signCard.alreadyHaveAnAccount?": "Already have an account?",
-      "signCard.newToShopper?": "New to Shopper?",
-      "input.phoneUserEmail": "Phone Number/Username/Email",
-      "input.password": "Password",
-      "input.phoneNumber": "Phone Number",
-      "input.fillInput": "Please fill in this field",
-      "input.fillPhone": "Please enter a valid mobile phone number",
-      "password.lowerCase": "Contains at least one lowercase letter",
-      "password.upperCase": "Contains at least one uppercase letter",
-      "password.number": "Contains at least one number",
-      "password.length": "Password length 8-16 characters",
-      "step.next": "Next",
-      "stepsView.step1": "Verify phone number",
-      "stepsView.step2": "Set password",
-      "stepsView.step3": "Complete",
-      "title.enterCode": "Enter the verification code",
-      "title.setPassword": "Set your password",
-      "otpForm.otpSent": "Your verification code has been sent via SMS to",
-      "otpForm.counting": "Resend after <0>{{count}}</0> seconds",
-      "otpForm.otpNotReceived": "Didn't receive the verification code?",
-      "otpForm.resend": "Resend",
-      "passwordForm.signUp": "Final step! Please set your password to complete the sign-up.",
-      "passwordForm.reset": "Set a new password for",
-      "error.defaultError": "An unknown error occurred",
-      "error.routeNotFound": "Route not found",
-      "error.invalidPayload": "Invalid Payload",
-      "error.unsignedPhone": "Unregistered phone number",
-      "error.twsmsMissingUsr": "Missing TwSMS account",
-      "error.twsmsMissingPwd": "Missing TwSMS password",
-      "error.twsmsOtpSendFail": "Failed to send OTP via SMS (TwSMS)",
-      "error.twilioMissingPhone": "Missing Twilio phone number",
-      "error.twilioMissingSid": "Missing Twilio Account SID",
-      "error.twilioMissingToken": "Missing Twilio Auth Token",
-      "error.twilioOtpSendFail": "Failed to send OTP via SMS (Twilio)",
-      "error.phoneNoOtpRecord": "This phone number has no OTP sending record",
-      "error.otpExpired": "The verification code you entered has expired. Please try requesting a new code.",
-      "error.tooManyAttempts": "5 incorrect attempts. Please try requesting a new verification code.",
-      "error.invalidOtp": "Invalid verification code.",
-      "error.invalidParamsId": "Invalid parameter ID",
-      "encrypt.hashFail": "Hashing failed",
-      "encrypt.hashCompareFail": "Hash comparison failed",
-      "encrypt.secretGenerateFail": "Secret key generation failed",
-      "encrypt.otpGenerateFail": "OTP generation failed",
-      "encrypt.randowmCredentialFail": "Failed to generate random credentials.",
-      "encrypt.uniqueUsernameFail": "Failed to generate a unique username."
+      "shopper": {
+        "title": "Shopper EN"
+      },
+      "sign": {
+        "signUp": "Sign Up",
+        "signIn": "Sign In",
+        "reset": "Reset"
+      },
+      "signCard": {
+        "forgotPwd": "Forgot Password",
+        "or": "or",
+        "smsSignIn": "Sign in with Password",
+        "pwdSignIn": "Sign in with SMS",
+        "agreement": "By clicking 'Next' or continuing to register, you indicate that you have read and agree to Shopper E-commerce Co., Ltd.<0> Terms of Service</0> and<0> Privacy Policy</0>",
+        "alreadyHaveAnAccount?": "Already have an account?",
+        "newToShopper?": "New to Shopper?"
+      },
+      "input": {
+        "phoneUserEmail": "Phone Number/Username/Email",
+        "password": "Password",
+        "phoneNumber": "Phone Number",
+        "fillInput": "Please fill in this field",
+        "fillPhone": "Please enter a valid mobile phone number"
+      },
+      "password": {
+        "lowerCase": "Contains at least one lowercase letter",
+        "upperCase": "Contains at least one uppercase letter",
+        "number": "Contains at least one number",
+        "length": "Password length 8-16 characters"
+      },
+      "step": {
+        "next": "Next"
+      },
+      "stepsView": {
+        "step1": "Verify phone number",
+        "step2": "Set password",
+        "step3": "Complete"
+      },
+      "title": {
+        "enterCode": "Enter the verification code",
+        "setPassword": "Set your password",
+        "signUpSuccess": "Sign Up Successfully!"
+      },
+      "otpForm": {
+        "otpSent": "Your verification code has been sent via SMS to",
+        "counting": "Resend after <0>{{count}}</0> seconds",
+        "otpNotReceived": "Didn't receive the verification code?",
+        "resend": "Resend"
+      },
+      "success": {
+        "successMessage": "You have successfully used {{method}} <0>{{data}}</0> <1>{{action}}</1>",
+        "phone": "Phone number",
+        "email": "email",
+        "signUp": "to create a Shopper Shopping account",
+        "resetPassword": "to reset password",
+        "redirectMessage": "You will be redirected to {{page}} in <0>{{count}}</0> seconds",
+        "home": "Shopper home page",
+        "signIn": "Sign in page",
+        "backToHome": "Back to Shopper home page",
+        "backToSignIn": "Back to sign in page"
+      },
+      "passwordForm": {
+        "signUp": "Final step! Please set your password to complete the sign-up.",
+        "reset": "Set a new password for"
+      },
+      "encrypt": {
+        "hashFail": "Hashing failed",
+        "hashCompareFail": "Hash comparison failed",
+        "secretGenerateFail": "Secret key generation failed",
+        "otpGenerateFail": "OTP generation failed",
+        "randowmCredentialFail": "Failed to generate random credentials.",
+        "uniqueUsernameFail": "Failed to generate a unique username."
+      },
+      "error": {
+        "defaultError": "An unknown error occurred",
+        "routeNotFound": "Route not found",
+        "invalidPayload": "Invalid Payload",
+        "unsignedPhone": "Unregistered phone number",
+        "twsmsMissingUsr": "Missing TwSMS account",
+        "twsmsMissingPwd": "Missing TwSMS password",
+        "twsmsOtpSendFail": "Failed to send OTP via SMS (TwSMS)",
+        "twilioMissingPhone": "Missing Twilio phone number",
+        "twilioMissingSid": "Missing Twilio Account SID",
+        "twilioMissingToken": "Missing Twilio Auth Token",
+        "twilioOtpSendFail": "Failed to send OTP via SMS (Twilio)",
+        "phoneNoOtpRecord": "This phone number has no OTP sending record",
+        "otpExpired": "The verification code you entered has expired. Please try requesting a new code.",
+        "tooManyAttempts": "5 incorrect attempts. Please try requesting a new verification code.",
+        "invalidOtp": "Invalid verification code.",
+        "invalidParamsId": "Invalid parameter ID"
+      }
     }
   },
   "es": {
     "translation": {
-      "shopper.title": "Shopper ES",
-      "sign.signUp": "Registrarse",
-      "sign.signIn": "Iniciar Sesión",
-      "sign.reset": "Restablecer",
-      "signCard.forgotPwd": "¿Olvidó su contraseña?",
-      "signCard.or": "o",
-      "signCard.smsSignIn": "Iniciar sesión con contraseña",
-      "signCard.pwdSignIn": "Iniciar sesión con SMS",
-      "signCard.agreement": "Al hacer clic en 'Siguiente' o continuar con el registro, indicas que has leído y aceptas los términos de Shopper Comercio Electrónico S.A.<0> Términos de servicio</0> y<0> Política de privacidad</0>",
-      "signCard.alreadyHaveAnAccount?": "¿Ya tiene una cuenta?",
-      "signCard.newToShopper?": "¿Es nuevo en Shopper?",
-      "input.phoneUserEmail": "Número de teléfono/Nombre de usuario/Email",
-      "input.password": "Contraseña",
-      "input.phoneNumber": "Número de teléfono",
-      "input.fillInput": "Por favor complete este campo",
-      "input.fillPhone": "Por favor, ingrese un número de teléfono móvil válido",
-      "password.lowerCase": "Contiene al menos una letra minúscula",
-      "password.upperCase": "Contiene al menos una letra mayúscula",
-      "password.number": "Contiene al menos un número",
-      "password.length": "Debe tener entre 8 y 16 caracteres",
-      "step.next": "Próximo",
-      "stepsView.step1": "Verificar número de teléfono",
-      "stepsView.step2": "Establecer contraseña",
-      "stepsView.step3": "Completar",
-      "title.enterCode": "Ingrese el código de verificación",
-      "title.setPassword": "Establece tu contraseña",
-      "otpForm.otpSent": "Su código de verificación ha sido enviado por SMS a",
-      "otpForm.counting": "Reenviar después de <0>{{count}}</0> segundos",
-      "otpForm.otpNotReceived": "¿No recibió el código de verificación?",
-      "otpForm.resend": "Reenviar",
-      "passwordForm.signUp": "¡Último paso! Por favor, establece tu contraseña para completar el registro.",
-      "passwordForm.reset": "Establece una nueva contraseña para",
-      "error.defaultError": "Ocurrió un error desconocido",
-      "error.routeNotFound": "Ruta no encontrada",
-      "error.invalidPayload": "Cuerpo de la solicitud inválida",
-      "error.unsignedPhone": "Número de teléfono no registrado",
-      "error.twsmsMissingUsr": "Falta la cuenta de TwSMS",
-      "error.twsmsMissingPwd": "Falta la contraseña de TwSMS",
-      "error.twsmsOtpSendFail": "Error al enviar OTP por SMS (TwSMS)",
-      "error.twilioMissingPhone": "Falta el número de teléfono de Twilio",
-      "error.twilioMissingSid": "Falta el SID de la cuenta de Twilio",
-      "error.twilioMissingToken": "Falta el token de autenticación de Twilio",
-      "error.twilioOtpSendFail": "Error al enviar OTP por SMS (Twilio)",
-      "error.phoneNoOtpRecord": "Este número de teléfono no tiene registro de envío de OTP",
-      "error.otpExpired": "El código de verificación que ingresó ha expirado. Por favor, intente solicitar un nuevo código.",
-      "error.tooManyAttempts": "5 intentos incorrectos. Por favor, intente solicitar un nuevo código de verificación.",
-      "error.invalidOtp": "Código de verificación inválido.",
-      "error.invalidParamsId": "ID de parámetro inválido",
-      "encrypt.hashFail": "Error en la generación de hash",
-      "encrypt.hashCompareFail": "Error en la comparación de hash",
-      "encrypt.secretGenerateFail": "Error en la generación de clave secreta",
-      "encrypt.otpGenerateFail": "Error en la generación de OTP",
-      "encrypt.randowmCredentialFail": "Error al generar credenciales aleatorias.",
-      "encrypt.uniqueUsernameFail": "Error al generar un nombre de usuario único."
+      "shopper": {
+        "title": "Shopper ES"
+      },
+      "sign": {
+        "signUp": "Registrarse",
+        "signIn": "Iniciar Sesión",
+        "reset": "Restablecer"
+      },
+      "signCard": {
+        "forgotPwd": "¿Olvidó su contraseña?",
+        "or": "o",
+        "smsSignIn": "Iniciar sesión con contraseña",
+        "pwdSignIn": "Iniciar sesión con SMS",
+        "agreement": "Al hacer clic en 'Siguiente' o continuar con el registro, indicas que has leído y aceptas los términos de Shopper Comercio Electrónico S.A.<0> Términos de servicio</0> y<0> Política de privacidad</0>",
+        "alreadyHaveAnAccount?": "¿Ya tiene una cuenta?",
+        "newToShopper?": "¿Es nuevo en Shopper?"
+      },
+      "input": {
+        "phoneUserEmail": "Número de teléfono/Nombre de usuario/Email",
+        "password": "Contraseña",
+        "phoneNumber": "Número de teléfono",
+        "fillInput": "Por favor complete este campo",
+        "fillPhone": "Por favor, ingrese un número de teléfono móvil válido"
+      },
+      "password": {
+        "lowerCase": "Contiene al menos una letra minúscula",
+        "upperCase": "Contiene al menos una letra mayúscula",
+        "number": "Contiene al menos un número",
+        "length": "Debe tener entre 8 y 16 caracteres"
+      },
+      "step": {
+        "next": "Próximo"
+      },
+      "stepsView": {
+        "step1": "Verificar número de teléfono",
+        "step2": "Establecer contraseña",
+        "step3": "Completar"
+      },
+      "title": {
+        "enterCode": "Ingrese el código de verificación",
+        "setPassword": "Establece tu contraseña",
+        "signUpSuccess": "¡Se ha registrado con éxito!"
+      },
+      "otpForm": {
+        "otpSent": "Su código de verificación ha sido enviado por SMS a",
+        "counting": "Reenviar después de <0>{{count}}</0> segundos",
+        "otpNotReceived": "¿No recibió el código de verificación?",
+        "resend": "Reenviar"
+      },
+      "success": {
+        "successMessage": "<1>{{action}}</1> con exito para el {{method}} <0>{{data}}</0> ",
+        "phone": "número de teléfono",
+        "email": "email",
+        "signUp": "Ha creado una cuenta de Shopper",
+        "resetPassword": "Ha establecido contraseña",
+        "redirectMessage": "Será redirigido a {{page}} en <0>{{count}}</0> segundos",
+        "home": "Página inicial de Shopper",
+        "signIn": "Página de inicio de sesión",
+        "backToHome": "Regresar a página inicial",
+        "backToSignIn": "Regresar a página de iniciar sesión"
+      },
+      "passwordForm": {
+        "signUp": "¡Último paso! Por favor, establece tu contraseña para completar el registro.",
+        "reset": "Establece una nueva contraseña para"
+      },
+      "encrypt": {
+        "hashFail": "Error en la generación de hash",
+        "hashCompareFail": "Error en la comparación de hash",
+        "secretGenerateFail": "Error en la generación de clave secreta",
+        "otpGenerateFail": "Error en la generación de OTP",
+        "randowmCredentialFail": "Error al generar credenciales aleatorias.",
+        "uniqueUsernameFail": "Error al generar un nombre de usuario único."
+      },
+      "error": {
+        "defaultError": "Ocurrió un error desconocido",
+        "routeNotFound": "Ruta no encontrada",
+        "invalidPayload": "Cuerpo de la solicitud inválida",
+        "unsignedPhone": "Número de teléfono no registrado",
+        "twsmsMissingUsr": "Falta la cuenta de TwSMS",
+        "twsmsMissingPwd": "Falta la contraseña de TwSMS",
+        "twsmsOtpSendFail": "Error al enviar OTP por SMS (TwSMS)",
+        "twilioMissingPhone": "Falta el número de teléfono de Twilio",
+        "twilioMissingSid": "Falta el SID de la cuenta de Twilio",
+        "twilioMissingToken": "Falta el token de autenticación de Twilio",
+        "twilioOtpSendFail": "Error al enviar OTP por SMS (Twilio)",
+        "phoneNoOtpRecord": "Este número de teléfono no tiene registro de envío de OTP",
+        "otpExpired": "El código de verificación que ingresó ha expirado. Por favor, intente solicitar un nuevo código.",
+        "tooManyAttempts": "5 intentos incorrectos. Por favor, intente solicitar un nuevo código de verificación.",
+        "invalidOtp": "Código de verificación inválido.",
+        "invalidParamsId": "ID de parámetro inválido"
+      }
     }
   }
 }
