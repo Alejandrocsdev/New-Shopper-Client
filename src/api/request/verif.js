@@ -5,8 +5,8 @@ const base = '/verif'
 // Private Requests
 
 // Public Requests
-export const sendOtp = (phone) => {
-  return axiosRequest(false, 'post', `${base}/send/otp`, { phone })
+export const sendOtp = (phone, isReset = false) => {
+  return axiosRequest(false, 'post', `${base}/send/otp`, { phone, isReset })
 }
 
 export const verifyOtp = (phone, otp) => {

@@ -9,6 +9,11 @@
         "signIn": "登入",
         "reset": "重設"
       },
+      "signedUp": {
+        "text": "資料已被此帳號使用，若此帳號屬於您，請點選「是，前往登入」。",
+        "yesSignIn": "是，前往登入。",
+        "noReturn": "否，返回註冊頁面。"
+      },
       "footer": {
         "paymentOptions": "付款選項",
         "logistic": "物流合作",
@@ -50,7 +55,8 @@
       "title": {
         "enterCode": "輸入驗證碼",
         "setPassword": "設定您的密碼",
-        "signUpSuccess": "註冊成功!"
+        "signUpSuccess": "註冊成功!",
+        "isYourAccount?": "這是您的帳號嗎?"
       },
       "otpForm": {
         "otpSent": "您的驗證碼已透過簡訊傳送至",
@@ -114,6 +120,12 @@
         "signUp": "Sign Up",
         "signIn": "Sign In",
         "reset": "Reset"
+      },
+      "signedUp": {
+        "text": "This account has already been used. If this account belongs to you, please click 'Yes, go to sign in'.",
+        "yesSignIn": "Yes, go to sign in.",
+        "noReturn": "No, return to the registration page.",
+        "isYourAccount?": "Is this your account?"
       },
       "footer": {
         "paymentOptions": "Opciones de Pago",
@@ -220,6 +232,12 @@
         "signUp": "Registrarse",
         "signIn": "Iniciar Sesión",
         "reset": "Restablecer"
+      },
+      "signedUp": {
+        "text": "Esta cuenta ya ha sido utilizada. Si esta cuenta le pertenece, por favor haga clic en 'Sí, ir a iniciar sesión'.",
+        "yesSignIn": "Sí, ir a iniciar sesión.",
+        "noReturn": "No, volver a la página de registro.",
+        "isYourAccount?": "¿Es esta su cuenta?"
       },
       "footer": {
         "paymentOptions": "Payment Options",

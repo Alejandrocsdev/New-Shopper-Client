@@ -1,0 +1,47 @@
+.avatarContainer {
+  margin-bottom: 0.625rem;
+  text-align: center;
+}
+
+.avatar {
+  width: 6.25rem;
+  border-radius: 50%;
+}
+
+.username {
+  margin-bottom: 0.625rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.phone {
+  color: orangered;
+  margin-bottom: 0.625rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.125rem;
+  text-align: center;
+}
+
+.text {
+  font-size: 1rem;
+  margin-bottom: 0.9375rem;
+  text-align: center;
+
+  @media (max-width: 40.625rem) {
+    font-size: 0.875rem;
+  }
+}
+
+.back {
+  margin-top: 1rem;
+  color: #100D25;
+  background-color: transparent;
+  border: 0.1875rem solid #100D25;
+  cursor: pointer;
+}
+
+.back:hover {
+  background-color: #b2a9ff;
+}

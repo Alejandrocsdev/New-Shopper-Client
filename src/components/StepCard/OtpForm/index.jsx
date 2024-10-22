@@ -57,8 +57,7 @@ function OtpForm() {
         console.log('Find User Response:', userResponse.message)
         if (userResponse.user) {
           const { id, username, avatar } = userResponse.user
-          console.log('Jump to Step 4')
-          // to(4, { id, username, avatar, phone })
+          to(4, { id, username, avatar, phone })
         } else {
           to('+', { phone })
         }
