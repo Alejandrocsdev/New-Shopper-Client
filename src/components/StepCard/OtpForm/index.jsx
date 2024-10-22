@@ -5,9 +5,8 @@ import Joi from 'joi'
 import { Trans, useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 // 自訂函式 (custom function)
-import { sendOtp } from '../../../api/request/verif'
-// import { sendOtp, verifyOtp } from '../../../api/request/verif'
-// import { findUserByInfo } from '../../../api/request/user'
+import { sendOtp, verifyOtp } from '../../../api/request/verif'
+import { findUserByInfo } from '../../../api/request/user'
 // import { smsSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
@@ -21,9 +20,7 @@ function OtpForm() {
   const { user, to } = useAuthStep()
   const { isSmsSignIn, isSignUp, isReset } = useAuthMode().modeStates
   const { count, isCounting, startCountdown } = useCountdown(60)
-
   const [formContext, setFormContext] = useState(null)
-
   const { phone } = user
 
   const schema = Joi.object({
@@ -48,31 +45,26 @@ function OtpForm() {
 
   const onSubmit = async (data) => {
     try {
-      // const { otp } = data
-      // console.log('Sent Data:', data)
-      // if (isSignUp) {
-      //   const [otpResponse, userResponse] = await Promise.all([
-      //     verifyOtp(phone, otp),
-      //     findUserByInfo(`phone:${phone}`)
-      //   ])
-      //   console.log('Verify OTP Response:', otpResponse.message)
-      //   console.log('Find User Response:', userResponse.message)
-      //   if (userResponse.user) {
-      //     const { id, username, avatar } = userResponse.user
-      //     to(4, { id, username, avatar, phone })
-      //   } else {
-      //     to('+', { phone })
-      //   }
-      // } else if (isSmsSignIn) {
-      //   const response = await smsSignIn(phone, otp)
-      //   console.log('SMS Sign In Response:', response.message)
-      //   console.log('Access Token', response.accessToken)
-      //   to('/')
-      // } else if (isReset) {
-      //   const response = await verifyOtp(phone, otp)
-      //   console.log('Verify OTP Response:', response.message)
-      //   to('+', { phone })
-      // }
+      const { otp } = data
+      console.log('Sent Data:', data)
+      console.log(phone)
+
+      if (isSignUp) {
+        const [otpResponse, userResponse] = await Promise.all([
+          verifyOtp(phone, otp),
+          findUserByInfo(`phone:${phone}`)
+        ])
+        console.log('Verify OTP Response:', otpResponse.message)
+        console.log('Find User Response:', userResponse.message)
+        if (userResponse.user) {
+          const { id, username, avatar } = userResponse.user
+          console.log('Jump to Step 4')
+          // to(4, { id, username, avatar, phone })
+        } else {
+          console.log('Jump to PasswordForm')
+          // to('+', { phone })
+        }
+      }
     } catch (error) {
       console.error(error.message)
       formContext.setError('root', { message: t(error.i18n) })

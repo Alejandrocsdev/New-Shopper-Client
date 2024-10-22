@@ -22,7 +22,8 @@ function Form({ schema, onSubmit, submitText, setFormContext, children }) {
     if (setFormContext) {
       setFormContext({
         reset: methods.reset,
-        setError: methods.setError
+        setError: methods.setError,
+        clearErrors: methods.clearErrors
       })
     }
   }, [setFormContext, methods])

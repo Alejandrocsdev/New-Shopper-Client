@@ -25,7 +25,7 @@
       "stepsView.step1": "驗證電話號碼",
       "stepsView.step2": "設定密碼",
       "stepsView.step3": "完成",
-      "title.enterCode":"輸入驗證碼",
+      "title.enterCode": "輸入驗證碼",
       "otpForm.otpSent": "您的驗證碼已透過簡訊傳送至",
       "otpForm.counting": "<0>{{count}}</0>秒後重新傳送",
       "otpForm.otpNotReceived": "沒有收到驗證碼嗎？",
@@ -40,7 +40,15 @@
       "error.twilioMissingPhone": "缺少 Twilio 電話號碼",
       "error.twilioMissingSid": "缺少 Twilio Account SID",
       "error.twilioMissingToken": "缺少 Twilio Auth Token",
-      "error.twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)"
+      "error.twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)",
+      "error.phoneNoOtpRecord": "此電話沒有發送OTP紀錄",
+      "error.otpExpired": "您輸入的驗證碼已經過期。請再次嘗試請求新的驗證碼。",
+      "error.tooManyAttempts": "輸入錯誤達5次。請再次嘗試請求新的驗證碼。",
+      "error.invalidOtp": "無效的驗證碼。",
+      "encrypt.hashFail": "雜湊失敗",
+      "encrypt.hashCompareFail": "雜湊比對失敗",
+      "encrypt.secretGenerateFail": "密鑰生成失敗",
+      "encrypt.otpGenerateFail": "生成OTP失敗"
     }
   },
   "en": {
@@ -69,7 +77,7 @@
       "stepsView.step1": "Verify phone number",
       "stepsView.step2": "Set password",
       "stepsView.step3": "Complete",
-      "title.enterCode":"Enter the verification code",
+      "title.enterCode": "Enter the verification code",
       "otpForm.otpSent": "Your verification code has been sent via SMS to",
       "otpForm.counting": "Resend after <0>{{count}}</0> seconds",
       "otpForm.otpNotReceived": "Didn't receive the verification code?",
@@ -84,7 +92,15 @@
       "error.twilioMissingPhone": "Missing Twilio phone number",
       "error.twilioMissingSid": "Missing Twilio Account SID",
       "error.twilioMissingToken": "Missing Twilio Auth Token",
-      "error.twilioOtpSendFail": "Failed to send OTP via SMS (Twilio)"
+      "error.twilioOtpSendFail": "Failed to send OTP via SMS (Twilio)",
+      "error.phoneNoOtpRecord": "This phone number has no OTP sending record",
+      "error.otpExpired": "The verification code you entered has expired. Please try requesting a new code.",
+      "error.tooManyAttempts": "5 incorrect attempts. Please try requesting a new verification code.",
+      "error.invalidOtp": "Invalid verification code.",
+      "encrypt.hashFail": "Hashing failed",
+      "encrypt.hashCompareFail": "Hash comparison failed",
+      "encrypt.secretGenerateFail": "Secret key generation failed",
+      "encrypt.otpGenerateFail": "OTP generation failed"
     }
   },
   "es": {
@@ -113,7 +129,7 @@
       "stepsView.step1": "Verificar número de teléfono",
       "stepsView.step2": "Establecer contraseña",
       "stepsView.step3": "Completar",
-      "title.enterCode":"Ingrese el código de verificación",
+      "title.enterCode": "Ingrese el código de verificación",
       "otpForm.otpSent": "Su código de verificación ha sido enviado por SMS a",
       "otpForm.counting": "Reenviar después de <0>{{count}}</0> segundos",
       "otpForm.otpNotReceived": "¿No recibió el código de verificación?",
@@ -128,7 +144,15 @@
       "error.twilioMissingPhone": "Falta el número de teléfono de Twilio",
       "error.twilioMissingSid": "Falta el SID de la cuenta de Twilio",
       "error.twilioMissingToken": "Falta el token de autenticación de Twilio",
-      "error.twilioOtpSendFail": "Error al enviar OTP por SMS (Twilio)"
+      "error.twilioOtpSendFail": "Error al enviar OTP por SMS (Twilio)",
+      "error.phoneNoOtpRecord": "Este número de teléfono no tiene registro de envío de OTP",
+      "error.otpExpired": "El código de verificación que ingresó ha expirado. Por favor, intente solicitar un nuevo código.",
+      "error.tooManyAttempts": "5 intentos incorrectos. Por favor, intente solicitar un nuevo código de verificación.",
+      "error.invalidOtp": "Código de verificación inválido.",
+      "encrypt.hashFail": "Error en la generación de hash",
+      "encrypt.hashCompareFail": "Error en la comparación de hash",
+      "encrypt.secretGenerateFail": "Error en la generación de clave secreta",
+      "encrypt.otpGenerateFail": "Error en la generación de OTP"
     }
   }
 }
