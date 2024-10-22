@@ -107,7 +107,8 @@
         "invalidParamsId": "無效參數ID",
         "wrongSignInCredential": "輸入資料錯誤",
         "wrongPassword": "輸入密碼錯誤",
-        "idNotSigned": "此ID無註冊帳號"
+        "autoSignInFail": "自動登入失敗",
+        "pwdSignInFail": "密碼登入失敗"
       }
     }
   },
@@ -219,7 +220,9 @@
         "invalidParamsId": "Invalid parameter ID",
         "wrongSignInCredential": "Incorrect input data",
         "wrongPassword": "Incorrect password entered",
-        "idNotSigned": "This ID is not registered"
+        "idNotSigned": "This ID is not registered",
+        "autoSignInFail": "Automatic sign-in failed",
+        "pwdSignInFail": "Password sign-in failed"
       }
     }
   },
@@ -331,7 +334,9 @@
         "invalidParamsId": "ID de parámetro inválido",
         "wrongSignInCredential": "Datos de entrada incorrectos",
         "wrongPassword": "Contraseña incorrecta ingresada",
-        "idNotSigned": "Este ID no está registrado"
+        "idNotSigned": "Este ID no está registrado",
+        "autoSignInFail": "Error en el inicio de sesión automático",
+        "pwdSignInFail": "Error en el inicio de sesión con contraseña"
       }
     }
   }

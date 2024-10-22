@@ -2,6 +2,7 @@
 import S from './style.module.css'
 // 自訂函式 (custom function)
 import { sendOtp } from '../../../api/request/verif'
+import { pwdSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 // 函式庫 (library)
 import Joi from 'joi'
@@ -39,7 +40,7 @@ const SignForm = () => {
   }, [isSignUp, isPwdSignIn, isSmsSignIn])
 
   const onSubmit = async (data) => {
-    const { phone } = data
+    const { signInKey, password, phone } = data
     console.log('Sent Data:', data)
 
     try {
@@ -47,6 +48,13 @@ const SignForm = () => {
         const response = await sendOtp(phone)
         console.log('Send OTP Response:', response.message)
         to('+', { phone })
+      } else if (isPwdSignIn) {
+        const response = await pwdSignIn(signInKey, password)
+        console.log('Password Sign In Response:', response.message)
+
+        console.log('Access Token', response.accessToken)
+
+        to('/')
       }
     } catch (error) {
       console.error(error.message)
