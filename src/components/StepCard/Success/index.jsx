@@ -8,6 +8,7 @@ import { autoSignIn } from '../../../api/request/auth'
 import { resetCompletePhone, resetCompleteEmail } from '../../../api/request/notif'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
+import { useError } from '../../../context/ErrorContext'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件
 import Icon from '../../Icon'
@@ -20,6 +21,7 @@ function Success() {
   const { isSignUp, isReset } = useAuthMode().modeStates
   const { count, startCountdown } = useCountdown(10, onRedirect, { once: true })
   const { id, phone, email } = user
+  const { setErrMsg } = useError()
 
   useEffect(() => {
     startCountdown()
@@ -35,6 +37,7 @@ function Success() {
         to('/')
       } catch (err) {
         console.error(err.message)
+        setErrMsg(t(err.i18n))
       }
     } else if (isReset && phone) {
       const response = await resetCompletePhone(phone)

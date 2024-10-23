@@ -8,7 +8,7 @@ import i18next from '../utils/i18next'
 const LangContext = createContext()
 
 // (1) Provider
-export function LangProvider({ children }) {
+export const LangProvider = ({ children }) => {
   const { t } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
@@ -39,7 +39,7 @@ export function LangProvider({ children }) {
     const newPath = location.pathname.replace(`/${langParam}`, `/${code}`)
     navigate(newPath)
   }
-  
+
   // 切換網頁標題
   useEffect(() => {
     document.title = t('shopper.title')

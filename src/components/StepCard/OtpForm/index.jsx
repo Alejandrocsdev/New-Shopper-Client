@@ -10,6 +10,7 @@ import { findUserByInfo } from '../../../api/request/user'
 import { smsSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
+import { useError } from '../../../context/ErrorContext'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件 (component)
 import OtpInput from './OtpInput'
@@ -22,6 +23,7 @@ function OtpForm() {
   const { count, isCounting, startCountdown } = useCountdown(60)
   const [formContext, setFormContext] = useState(null)
   const { phone } = user
+  const { setErrMsg } = useError()
 
   const schema = Joi.object({
     otp: Joi.string().length(6).regex(/^\d+$/).required()
@@ -75,7 +77,11 @@ function OtpForm() {
       }
     } catch (error) {
       console.error(error.message)
-      formContext.setError('root', { message: t(error.i18n) })
+      if (isSmsSignIn) {
+        setErrMsg(t(error.i18n))
+      } else {
+        formContext.setError('root', { message: t(error.i18n) })
+      }
     }
   }
 

@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const ThemeContext = createContext()
 
 // (1) Provider
-export function ThemeProvider({ children }) {
+export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     const storedTheme = localStorage.getItem('theme')
     // theme => boolan

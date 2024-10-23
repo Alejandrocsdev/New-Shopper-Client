@@ -4,6 +4,7 @@ import S from './style.module.css'
 import { sendOtp } from '../../../api/request/verif'
 import { pwdSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
+import { useError } from '../../../context/ErrorContext'
 // 函式庫 (library)
 import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
@@ -20,6 +21,7 @@ import PhoneInput from '../../Input/PhoneInput'
 const SignForm = () => {
   const { t } = useTranslation()
   const { to } = useAuthStep()
+  const { setErrMsg } = useError()
 
   const [formContext, setFormContext] = useState(null)
 
@@ -53,12 +55,15 @@ const SignForm = () => {
         console.log('Password Sign In Response:', response.message)
 
         console.log('Access Token', response.accessToken)
-
         to('/')
       }
     } catch (error) {
       console.error(error.message)
-      formContext.setError('root', { message: t(error.i18n) })
+      if (isPwdSignIn) {
+        setErrMsg(t(error.i18n))
+      } else {
+        formContext.setError('root', { message: t(error.i18n) })
+      }
     }
   }
 
