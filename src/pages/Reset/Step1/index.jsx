@@ -1,7 +1,7 @@
 // 模組樣式
 import S from './style.module.css'
 // 函式庫 (library)
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
 import { useAuthStep } from '../../../context/AuthStepContext'
 // 組件 (component)
@@ -29,7 +29,7 @@ function Step1() {
           <div className={S.text}>{t('email.pleaseVerify')}</div>
           {/* 執行下一步 */}
           <SubmitButton type="button" onClick={() => to('/sign-in')}>
-            {t('step.next')}
+            {t('success.backToSignIn')}
           </SubmitButton>
         </>}
     </StepCard>

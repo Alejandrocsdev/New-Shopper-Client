@@ -38,10 +38,11 @@ function PasswordForm() {
 
         const { id } = response.user
         to('+', { id, phone })
-      } else if (isReset && phone) {
-        const response = await putPwdByInfo(`phone:${phone}`, password)
+      } else if (isReset) {
+        const userInfo = phone ? `phone:${phone}` : `email:${email}`
+        const response = await putPwdByInfo(userInfo, password)
         console.log('Change Password Response:', response.message)
-        to('+', { phone })
+        to('+', phone ? { phone } : { email })
       }
     } catch (error) {
       console.error(error.message)
@@ -59,7 +60,7 @@ function PasswordForm() {
       {/* 表單文字 */}
       <div className={S.cardText}>
         <div className={S.text}>{t(isSignUp ? 'passwordForm.signUp' : 'passwordForm.reset')}</div>
-        {isReset && <div className={S.method}>{phone || 'email'}</div>}
+        {isReset && <div className={S.method}>{phone || email}</div>}
       </div>
 
       {/* 密碼輸入欄 (含條件) */}

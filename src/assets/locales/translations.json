@@ -64,7 +64,8 @@
         "signUpSuccess": "註冊成功!",
         "isYourAccount?": "這是您的帳號嗎?",
         "resetPassword": "重新設定密碼",
-        "resetSuccess": "重設密碼成功!"
+        "resetSuccess": "重設密碼成功!",
+        "resetFail": "重設密碼失敗"
       },
       "otpForm": {
         "otpSent": "您的驗證碼已透過簡訊傳送至",
@@ -82,6 +83,10 @@
         "home": "瞎皮爾購物",
         "signIn": "登入頁面",
         "backToHome": "回到瞎皮爾購物",
+        "backToSignIn": "回到登入頁面"
+      },
+      "emailError": {
+        "redirectMessage": "您將在 <0>{{count}}</0> 秒內回到登入頁面",
         "backToSignIn": "回到登入頁面"
       },
       "passwordForm": {
@@ -102,6 +107,8 @@
         "invalidPayload": "無效的主體資料",
         "unsignedPhone": "未註冊電話號碼",
         "unsignedEmail": "未註冊電子信箱",
+        "linkExpired": "連結過期",
+        "linkInvalid": "連結失效",
         "twsmsMissingUsr": "缺少 TwSMS 帳號",
         "twsmsMissingPwd": "缺少 TwSMS 密碼",
         "twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
@@ -190,7 +197,8 @@
         "setPassword": "Set your password",
         "signUpSuccess": "Sign Up Successfully!",
         "resetPassword": "Reset Password",
-        "resetSuccess": "Reset Password Successfully"
+        "resetSuccess": "Reset Password Successfully",
+        "resetFail": "Reset Password Fail"
       },
       "otpForm": {
         "otpSent": "Your verification code has been sent via SMS to",
@@ -208,6 +216,10 @@
         "home": "Shopper home page",
         "signIn": "Sign in page",
         "backToHome": "Back to Shopper home page",
+        "backToSignIn": "Back to sign in page"
+      },
+      "emailError": {
+        "redirectMessage": "You will be redirected to sign in page in <0>{{count}}</0> seconds",
         "backToSignIn": "Back to sign in page"
       },
       "passwordForm": {
@@ -228,6 +240,8 @@
         "invalidPayload": "Invalid Payload",
         "unsignedPhone": "Unregistered phone number",
         "unsignedEmail": "Unregistered email address",
+        "linkExpired": "Link Expired",
+        "linkInvalid": "Link Invalid",
         "twsmsMissingUsr": "Missing TwSMS account",
         "twsmsMissingPwd": "Missing TwSMS password",
         "twsmsOtpSendFail": "Failed to send OTP via SMS (TwSMS)",
@@ -317,7 +331,8 @@
         "setPassword": "Establece tu contraseña",
         "signUpSuccess": "¡Se ha registrado con éxito!",
         "resetPassword": "Reestablecer Contraseña",
-        "resetSuccess": "¡Reestablecer Contraseña con éxito!"
+        "resetSuccess": "¡Reestablecer Contraseña con éxito!",
+        "resetFail": "Error al restablecer la contraseña"
       },
       "otpForm": {
         "otpSent": "Su código de verificación ha sido enviado por SMS a",
@@ -335,6 +350,10 @@
         "home": "Página inicial de Shopper",
         "signIn": "Página de inicio de sesión",
         "backToHome": "Regresar a página inicial",
+        "backToSignIn": "Regresar a página de iniciar sesión"
+      },
+      "emailError": {
+        "redirectMessage": "Será redirigido a página de inicio de sesión en <0>{{count}}</0> segundos",
         "backToSignIn": "Regresar a página de iniciar sesión"
       },
       "passwordForm": {
@@ -355,6 +374,8 @@
         "invalidPayload": "Cuerpo de la solicitud inválida",
         "unsignedPhone": "Número de teléfono no registrado",
         "unsignedEmail": "Correo electrónico no registrado",
+        "linkExpired": "Enlace Expirado",
+        "linkInvalid": "Enlace Inválido",
         "twsmsMissingUsr": "Falta la cuenta de TwSMS",
         "twsmsMissingPwd": "Falta la contraseña de TwSMS",
         "twsmsOtpSendFail": "Error al enviar OTP por SMS (TwSMS)",

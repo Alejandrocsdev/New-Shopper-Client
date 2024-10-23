@@ -1,0 +1,34 @@
+.iconContainer {
+  text-align: center;
+}
+
+.failureIcon {
+  font-size: 4.375rem;
+  color: red;
+}
+
+.cardText {
+  margin: 0.625rem 0;
+}
+
+.errMsg {
+  margin-bottom: 0.9375rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.text {
+  font-size: 1rem;
+  margin-bottom: 0.9375rem;
+  text-align: center;
+
+  @media (max-width: 40.625rem) {
+    font-size: 0.875rem;
+  }
+}
+
+.count {
+  color: orangered;
+  font-weight: 700;
+}

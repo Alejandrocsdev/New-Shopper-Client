@@ -68,7 +68,7 @@ function ResetStep() {
       return () => subscription.unsubscribe()
     }
   }, [formContext])
-  console.log('isPhone', isPhone)
+
   return (
     <StepCard title={t('title.resetPassword')} back="/sign-in">
       <Form

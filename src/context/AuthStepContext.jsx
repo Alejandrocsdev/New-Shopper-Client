@@ -25,17 +25,13 @@ export const AuthStepProvider = ({ children }) => {
     } 
     else if (step.startsWith('/')) {
       navigate(step)
-      if (['/sign-in', '/sign-up', '/reset'].includes(step)) {
-        setStep(0)
-      }
+      setStep(0)
     }
   
     if (typeof user === 'object' && Object.keys(user).length > 0) {
       setUser(user)
     }
   }
-
-  console.log('step', step)
 
   return (
     <AuthStepContext.Provider value={{ step, user, to }}>
