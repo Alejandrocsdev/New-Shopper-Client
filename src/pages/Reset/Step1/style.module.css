@@ -1,0 +1,22 @@
+.iconContainer {
+  margin-bottom: .9325rem;
+  text-align: center;
+}
+
+.emailIcon {
+  font-size: 3.125rem;
+}
+
+.email {
+  color: orangered;
+}
+
+.text {
+  margin-bottom: 1rem;
+  text-align: center;
+
+  @media (max-width: 40.625rem) {
+    font-size: .875rem;
+
+  }
+}

@@ -3,8 +3,7 @@ import Joi from 'joi'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
-import { sendOtp } from '../../../api/request/verif'
-// import { sendOtp, sendLink } from '../../../api/request/verif'
+import { sendOtp, sendLink } from '../../../api/request/verif'
 import { useAuthStep } from '../../../context/AuthStepContext'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
@@ -19,8 +18,7 @@ function ResetStep() {
   const [isPhone, setIsPhone] = useState(false)
 
   const schema = Joi.object({
-    resetKey: Joi.string()
-      .required()
+    resetKey: Joi.string().required()
       // 如輸入值都是數字 => phone
       .when(Joi.string().regex(/^\d+$/), {
         // phone
@@ -39,14 +37,13 @@ function ResetStep() {
       console.log('Sent Data:', data)
 
       if (isPhone) {
-        const response = await sendOtp(resetKey)
+        const response = await sendOtp(resetKey, true)
         console.log('Response:', response.message)
         to('+', { phone: resetKey })
       } else {
-        // const response = await sendLink(resetKey)
-        // console.log('Response:', response.message)
-        console.log('Email sent successfully')
-        // to('+', { email: resetKey })
+        const response = await sendLink(resetKey, true)
+        console.log('Response:', response.message)
+        to('+', { email: resetKey })
       }
     } catch (error) {
       console.error(error.message)
@@ -59,11 +56,8 @@ function ResetStep() {
       // Watch for changes to the resetKey field and trigger side effects
       const subscription = formContext.watch((value) => {
         const { error } = schema.validate(value, { abortEarly: false })
-        if (error?.details[0]?.context?.name === 'phone') {
-          setIsPhone(true)
-        } else if (error?.details[0]?.type === 'string.email') {
-          setIsPhone(false)
-        }
+        const phoneError = error?.details[0]?.context?.name === 'phone'
+        phoneError ? setIsPhone(true) : setIsPhone(false)
       }, 'resetKey') // Watch only the resetKey field
       // Cleanup the subscription when the component unmounts or formContext changes
       return () => subscription.unsubscribe()

@@ -1,7 +1,7 @@
 // 模組樣式
 import S from './style.module.css'
 // 函式庫 (library)
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 // 錨點
@@ -16,6 +16,13 @@ function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) 
       setErrorCleared(true)
     }
   }
+
+  // 錯誤若再次出現, errorCleared設為false, 才能再次清除
+  useEffect(() => {
+    if (errors.root) {
+      setErrorCleared(false)
+    }
+  }, [errors.root])
 
   return (
     <>

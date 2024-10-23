@@ -12,3 +12,7 @@ export const sendOtp = (phone, isReset = false) => {
 export const verifyOtp = (phone, otp) => {
   return axiosRequest(false, 'post', `${base}/verify/otp`, { phone, otp })
 }
+
+export const sendLink = (email, isReset = false) => {
+  return axiosRequest(false, 'post', `${base}/send/link`, { email, isReset })
+}

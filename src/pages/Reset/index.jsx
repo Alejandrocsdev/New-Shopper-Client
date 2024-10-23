@@ -7,6 +7,8 @@ import { useAuthStep } from '../../context/AuthStepContext'
 import ResetStep from './ResetStep'
 import Step1 from './Step1'
 import Step2 from './Step2'
+import Step3 from './Step3'
+import Step4 from './Step4'
 
 // 重設流程
 function Reset() {
@@ -25,6 +27,10 @@ function Reset() {
       {step === 1 && <Step1 />}
       {/* PasswordForm */}
       {step === 2 && <Step2 />}
+      {/* Success */}
+      {step === 3 && <Step3 />}
+      {/* 獨立: 信箱連結驗證錯誤 */}
+      {step === 4 && <Step4 />}
     </>
   )
 }

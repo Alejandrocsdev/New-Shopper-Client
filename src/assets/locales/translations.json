@@ -49,6 +49,10 @@
       "step": {
         "next": "下一步"
       },
+      "email": {
+        "emailSentTo": "驗證信已發送至 ",
+        "pleaseVerify": "請驗證"
+      },
       "stepsView": {
         "step1": "驗證電話號碼",
         "step2": "設定密碼",
@@ -59,7 +63,8 @@
         "setPassword": "設定您的密碼",
         "signUpSuccess": "註冊成功!",
         "isYourAccount?": "這是您的帳號嗎?",
-        "resetPassword": "重新設定密碼"
+        "resetPassword": "重新設定密碼",
+        "resetSuccess": "重設密碼成功!"
       },
       "otpForm": {
         "otpSent": "您的驗證碼已透過簡訊傳送至",
@@ -96,12 +101,16 @@
         "routeNotFound": "查無此路由",
         "invalidPayload": "無效的主體資料",
         "unsignedPhone": "未註冊電話號碼",
+        "unsignedEmail": "未註冊電子信箱",
         "twsmsMissingUsr": "缺少 TwSMS 帳號",
         "twsmsMissingPwd": "缺少 TwSMS 密碼",
         "twsmsOtpSendFail": "簡訊OTP發送失敗 (TwSMS)",
         "twilioMissingPhone": "缺少 Twilio 電話號碼",
         "twilioMissingSid": "缺少 Twilio Account SID",
         "twilioMissingToken": "缺少 Twilio Auth Token",
+        "missingTransporterEmail": "缺少郵件傳送器信箱",
+        "missingEmailAppPassword": "缺少郵件傳送器密碼",
+        "emailSendFail": "郵件發送失敗",
         "twilioOtpSendFail": "簡訊OTP發送失敗 (Twilio)",
         "phoneNoOtpRecord": "此電話沒有發送OTP紀錄",
         "otpExpired": "您輸入的驗證碼已經過期。請再次嘗試請求新的驗證碼。",
@@ -167,6 +176,10 @@
       "step": {
         "next": "Next"
       },
+      "email": {
+        "emailSentTo": "A verification email has been sent to ",
+        "pleaseVerify": "Please verify"
+      },
       "stepsView": {
         "step1": "Verify phone number",
         "step2": "Set password",
@@ -176,7 +189,8 @@
         "enterCode": "Enter the verification code",
         "setPassword": "Set your password",
         "signUpSuccess": "Sign Up Successfully!",
-        "resetPassword": "Reset Password"
+        "resetPassword": "Reset Password",
+        "resetSuccess": "Reset Password Successfully"
       },
       "otpForm": {
         "otpSent": "Your verification code has been sent via SMS to",
@@ -213,6 +227,7 @@
         "routeNotFound": "Route not found",
         "invalidPayload": "Invalid Payload",
         "unsignedPhone": "Unregistered phone number",
+        "unsignedEmail": "Unregistered email address",
         "twsmsMissingUsr": "Missing TwSMS account",
         "twsmsMissingPwd": "Missing TwSMS password",
         "twsmsOtpSendFail": "Failed to send OTP via SMS (TwSMS)",
@@ -220,6 +235,9 @@
         "twilioMissingSid": "Missing Twilio Account SID",
         "twilioMissingToken": "Missing Twilio Auth Token",
         "twilioOtpSendFail": "Failed to send OTP via SMS (Twilio)",
+        "missingTransporterEmail": "Missing email transporter email address",
+        "missingEmailAppPassword": "Missing email transporter app password",
+        "emailSendFail": "Failed to send email",
         "phoneNoOtpRecord": "This phone number has no OTP sending record",
         "otpExpired": "The verification code you entered has expired. Please try requesting a new code.",
         "tooManyAttempts": "5 incorrect attempts. Please try requesting a new verification code.",
@@ -285,6 +303,10 @@
       "step": {
         "next": "Próximo"
       },
+      "email": {
+        "emailSentTo": "Se ha enviado un correo de verificación a ",
+        "pleaseVerify": "Por favor verifique"
+      },
       "stepsView": {
         "step1": "Verificar número de teléfono",
         "step2": "Establecer contraseña",
@@ -294,7 +316,8 @@
         "enterCode": "Ingrese el código de verificación",
         "setPassword": "Establece tu contraseña",
         "signUpSuccess": "¡Se ha registrado con éxito!",
-        "resetPassword": "Reestablecer Contraseña"
+        "resetPassword": "Reestablecer Contraseña",
+        "resetSuccess": "¡Reestablecer Contraseña con éxito!"
       },
       "otpForm": {
         "otpSent": "Su código de verificación ha sido enviado por SMS a",
@@ -331,6 +354,7 @@
         "routeNotFound": "Ruta no encontrada",
         "invalidPayload": "Cuerpo de la solicitud inválida",
         "unsignedPhone": "Número de teléfono no registrado",
+        "unsignedEmail": "Correo electrónico no registrado",
         "twsmsMissingUsr": "Falta la cuenta de TwSMS",
         "twsmsMissingPwd": "Falta la contraseña de TwSMS",
         "twsmsOtpSendFail": "Error al enviar OTP por SMS (TwSMS)",
@@ -338,6 +362,9 @@
         "twilioMissingSid": "Falta el SID de la cuenta de Twilio",
         "twilioMissingToken": "Falta el token de autenticación de Twilio",
         "twilioOtpSendFail": "Error al enviar OTP por SMS (Twilio)",
+        "missingTransporterEmail": "Falta el correo electrónico del transportador",
+        "missingEmailAppPassword": "Falta la contraseña del transportador de correo electrónico",
+        "emailSendFail": "Error al enviar el correo electrónico",
         "phoneNoOtpRecord": "Este número de teléfono no tiene registro de envío de OTP",
         "otpExpired": "El código de verificación que ingresó ha expirado. Por favor, intente solicitar un nuevo código.",
         "tooManyAttempts": "5 intentos incorrectos. Por favor, intente solicitar un nuevo código de verificación.",
