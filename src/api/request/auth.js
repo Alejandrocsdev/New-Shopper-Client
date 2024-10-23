@@ -3,6 +3,10 @@ import axiosRequest from '../axios'
 const base = '/auth'
 
 // Private Requests
+export const refresh = () => {
+  return axiosRequest(true, 'post', `${base}/refresh`)
+}
+
 export const autoSignIn = (userId) => {
   return axiosRequest(true, 'post', `${base}/sign-in/auto/${userId}`)
 }

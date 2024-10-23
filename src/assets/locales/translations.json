@@ -105,6 +105,7 @@
         "defaultError": "發生了未知錯誤",
         "routeNotFound": "查無此路由",
         "invalidPayload": "無效的主體資料",
+        "invalidSchema": "無效的Joi Schema",
         "unsignedPhone": "未註冊電話號碼",
         "unsignedEmail": "未註冊電子信箱",
         "linkExpired": "連結過期",
@@ -128,7 +129,9 @@
         "wrongPassword": "輸入密碼錯誤",
         "autoSignInFail": "自動登入失敗",
         "pwdSignInFail": "密碼登入失敗",
-        "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼"
+        "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼",
+        "noRefreshToken": "查無刷新憑證",
+        "tokenRefreshFail": "存取憑證刷新失敗"
       }
     }
   },
@@ -238,6 +241,7 @@
         "defaultError": "An unknown error occurred",
         "routeNotFound": "Route not found",
         "invalidPayload": "Invalid Payload",
+        "invalidSchema": "Invalid Schema",
         "unsignedPhone": "Unregistered phone number",
         "unsignedEmail": "Unregistered email address",
         "linkExpired": "Link Expired",
@@ -262,7 +266,9 @@
         "idNotSigned": "This ID is not registered",
         "autoSignInFail": "Automatic sign-in failed",
         "pwdSignInFail": "Password sign-in failed",
-        "missingPhoneOrOtp": "Missing phone number or OTP verification code"
+        "missingPhoneOrOtp": "Missing phone number or OTP verification code",
+        "noRefreshToken": "No refresh token found",
+        "tokenRefreshFail": "Access token refresh failed"
       }
     }
   },
@@ -372,6 +378,7 @@
         "defaultError": "Ocurrió un error desconocido",
         "routeNotFound": "Ruta no encontrada",
         "invalidPayload": "Cuerpo de la solicitud inválida",
+        "invalidSchema": "Esquema de Joi inválida",
         "unsignedPhone": "Número de teléfono no registrado",
         "unsignedEmail": "Correo electrónico no registrado",
         "linkExpired": "Enlace Expirado",
@@ -396,7 +403,9 @@
         "idNotSigned": "Este ID no está registrado",
         "autoSignInFail": "Error en el inicio de sesión automático",
         "pwdSignInFail": "Error en el inicio de sesión con contraseña",
-        "missingPhoneOrOtp": "Falta el número de teléfono o el código de verificación OTP"
+        "missingPhoneOrOtp": "Falta el número de teléfono o el código de verificación OTP",
+        "noRefreshToken": "No se encontró el token de actualización",
+        "tokenRefreshFail": "Error al actualizar el token de acceso"
       }
     }
   }

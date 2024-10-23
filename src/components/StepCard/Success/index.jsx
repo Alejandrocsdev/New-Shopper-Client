@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 // 自訂函式
 import { autoSignIn } from '../../../api/request/auth'
-import { resetCompletePhone, resetCompleteEmail } from '../../../api/request/notif'
+import { resetPwdPhone, resetPwdEmail } from '../../../api/request/notif'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 import { useError } from '../../../context/ErrorContext'
@@ -37,14 +37,14 @@ function Success() {
         to('/')
       } catch (err) {
         console.error(err.message)
-        setErrMsg(t(err.i18n))
+        setErrMsg(err.i18n)
       }
     } else if (isReset && phone) {
-      const response = await resetCompletePhone(phone)
+      const response = await resetPwdPhone(phone)
       console.log('Phone Notification Response:', response.message)
       to('/sign-in')
     } else if (isReset && email) {
-      const response = await resetCompleteEmail(email)
+      const response = await resetPwdEmail(email)
       console.log('Email Notification Response:', response.message)
       to('/sign-in')
     }

@@ -29,7 +29,7 @@ function Step4() {
       to('/')
     } catch (err) {
       console.error(err.message)
-      setErrMsg(t(err.i18n))
+      setErrMsg(err.i18n)
     }
   }
 

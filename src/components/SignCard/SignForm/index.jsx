@@ -54,13 +54,13 @@ const SignForm = () => {
         const response = await pwdSignIn(signInKey, password)
         console.log('Password Sign In Response:', response.message)
 
-        console.log('Access Token', response.accessToken)
+        console.log('Access Token:', response.accessToken)
         to('/')
       }
     } catch (error) {
       console.error(error.message)
       if (isPwdSignIn) {
-        setErrMsg(t(error.i18n))
+        setErrMsg(error.i18n)
       } else {
         formContext.setError('root', { message: t(error.i18n) })
       }

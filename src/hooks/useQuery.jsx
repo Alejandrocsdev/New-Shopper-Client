@@ -1,3 +1,4 @@
+// 函式庫 (library)
 import { useLocation } from 'react-router-dom'
 
 function useQuery() {

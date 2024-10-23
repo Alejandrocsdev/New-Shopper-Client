@@ -67,7 +67,7 @@ function OtpForm() {
         const response = await smsSignIn(phone, otp)
         console.log('SMS Sign In Response:', response.message)
 
-        console.log('Access Token', response.accessToken)
+        console.log('Access Token:', response.accessToken)
 
         to('/')
       } else if (isReset) {
@@ -78,7 +78,7 @@ function OtpForm() {
     } catch (error) {
       console.error(error.message)
       if (isSmsSignIn) {
-        setErrMsg(t(error.i18n))
+        setErrMsg(error.i18n)
       } else {
         formContext.setError('root', { message: t(error.i18n) })
       }

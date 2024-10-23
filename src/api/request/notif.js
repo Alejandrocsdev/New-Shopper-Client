@@ -5,10 +5,10 @@ const base = '/notif'
 // Private Requests
 
 // Public Requests
-export const resetCompletePhone = (phone) => {
+export const resetPwdPhone = (phone) => {
   return axiosRequest(false, 'post', `${base}/reset/password/phone`, { phone })
 }
 
-export const resetCompleteEmail = (email) => {
+export const resetPwdEmail = (email) => {
   return axiosRequest(false, 'post', `${base}/reset/password/email`, { email })
 }
