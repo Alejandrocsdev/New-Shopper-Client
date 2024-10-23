@@ -20,6 +20,7 @@ const Criteria = ({ name }) => {
     upperCase: Joi.string().regex(/[A-Z]/).required(),
     number: Joi.string().regex(/\d/).required(),
     length: Joi.string().min(8).max(16).required()
+    // length: Joi.string().regex(/^.{8,16}$/).required()
   })
 
   const { error } = schema.validate(

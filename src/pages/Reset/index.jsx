@@ -1,6 +1,7 @@
 // 函式庫 (library)
 import { useEffect } from 'react'
 // 自訂函式 (custom function)
+import useQuery from '../../hooks/useQuery'
 import { useAuthMode } from '../../context/AuthModeContext'
 import { useAuthStep } from '../../context/AuthStepContext'
 // 組件
@@ -12,11 +13,20 @@ import Step4 from './Step4'
 
 // 重設流程
 function Reset() {
-  const { step } = useAuthStep()
+  const { to, step } = useAuthStep()
   const { setMode } = useAuthMode()
+  const { verified, email, message } = useQuery()
 
   useEffect(() => {
     setMode('reset')
+  }, [])
+
+  useEffect(() => {
+    if (verified === 'true') {
+      to(2, { email })
+    } else if (verified === 'false') {
+      to(4, { message })
+    }
   }, [])
 
   return (

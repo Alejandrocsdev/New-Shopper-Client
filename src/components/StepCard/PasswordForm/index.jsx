@@ -41,8 +41,7 @@ function PasswordForm() {
       } else if (isReset && phone) {
         const response = await putPwdByInfo(`phone:${phone}`, password)
         console.log('Change Password Response:', response.message)
-        console.log('Jump to Step 4')
-        // to(4)
+        to('+', { phone })
       }
     } catch (error) {
       console.error(error.message)

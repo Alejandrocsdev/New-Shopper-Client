@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
 import { sendOtp, sendLink } from '../../../api/request/verif'
 import { useAuthStep } from '../../../context/AuthStepContext'
+import { useLang } from '../../../context/LangContext'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
 import Form from '../../../components/Form'
@@ -13,6 +14,7 @@ import Input from '../../../components/Input'
 function ResetStep() {
   const { t } = useTranslation()
   const { to } = useAuthStep()
+  const { lang } = useLang()
 
   const [formContext, setFormContext] = useState(null)
   const [isPhone, setIsPhone] = useState(false)
@@ -22,7 +24,7 @@ function ResetStep() {
       // 如輸入值都是數字 => phone
       .when(Joi.string().regex(/^\d+$/), {
         // phone
-        then: Joi.string().regex(/^09/, { name: 'phone' }).length(10).required(),
+        then: Joi.string().regex(/^09\d{8}$/, { name: 'phone' }).required(),
         // email
         // tlds (Top-Level Domains)
         // 允許像 test@example.local 這樣的域名，而不僅僅是 .com, .org 等常見TLD
@@ -41,7 +43,7 @@ function ResetStep() {
         console.log('Response:', response.message)
         to('+', { phone: resetKey })
       } else {
-        const response = await sendLink(resetKey, true)
+        const response = await sendLink(resetKey, lang)
         console.log('Response:', response.message)
         to('+', { email: resetKey })
       }
@@ -56,14 +58,17 @@ function ResetStep() {
       // Watch for changes to the resetKey field and trigger side effects
       const subscription = formContext.watch((value) => {
         const { error } = schema.validate(value, { abortEarly: false })
-        const phoneError = error?.details[0]?.context?.name === 'phone'
-        phoneError ? setIsPhone(true) : setIsPhone(false)
+        if (error?.details[0]?.context?.name === 'phone') {
+          setIsPhone(true)
+        } else if (error?.details[0]?.type === 'string.email') {
+          setIsPhone(false)
+        }
       }, 'resetKey') // Watch only the resetKey field
       // Cleanup the subscription when the component unmounts or formContext changes
       return () => subscription.unsubscribe()
     }
   }, [formContext])
-
+  console.log('isPhone', isPhone)
   return (
     <StepCard title={t('title.resetPassword')} back="/sign-in">
       <Form
