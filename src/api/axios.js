@@ -7,11 +7,12 @@ const axiosPublic = axios.create({ baseURL: backUrl })
 // Private
 const axiosPrivate = axios.create({ baseURL: backUrl, withCredentials: true })
 // Request
-const axiosRequest = async (isPrivate, method, url, data) => {
+const axiosRequest = async (isPrivate, method, url, second, third) => {
   const axiosInstance = isPrivate ? axiosPrivate : axiosPublic
   try {
-    const requestData = method === 'get' || method === 'delete' ? { params: data } : data
-    const response = await axiosInstance[method](url, requestData)
+    // GET/DELETE => (url, second: config)
+    // POST/PUT/PATCH => (url, second: data, third: condig)
+    const response = await axiosInstance[method](url, second, third)
     return response.data
   } catch (error) {
     throw {

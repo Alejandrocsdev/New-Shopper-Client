@@ -9,6 +9,7 @@ import { resetPwdPhone, resetPwdEmail } from '../../../api/request/notif'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 import { useError } from '../../../context/ErrorContext'
+import { useAuth } from '../../../context/AuthContext'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件
 import Icon from '../../Icon'
@@ -22,6 +23,7 @@ function Success() {
   const { count, startCountdown } = useCountdown(10, onRedirect, { once: true })
   const { id, phone, email } = user
   const { setErrMsg } = useError()
+  const { setAuth } = useAuth()
 
   useEffect(() => {
     startCountdown()
@@ -32,8 +34,7 @@ function Success() {
       try {
         const response = await autoSignIn(id)
         console.log('Auto Sign In Response:', response.message)
-
-        console.log('Access Token:', response.accessToken)
+        setAuth({ accessToken: response.accessToken })
         to('/')
       } catch (err) {
         console.error(err.message)

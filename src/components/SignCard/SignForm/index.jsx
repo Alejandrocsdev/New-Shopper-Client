@@ -10,6 +10,7 @@ import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 // 自訂函式 (custom function)
+import { useAuth } from '../../../context/AuthContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 // 組件 (component)
 import Form from '../../Form'
@@ -22,6 +23,7 @@ const SignForm = () => {
   const { t } = useTranslation()
   const { to } = useAuthStep()
   const { setErrMsg } = useError()
+  const { setAuth } = useAuth()
 
   const [formContext, setFormContext] = useState(null)
 
@@ -53,8 +55,7 @@ const SignForm = () => {
       } else if (isPwdSignIn) {
         const response = await pwdSignIn(signInKey, password)
         console.log('Password Sign In Response:', response.message)
-
-        console.log('Access Token:', response.accessToken)
+        setAuth({ accessToken: response.accessToken })
         to('/')
       }
     } catch (error) {

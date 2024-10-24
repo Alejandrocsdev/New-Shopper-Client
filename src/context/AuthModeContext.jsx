@@ -1,5 +1,5 @@
 // 函式庫 (library)
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 const AuthModeContext = createContext()
 

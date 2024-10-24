@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom
 // 自訂函式 (custom function)
 import i18next from './utils/i18next'
 import { LangProvider } from './context/LangContext'
+import { AuthProvider } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
 import { ErrorProvider } from './context/ErrorContext'
 // 佈局組件
@@ -29,27 +30,29 @@ const LangRoutes = () => {
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <ErrorProvider>
-          <Routes>
-            <Route path="/:lang/*" element={<LangRoutes />}>
-              <Route path="" element={<AuthLayout />}>
-                <Route path="sign-up" element={<SignUp />} />
-                <Route path="sign-in" element={<SignIn />} />
-                <Route path="reset" element={<Reset />} />
-              </Route>
+      <ErrorProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <Routes>
+              <Route path="/:lang/*" element={<LangRoutes />}>
+                <Route path="" element={<AuthLayout />}>
+                  <Route path="sign-up" element={<SignUp />} />
+                  <Route path="sign-in" element={<SignIn />} />
+                  <Route path="reset" element={<Reset />} />
+                </Route>
 
-              <Route path="" element={<Layout />}>
-                <Route index element={<Home />} />
-              </Route>
+                <Route path="" element={<Layout />}>
+                  <Route index element={<Home />} />
+                </Route>
 
-              <Route path="*" element={<Navigate to="/" />} />
-            </Route>
-            {/* host/ => host/:lang */}
-            <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
-          </Routes>
-        </ErrorProvider>
-      </ThemeProvider>
+                <Route path="*" element={<Navigate to="/" />} />
+              </Route>
+              {/* host/ => host/:lang */}
+              <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
+            </Routes>
+          </ThemeProvider>
+        </AuthProvider>
+      </ErrorProvider>
     </BrowserRouter>
   )
 }
