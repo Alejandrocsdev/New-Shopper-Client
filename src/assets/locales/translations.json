@@ -130,8 +130,6 @@
         "autoSignInFail": "自動登入失敗",
         "pwdSignInFail": "密碼登入失敗",
         "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼",
-        "noRefreshToken": "查無刷新憑證",
-        "tokenRefreshFail": "存取憑證刷新失敗",
         "signInAgain": "請重新登入"
       }
     }
@@ -268,8 +266,6 @@
         "autoSignInFail": "Automatic sign-in failed",
         "pwdSignInFail": "Password sign-in failed",
         "missingPhoneOrOtp": "Missing phone number or OTP verification code",
-        "noRefreshToken": "No refresh token found",
-        "tokenRefreshFail": "Access token refresh failed",
         "signInAgain": "Please sign in again"
       }
     }
@@ -406,8 +402,6 @@
         "autoSignInFail": "Error en el inicio de sesión automático",
         "pwdSignInFail": "Error en el inicio de sesión con contraseña",
         "missingPhoneOrOtp": "Falta el número de teléfono o el código de verificación OTP",
-        "noRefreshToken": "No se encontró el token de actualización",
-        "tokenRefreshFail": "Error al actualizar el token de acceso",
         "signInAgain": "Por favor vuelva a iniciar sesión"
       }
     }

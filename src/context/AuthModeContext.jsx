@@ -22,22 +22,6 @@ export const AuthModeProvider = ({ children }) => {
     isReset
   }
 
-  // debug
-  switch (true) {
-    case modeStates.isPwdSignIn:
-      console.log('pwdSignIn')
-      break
-    case modeStates.isSmsSignIn:
-      console.log('smsSignIn')
-      break
-    case modeStates.isSignUp:
-      console.log('signUp')
-      break
-    case modeStates.isReset:
-      console.log('reset')
-      break
-  }
-
   return (
     <AuthModeContext.Provider value={{ mode, setMode, modeStates, toggleSmsSignIn }}>
       {children}

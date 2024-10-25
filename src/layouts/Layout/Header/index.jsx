@@ -2,6 +2,7 @@
 import S from './style.module.css'
 // 函式庫 (library)
 import { useAuth } from '../../../context/AuthContext'
+import { useSelector } from 'react-redux'
 // 組件 (component)
 import ProfileLink from './ProfileLink'
 import SignLink from './SignLink'
@@ -11,7 +12,7 @@ import Logo from '../../../components/Logo'
 
 // 頁首
 function Header() {
-  const { user } = useAuth().auth
+  const user = useSelector((state) => state.auth.user)
 
   return (
     <div className={S.headerWrapper}>

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { autoSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useError } from '../../../context/ErrorContext'
-import { useAuth } from '../../../context/AuthContext'
+import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
 import SubmitButton from '../../../components/SubmitButton'
@@ -18,14 +18,14 @@ function Step4() {
   const { user, to } = useAuthStep()
   const { id, username, avatar, phone } = user
   const { setErrMsg } = useError()
-  const { setAuth } = useAuth()
+  const { setAuth } = useRedux()
 
   // 處理表單提交事件
   const onAutoSignIn = async () => {
     try {
       const response = await autoSignIn(id)
       console.log('Response:', response.message)
-      setAuth({ accessToken: response.accessToken })
+      setAuth({ token: response.accessToken })
       to('/')
     } catch (err) {
       console.error(err.message)

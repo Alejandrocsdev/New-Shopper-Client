@@ -11,7 +11,7 @@ export const AuthStepProvider = ({ children }) => {
   const [step, setStep] = useState(0)
   const [user, setUser] = useState({})
   const location = useLocation()
-  const navigate = useLangNavigate()
+  const langNavigate = useLangNavigate()
 
   const to = (step, user = {}) => {
     if (Number.isInteger(step)) {
@@ -23,8 +23,13 @@ export const AuthStepProvider = ({ children }) => {
     else if (step === '-') {
       setStep((prevStep) => prevStep - 1)
     } 
+    else if (step === 'sign-in') {
+      const from = location.state?.from?.pathname
+      langNavigate(from || '/', { replace: true })
+      setStep(0)
+    }
     else if (step.startsWith('/')) {
-      navigate(step)
+      langNavigate(step)
       setStep(0)
     }
   

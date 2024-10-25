@@ -11,7 +11,7 @@ import { smsSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
 import { useError } from '../../../context/ErrorContext'
-import { useAuth } from '../../../context/AuthContext'
+import useRedux from '../../../hooks/useRedux'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件 (component)
 import OtpInput from './OtpInput'
@@ -25,7 +25,7 @@ function OtpForm() {
   const [formContext, setFormContext] = useState(null)
   const { phone } = user
   const { setErrMsg } = useError()
-  const { setAuth } = useAuth()
+  const { setAuth } = useRedux()
 
   const schema = Joi.object({
     otp: Joi.string().length(6).regex(/^\d+$/).required()
@@ -68,8 +68,8 @@ function OtpForm() {
       } else if (isSmsSignIn) {
         const response = await smsSignIn(phone, otp)
         console.log('SMS Sign In Response:', response.message)
-        setAuth({ accessToken: response.accessToken })
-        to('/')
+        setAuth({ token: response.accessToken })
+        to('sign-in')
       } else if (isReset) {
         const response = await verifyOtp(phone, otp)
         console.log('Verify OTP Response:', response.message)

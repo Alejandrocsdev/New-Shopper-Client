@@ -1,17 +1,16 @@
 // 模組樣式
 import S from './style.module.css'
-// 自訂函式 (custom function)
-import { sendOtp } from '../../../api/request/verif'
-import { pwdSignIn } from '../../../api/request/auth'
-import { useAuthStep } from '../../../context/AuthStepContext'
-import { useError } from '../../../context/ErrorContext'
 // 函式庫 (library)
 import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 // 自訂函式 (custom function)
-import { useAuth } from '../../../context/AuthContext'
+import { sendOtp } from '../../../api/request/verif'
+import { pwdSignIn } from '../../../api/request/auth'
+import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
+import { useError } from '../../../context/ErrorContext'
+import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import Form from '../../Form'
 import Input from '../../Input'
@@ -23,7 +22,7 @@ const SignForm = () => {
   const { t } = useTranslation()
   const { to } = useAuthStep()
   const { setErrMsg } = useError()
-  const { setAuth } = useAuth()
+  const { setAuth } = useRedux()
 
   const [formContext, setFormContext] = useState(null)
 
@@ -55,8 +54,8 @@ const SignForm = () => {
       } else if (isPwdSignIn) {
         const response = await pwdSignIn(signInKey, password)
         console.log('Password Sign In Response:', response.message)
-        setAuth({ accessToken: response.accessToken })
-        to('/')
+        setAuth({ token: response.accessToken })
+        to('sign-in')
       }
     } catch (error) {
       console.error(error.message)

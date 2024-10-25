@@ -8,8 +8,9 @@ const useLangNavigate = () => {
   const { lang } = useLang()
 
   const langNavigate = (path, options) => {
-    const prefixedPath = `/${lang}${path}`
-    navigate(prefixedPath, options)
+    const hasLangPrefix = path.startsWith(`/${lang}`)
+    const finalPath = hasLangPrefix ? path : `/${lang}${path}`
+    navigate(finalPath, options)
   }
 
   return langNavigate
