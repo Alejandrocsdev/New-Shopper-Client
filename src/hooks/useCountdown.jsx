@@ -30,7 +30,7 @@ const useCountdown = (initialCount, onFinish, options = { once: true }) => {
     }
 
     return () => clearInterval(timer)
-  }, [isCounting, count, onFinish, once])
+  }, [isCounting, count])
 
   // 倒數開始
   const startCountdown = () => {

@@ -1,9 +1,14 @@
 // 樣式 (css)
 import './assets/css/global.css'
 import './assets/css/font.css'
+// 工具 (utils)
+import { colorLog, colorError } from './utils/colorize'
 // 函式庫 (library)
+import { useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 // 自訂函式 (custom function)
+import { getAuthUser } from './api/request/user'
+import useRedux from './hooks/useRedux'
 import i18next from './utils/i18next'
 import { ThemeProvider } from './context/ThemeContext'
 import { ErrorProvider } from './context/ErrorContext'
@@ -22,6 +27,32 @@ import Reset from './pages/Reset'
 import Profile from './pages/Profile'
 
 function App() {
+  const { setAuth, token } = useRedux()
+  const triggerCount = useRef(0)
+
+  useEffect(() => {
+    const initializeAuth = async () => {
+      try {
+        const response = await getAuthUser()
+        colorLog('Receive {{[get /user/me]}} response:', 'orange', response.message)
+        colorLog('Receive {{[get /user/me]}} data:', 'orange', response.user)
+        setAuth({ user: response.user })
+      } catch (error) {
+        colorError('Catch {{[get /user/me]}} error:', 'orange', error.message)
+        triggerCount.current = 2
+      }
+    }
+
+    // 0 => 1. mount: null > token 1
+    // 1 => 1. token change: null > token 1 (prevent)
+    // 2 => 2. token change: token 1 > token 2
+    if (triggerCount.current !== 1) {
+      colorLog('Send {{[get /user/me]}} request', 'orange')
+      initializeAuth()
+    }
+    if (triggerCount.current < 2) triggerCount.current += 1
+  }, [token])
+
   return (
     <BrowserRouter>
       <ErrorProvider>

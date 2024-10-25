@@ -128,7 +128,7 @@
         "wrongSignInCredential": "輸入資料錯誤",
         "wrongPassword": "輸入密碼錯誤",
         "autoSignInFail": "自動登入失敗",
-        "pwdSignInFail": "密碼登入失敗",
+        "signInFail": "登入失敗",
         "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼",
         "signInAgain": "請重新登入"
       }
@@ -264,7 +264,7 @@
         "wrongPassword": "Incorrect password entered",
         "idNotSigned": "This ID is not registered",
         "autoSignInFail": "Automatic sign-in failed",
-        "pwdSignInFail": "Password sign-in failed",
+        "signInFail": "Sign in failed",
         "missingPhoneOrOtp": "Missing phone number or OTP verification code",
         "signInAgain": "Please sign in again"
       }
@@ -400,7 +400,7 @@
         "wrongPassword": "Contraseña incorrecta ingresada",
         "idNotSigned": "Este ID no está registrado",
         "autoSignInFail": "Error en el inicio de sesión automático",
-        "pwdSignInFail": "Error en el inicio de sesión con contraseña",
+        "signInFail": "Error en el inicio de sesión",
         "missingPhoneOrOtp": "Falta el número de teléfono o el código de verificación OTP",
         "signInAgain": "Por favor vuelva a iniciar sesión"
       }

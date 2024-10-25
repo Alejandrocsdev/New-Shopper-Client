@@ -22,7 +22,7 @@ const SignForm = () => {
   const { t } = useTranslation()
   const { to } = useAuthStep()
   const { setErrMsg } = useError()
-  const { setAuth } = useRedux()
+  const { setAuth, clearAuth } = useRedux()
 
   const [formContext, setFormContext] = useState(null)
 
@@ -40,20 +40,22 @@ const SignForm = () => {
   useEffect(() => {
     const reset = formContext?.reset
     if (reset) reset()
-  }, [isSignUp, isPwdSignIn, isSmsSignIn])
+  }, [isSmsSignIn])
 
   const onSubmit = async (data) => {
     const { signInKey, password, phone } = data
-    console.log('Sent Data:', data)
+    console.log('Sent form data:', data)
 
     try {
       if (isSignUp || isSmsSignIn) {
         const response = await sendOtp(phone)
-        console.log('Send OTP Response:', response.message)
+        console.log('Send OTP response:', response.message)
         to('+', { phone })
       } else if (isPwdSignIn) {
+        console.log('Send [post /auth/sign-in/pwd] request')
         const response = await pwdSignIn(signInKey, password)
-        console.log('Password Sign In Response:', response.message)
+        console.log('Receive [post /auth/sign-in/pwd] response:', response.message)
+        console.log('Receive [post /auth/sign-in/pwd] data:', response.accessToken)
         setAuth({ token: response.accessToken })
         to('sign-in')
       }
@@ -61,6 +63,7 @@ const SignForm = () => {
       console.error(error.message)
       if (isPwdSignIn) {
         setErrMsg(error.i18n)
+        clearAuth()
       } else {
         formContext.setError('root', { message: t(error.i18n) })
       }

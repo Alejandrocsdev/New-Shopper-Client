@@ -1,12 +1,10 @@
-import axiosRequest from '../axios'
+import axiosRequest from '../axiosRequest'
 
 const base = '/user'
 
 // Private Requests
-export const getAuthUser = (token) => {
-  return axiosRequest(true, 'get', `${base}/me`, {
-    headers: { Authorization: token ? `Bearer ${token}` : undefined }
-  })
+export const getAuthUser = () => {
+  return axiosRequest(true, 'get', `${base}/me`)
 }
 
 // Public Requests

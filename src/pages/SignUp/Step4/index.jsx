@@ -18,18 +18,20 @@ function Step4() {
   const { user, to } = useAuthStep()
   const { id, username, avatar, phone } = user
   const { setErrMsg } = useError()
-  const { setAuth } = useRedux()
+  const { setAuth, clearAuth } = useRedux()
 
   // 處理表單提交事件
   const onAutoSignIn = async () => {
     try {
       const response = await autoSignIn(id)
-      console.log('Response:', response.message)
+      console.log('Auto sign in response:', response.message)
+      console.log('Access token:', response.accessToken)
       setAuth({ token: response.accessToken })
       to('/')
     } catch (err) {
       console.error(err.message)
       setErrMsg(err.i18n)
+      clearAuth()
     }
   }
 

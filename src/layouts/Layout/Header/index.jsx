@@ -1,8 +1,7 @@
 // 樣式模組 (css module)
 import S from './style.module.css'
-// 函式庫 (library)
-import { useAuth } from '../../../context/AuthContext'
-import { useSelector } from 'react-redux'
+// 自訂函式 (custom function)
+import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import ProfileLink from './ProfileLink'
 import SignLink from './SignLink'
@@ -12,7 +11,7 @@ import Logo from '../../../components/Logo'
 
 // 頁首
 function Header() {
-  const user = useSelector((state) => state.auth.user)
+  const { user } = useRedux()
 
   return (
     <div className={S.headerWrapper}>

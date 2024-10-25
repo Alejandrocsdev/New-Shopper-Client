@@ -23,7 +23,7 @@ function Success() {
   const { count, startCountdown } = useCountdown(10, onRedirect, { once: true })
   const { id, phone, email } = user
   const { setErrMsg } = useError()
-  const { setAuth } = useRedux()
+  const { setAuth, clearAuth } = useRedux()
 
   useEffect(() => {
     startCountdown()
@@ -33,20 +33,22 @@ function Success() {
     if (isSignUp) {
       try {
         const response = await autoSignIn(id)
-        console.log('Auto Sign In Response:', response.message)
+        console.log('Auto sign in Response:', response.message)
+        console.log('Access token:', response.accessToken)
         setAuth({ token: response.accessToken })
         to('/')
       } catch (err) {
         console.error(err.message)
         setErrMsg(err.i18n)
+        clearAuth()
       }
     } else if (isReset && phone) {
       const response = await resetPwdPhone(phone)
-      console.log('Phone Notification Response:', response.message)
+      console.log('Phone notification response:', response.message)
       to('/sign-in')
     } else if (isReset && email) {
       const response = await resetPwdEmail(email)
-      console.log('Email Notification Response:', response.message)
+      console.log('Email notification response:', response.message)
       to('/sign-in')
     }
   }

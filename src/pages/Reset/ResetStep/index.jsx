@@ -36,15 +36,15 @@ function ResetStep() {
   const onSubmit = async (data) => {
     try {
       const { resetKey } = data
-      console.log('Sent Data:', data)
+      console.log('Sent form data:', data)
 
       if (isPhone) {
         const response = await sendOtp(resetKey, true)
-        console.log('Response:', response.message)
+        console.log('Send OTP response:', response.message)
         to('+', { phone: resetKey })
       } else {
         const response = await sendLink(resetKey, lang)
-        console.log('Response:', response.message)
+        console.log('Send link response:', response.message)
         to('+', { email: resetKey })
       }
     } catch (error) {

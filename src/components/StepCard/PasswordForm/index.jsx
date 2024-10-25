@@ -30,18 +30,18 @@ function PasswordForm() {
   const onSubmit = async (data) => {
     try {
       const { password } = data
-      console.log('Sent Data:', data)
+      console.log('Sent form data:', data)
 
       if (isSignUp) {
         const response = await signUp(phone, password)
-        console.log('Sign Up Response:', response.message)
+        console.log('Sign up response:', response.message)
 
         const { id } = response.user
         to('+', { id, phone })
       } else if (isReset) {
         const userInfo = phone ? `phone:${phone}` : `email:${email}`
         const response = await putPwdByInfo(userInfo, password)
-        console.log('Change Password Response:', response.message)
+        console.log('Change password response:', response.message)
         to('+', phone ? { phone } : { email })
       }
     } catch (error) {

@@ -22,12 +22,12 @@ function Error() {
 
       return () => clearTimeout(timer)
     }
-  }, [errMsg, setErrMsg])
+  }, [errMsg])
 
   // 導向其他頁面後後移除
   useEffect(() => {
     setErrMsg('')
-  }, [location.pathname, setErrMsg])
+  }, [location.pathname])
 
   if (!errMsg) {
     return null

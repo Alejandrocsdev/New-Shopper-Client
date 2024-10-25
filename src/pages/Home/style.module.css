@@ -4,24 +4,3 @@
   align-items: center;
   gap: 1rem;
 }
-
-.div1,
-.div2,
-.div3 {
-  width: 9rem;
-  color: var(--theme-primary-text);
-  border: .1rem solid var(--theme-primary-border);
-  text-align: center;
-}
-
-.div1 {
-  background-color: var(--theme-primary-background);
-}
-
-.div2 {
-  background-color: var(--theme-secondary-background);
-}
-
-.div3 {
-  background-color: var(--theme-tertiary-background);
-}

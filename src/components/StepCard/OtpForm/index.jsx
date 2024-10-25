@@ -25,7 +25,7 @@ function OtpForm() {
   const [formContext, setFormContext] = useState(null)
   const { phone } = user
   const { setErrMsg } = useError()
-  const { setAuth } = useRedux()
+  const { setAuth, clearAuth } = useRedux()
 
   const schema = Joi.object({
     otp: Joi.string().length(6).regex(/^\d+$/).required()
@@ -50,15 +50,15 @@ function OtpForm() {
   const onSubmit = async (data) => {
     try {
       const { otp } = data
-      console.log('Sent Data:', data)
+      console.log('Sent form data:', data)
 
       if (isSignUp) {
         const [otpResponse, userResponse] = await Promise.all([
           verifyOtp(phone, otp),
           findUserByInfo(`phone:${phone}`)
         ])
-        console.log('Verify OTP Response:', otpResponse.message)
-        console.log('Find User Response:', userResponse.message)
+        console.log('Verify OTP response:', otpResponse.message)
+        console.log('Find user response:', userResponse.message)
         if (userResponse.user) {
           const { id, username, avatar } = userResponse.user
           to(4, { id, username, avatar, phone })
@@ -67,18 +67,20 @@ function OtpForm() {
         }
       } else if (isSmsSignIn) {
         const response = await smsSignIn(phone, otp)
-        console.log('SMS Sign In Response:', response.message)
+        console.log('SMS sign in response:', response.message)
+        console.log('Access token:', response.accessToken)
         setAuth({ token: response.accessToken })
         to('sign-in')
       } else if (isReset) {
         const response = await verifyOtp(phone, otp)
-        console.log('Verify OTP Response:', response.message)
+        console.log('Verify OTP response:', response.message)
         to('+', { phone })
       }
     } catch (error) {
       console.error(error.message)
       if (isSmsSignIn) {
         setErrMsg(error.i18n)
+        clearAuth()
       } else {
         formContext.setError('root', { message: t(error.i18n) })
       }

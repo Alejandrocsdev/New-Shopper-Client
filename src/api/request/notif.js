@@ -1,4 +1,4 @@
-import axiosRequest from '../axios'
+import axiosRequest from '../axiosRequest'
 
 const base = '/notif'
 
