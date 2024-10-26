@@ -11,7 +11,8 @@ const axiosRequest = async (isPrivate, method, url, data) => {
   } catch (error) {
     throw {
       message: error.response?.data?.message || error.message || '不明錯誤',
-      i18n: error.response?.data?.i18n || 'error.defaultError'
+      i18n: error.response?.data?.i18n || 'error.defaultError',
+      endpoint: `[${error.config.method} ${error.config.url}]`
     }
   }
 }

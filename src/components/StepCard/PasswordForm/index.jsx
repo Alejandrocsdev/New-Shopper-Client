@@ -5,7 +5,7 @@ import Joi from 'joi'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
-import { signUp } from '../../../api/request/auth'
+import { signUp, signOut } from '../../../api/request/auth'
 import { putPwdByInfo } from '../../../api/request/user'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
@@ -33,19 +33,27 @@ function PasswordForm() {
       console.log('Sent form data:', data)
 
       if (isSignUp) {
+        console.log('Send [post /auth/sign-up] request')
         const response = await signUp(phone, password)
-        console.log('Sign up response:', response.message)
-
+        console.log('Receive [post /auth/sign-up] response:', response.message)
+        
         const { id } = response.user
         to('+', { id, phone })
       } else if (isReset) {
         const userInfo = phone ? `phone:${phone}` : `email:${email}`
-        const response = await putPwdByInfo(userInfo, password)
-        console.log('Change password response:', response.message)
+
+        console.log('Send [put /user/pwd/:userInfo] request')
+        const resetResponse = await putPwdByInfo(userInfo, password)
+        console.log('Receive [put /user/pwd/:userInfo] response:', resetResponse.message)
+
+        console.log('Send [post /auth/sign-out] request')
+        const signOutResponse = await signOut()
+        console.log('Receive [post /auth/sign-out] response:', signOutResponse.message)
+
         to('+', phone ? { phone } : { email })
       }
     } catch (error) {
-      console.error(error.message)
+      console.error(`Catch ${error.endpoint} error:`,error.message)
       formContext.setError('root', { message: t(error.i18n) })
     }
   }

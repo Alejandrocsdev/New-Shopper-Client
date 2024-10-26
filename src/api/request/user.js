@@ -3,9 +3,6 @@ import axiosRequest from '../axiosRequest'
 const base = '/user'
 
 // Private Requests
-export const getAuthUser = () => {
-  return axiosRequest(true, 'get', `${base}/me`)
-}
 
 // Public Requests
 export const findUserByInfo = (userInfo) => {

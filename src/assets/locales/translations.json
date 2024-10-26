@@ -93,14 +93,6 @@
         "signUp": "最後一步! 請設定您的密碼以完成登入",
         "reset": "設定一組新密碼給"
       },
-      "encrypt": {
-        "hashFail": "雜湊失敗",
-        "hashCompareFail": "雜湊比對失敗",
-        "secretGenerateFail": "密鑰生成失敗",
-        "otpGenerateFail": "生成OTP失敗",
-        "randowmCredentialFail": "隨機帳號生成失敗",
-        "uniqueUsernameFail": "生成唯一帳號失敗"
-      },
       "error": {
         "defaultError": "發生了未知錯誤",
         "routeNotFound": "查無此路由",
@@ -227,14 +219,6 @@
       "passwordForm": {
         "signUp": "Final step! Please set your password to complete the sign-up.",
         "reset": "Set a new password for"
-      },
-      "encrypt": {
-        "hashFail": "Hashing failed",
-        "hashCompareFail": "Hash comparison failed",
-        "secretGenerateFail": "Secret key generation failed",
-        "otpGenerateFail": "OTP generation failed",
-        "randowmCredentialFail": "Failed to generate random credentials.",
-        "uniqueUsernameFail": "Failed to generate a unique username."
       },
       "error": {
         "defaultError": "An unknown error occurred",
@@ -363,14 +347,6 @@
       "passwordForm": {
         "signUp": "¡Último paso! Por favor, establece tu contraseña para completar el registro.",
         "reset": "Establece una nueva contraseña para"
-      },
-      "encrypt": {
-        "hashFail": "Error en la generación de hash",
-        "hashCompareFail": "Error en la comparación de hash",
-        "secretGenerateFail": "Error en la generación de clave secreta",
-        "otpGenerateFail": "Error en la generación de OTP",
-        "randowmCredentialFail": "Error al generar credenciales aleatorias.",
-        "uniqueUsernameFail": "Error al generar un nombre de usuario único."
       },
       "error": {
         "defaultError": "Ocurrió un error desconocido",

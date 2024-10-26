@@ -25,6 +25,7 @@
     "axios": "^1.7.7",
     "i18next": "^23.16.0",
     "joi": "^17.13.3",
+    "jwt-decode": "^4.0.0",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
     "react-i18next": "^15.0.3",

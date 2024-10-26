@@ -38,8 +38,11 @@ function OtpForm() {
   const onResend = async () => {
     try {
       formContext.clearErrors('root')
+
+      console.log('Send [post /verif/send/otp] request')
       const response = await sendOtp(phone)
-      console.log('Resend OTP Response:', response.message)
+      console.log('Receive [post /verif/send/otp] Response:', response.message)
+
       startCountdown()
     } catch (error) {
       console.error(error.message)
@@ -53,12 +56,15 @@ function OtpForm() {
       console.log('Sent form data:', data)
 
       if (isSignUp) {
+        console.log('Send [post /verif/verify/otp] request')
+        console.log('Send [get /user/find/:userInfo] request')
         const [otpResponse, userResponse] = await Promise.all([
           verifyOtp(phone, otp),
           findUserByInfo(`phone:${phone}`)
         ])
-        console.log('Verify OTP response:', otpResponse.message)
-        console.log('Find user response:', userResponse.message)
+        console.log('Receive [post /verif/verify/otp] response:', otpResponse.message)
+        console.log('Receive [get /user/find/:userInfo] response:', userResponse.message)
+
         if (userResponse.user) {
           const { id, username, avatar } = userResponse.user
           to(4, { id, username, avatar, phone })
@@ -66,18 +72,22 @@ function OtpForm() {
           to('+', { phone })
         }
       } else if (isSmsSignIn) {
+        console.log('Send [post /auth/sign-in/sms] request')
         const response = await smsSignIn(phone, otp)
-        console.log('SMS sign in response:', response.message)
-        console.log('Access token:', response.accessToken)
+        console.log('Receive [post /auth/sign-in/sms] response:', response.message)
+        console.log('Receive [post /auth/sign-in/sms] data:', userResponse.accessToken)
+
         setAuth({ token: response.accessToken })
         to('sign-in')
       } else if (isReset) {
+        console.log('Send [post /verif/verify/otp] request')
         const response = await verifyOtp(phone, otp)
-        console.log('Verify OTP response:', response.message)
+        console.log('Receive [post /verif/verify/otp] response:', response.message)
+        
         to('+', { phone })
       }
     } catch (error) {
-      console.error(error.message)
+      console.error(`Catch ${error.endpoint} error:`,error.message)
       if (isSmsSignIn) {
         setErrMsg(error.i18n)
         clearAuth()

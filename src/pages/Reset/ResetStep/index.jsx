@@ -39,16 +39,20 @@ function ResetStep() {
       console.log('Sent form data:', data)
 
       if (isPhone) {
+        console.log('Send [post /verif/send/otp] request')
         const response = await sendOtp(resetKey, true)
-        console.log('Send OTP response:', response.message)
+        console.log('Receive [post /verif/send/otp] response:', response.message)
+
         to('+', { phone: resetKey })
       } else {
+        console.log('Send [post /verif/send/link] request')
         const response = await sendLink(resetKey, lang)
-        console.log('Send link response:', response.message)
+        console.log('Receive [post /verif/send/link] response:', response.message)
+        
         to('+', { email: resetKey })
       }
     } catch (error) {
-      console.error(error.message)
+      console.error(`Catch ${error.endpoint} error:`,error.message)
       formContext.setError('root', { message: t(error.i18n) })
     }
   }

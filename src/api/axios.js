@@ -5,16 +5,19 @@ import { store } from '../redux/store'
 import { setCredentials, clearCredentials } from '../redux/authSlice'
 // 工具 (utils)
 import { backUrl } from '../utils/url'
-import { colorLog } from '../utils/colorize'
 // Public
 export const axiosPublic = axios.create({ baseURL: backUrl })
 // Private
 const axiosPrivate = axios.create({ baseURL: backUrl, withCredentials: true })
+// Refresh Token
+export const refreshToken = async () => {
+  return await axios.post(`${backUrl}/auth/refresh`, {}, { withCredentials: true })
+}
 
 // Request Interceptor
 axiosPrivate.interceptors.request.use(
   (config) => {
-    colorLog('Request interceptor:', 'green', config)
+    console.log('%cRequest interceptor:', 'color: green;', config)
     const token = store.getState().auth.token
     // 有 授權憑證 即發送 認證標頭
     if (token) config.headers['Authorization'] = `Bearer ${token}`
@@ -26,7 +29,7 @@ axiosPrivate.interceptors.request.use(
 // Response Interceptor
 axiosPrivate.interceptors.response.use(
   (response) => {
-    colorLog('Response interceptor:', 'green', response)
+    console.log('%cResponse interceptor:', 'color: green;', response)
     return response
   },
   async (error) => {
@@ -44,23 +47,23 @@ axiosPrivate.interceptors.response.use(
 
       try {
         // 發送刷新請求
-        colorLog('Send {{[post /auth/refresh]}} request', 'aqua')
-        const refreshResponse = await axios.post(`${backUrl}/auth/refresh`, {}, { withCredentials: true })
+        console.log('%cSend [post /auth/refresh] request', 'color: aqua;')
+        const refreshResponse = await refreshToken()
 
         // 取得刷新後憑證
         const newToken = refreshResponse.data.accessToken
-        colorLog('Receive {{[post /auth/refresh]}} data:', 'aqua', newToken)
+        console.log('%cReceive [post /auth/refresh] data:', 'color: aqua;', newToken)
 
         // 存儲憑證
         store.dispatch(setCredentials({ token: newToken }))
         
         // 重新發送請求
-        colorLog(`Retry {{[${method} ${url}]}} request`, 'yellow')
+        console.log(`%cRetry [${method} ${url}] request`, 'color: yellow;')
         originalRequest.headers['Authorization'] = `Bearer ${newToken}`
         return axiosPrivate(originalRequest)
       } catch (refreshError) {
         // 刷新憑證失敗
-        colorLog('Catch {{[post /auth/refresh]}} error:', 'aqua', refreshError.response.data.message)
+        console.log('%cCatch [post /auth/refresh] error:', 'color: aqua;', refreshError.response.data.message)
 
         // 移除用戶資料
         store.dispatch(clearCredentials())
