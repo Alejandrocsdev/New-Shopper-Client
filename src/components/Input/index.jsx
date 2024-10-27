@@ -1,4 +1,4 @@
-// 模組樣式
+// 模組樣式 (module css)
 import S from './style.module.css'
 // 函式庫 (library)
 import { useState, useEffect } from 'react'

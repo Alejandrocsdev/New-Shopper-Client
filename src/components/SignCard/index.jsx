@@ -1,4 +1,4 @@
-// 樣式模組 (css module)
+// 模組樣式 (module css)
 import S from './style.module.css'
 // 函式庫 (library)
 import { Trans, useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-// 模組樣式
+// 模組樣式 (module css)
 import S from './style.module.css'
 // 組件 (component)
 import Icon from '../Icon'

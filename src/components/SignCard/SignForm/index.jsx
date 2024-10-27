@@ -40,7 +40,7 @@ const SignForm = () => {
   useEffect(() => {
     const reset = formContext?.reset
     if (reset) reset()
-  }, [isSmsSignIn])
+  }, [isSignIn, isPwdSignIn, isSmsSignIn])
 
   const onSubmit = async (data) => {
     const { signInKey, password, phone } = data
@@ -84,7 +84,6 @@ const SignForm = () => {
           name="signInKey"
           placeholder={t('input.phoneUserEmail')}
           errMsg={t('input.fillInput')}
-          maxLength="16"
         />
       )}
 

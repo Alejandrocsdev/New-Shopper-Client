@@ -1,17 +1,21 @@
-// 模組樣式
+// 模組樣式 (module css)
 import S from './style.module.css'
-// PNG 圖檔
+// 工具 (utils)
+import { backUrl } from '../../../utils/url'
+// 圖檔 (image)
 import facebookPng from '../../../assets/img/thirdParty/facebook.png'
 import googlePng from '../../../assets/img/thirdParty/google.png'
+// 組件 (component)
+import Anchor from '../../Anchor'
 
 // 第三方 登入 / 註冊
 const ThirdPartySign = () => {
   return (
     <div className={S.thirdParty}>
-      <button className={S.button}>
+      <Anchor style={S.button} ext={`${backUrl}/auth/sign-in/facebook`} target="_self">
         <img className={S.logo} src={facebookPng} />
         <div className={S.text}>Facebook</div>
-      </button>
+      </Anchor>
       <button className={S.button}>
         <img className={S.logo} src={googlePng} />
         <div className={S.text}>Google</div>
