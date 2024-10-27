@@ -16,10 +16,10 @@ const ThirdPartySign = () => {
         <img className={S.logo} src={facebookPng} />
         <div className={S.text}>Facebook</div>
       </Anchor>
-      <button className={S.button}>
+      <Anchor style={S.button} ext={`${backUrl}/auth/sign-in/gmail`} target="_self">
         <img className={S.logo} src={googlePng} />
         <div className={S.text}>Google</div>
-      </button>
+      </Anchor>
     </div>
   )
 }
