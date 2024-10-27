@@ -39,7 +39,6 @@ function OtpForm() {
     try {
       formContext.clearErrors('root')
 
-      console.log('Send [post /verif/send/otp] request')
       const response = await sendOtp(phone)
       console.log('Receive [post /verif/send/otp] Response:', response.message)
 
@@ -56,8 +55,6 @@ function OtpForm() {
       console.log('Sent form data:', data)
 
       if (isSignUp) {
-        console.log('Send [post /verif/verify/otp] request')
-        console.log('Send [get /user/find/:userInfo] request')
         const [otpResponse, userResponse] = await Promise.all([
           verifyOtp(phone, otp),
           findUserByInfo(`phone:${phone}`)
@@ -72,7 +69,6 @@ function OtpForm() {
           to('+', { phone })
         }
       } else if (isSmsSignIn) {
-        console.log('Send [post /auth/sign-in/sms] request')
         const response = await smsSignIn(phone, otp)
         console.log('Receive [post /auth/sign-in/sms] response:', response.message)
         console.log('Receive [post /auth/sign-in/sms] data:', userResponse.accessToken)
@@ -80,7 +76,6 @@ function OtpForm() {
         setAuth({ token: response.accessToken })
         to('sign-in')
       } else if (isReset) {
-        console.log('Send [post /verif/verify/otp] request')
         const response = await verifyOtp(phone, otp)
         console.log('Receive [post /verif/verify/otp] response:', response.message)
         

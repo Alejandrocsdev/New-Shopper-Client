@@ -48,13 +48,11 @@ const SignForm = () => {
 
     try {
       if (isSignUp || isSmsSignIn) {
-        console.log('Send [post /verif/send/otp] request')
         const response = await sendOtp(phone)
         console.log('Receive [post /verif/send/otp] response:', response.message)
 
         to('+', { phone })
       } else if (isPwdSignIn) {
-        console.log('Send [post /auth/sign-in/pwd] request')
         const response = await pwdSignIn(signInKey, password)
         console.log('Receive [post /auth/sign-in/pwd] response:', response.message)
         console.log('Receive [post /auth/sign-in/pwd] data:', response.accessToken)

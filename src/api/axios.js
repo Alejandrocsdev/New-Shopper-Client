@@ -10,7 +10,8 @@ export const axiosPublic = axios.create({ baseURL: backUrl })
 // Private
 const axiosPrivate = axios.create({ baseURL: backUrl, withCredentials: true })
 // Refresh Token
-export const refreshToken = async () => {
+export const refreshToken = async (name) => {
+  console.log(`%cSend [post /auth/refresh] request ${name}`, 'color: aqua;')
   return await axios.post(`${backUrl}/auth/refresh`, {}, { withCredentials: true })
 }
 
@@ -47,8 +48,7 @@ axiosPrivate.interceptors.response.use(
 
       try {
         // 發送刷新請求
-        console.log('%cSend [post /auth/refresh] request', 'color: aqua;')
-        const refreshResponse = await refreshToken()
+        const refreshResponse = await refreshToken('(Interceptors)')
 
         // 取得刷新後憑證
         const newToken = refreshResponse.data.accessToken

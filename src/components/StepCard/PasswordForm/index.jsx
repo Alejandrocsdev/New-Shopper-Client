@@ -33,7 +33,6 @@ function PasswordForm() {
       console.log('Sent form data:', data)
 
       if (isSignUp) {
-        console.log('Send [post /auth/sign-up] request')
         const response = await signUp(phone, password)
         console.log('Receive [post /auth/sign-up] response:', response.message)
         
@@ -42,11 +41,9 @@ function PasswordForm() {
       } else if (isReset) {
         const userInfo = phone ? `phone:${phone}` : `email:${email}`
 
-        console.log('Send [put /user/pwd/:userInfo] request')
         const resetResponse = await putPwdByInfo(userInfo, password)
         console.log('Receive [put /user/pwd/:userInfo] response:', resetResponse.message)
 
-        console.log('Send [post /auth/sign-out] request')
         const signOutResponse = await signOut()
         console.log('Receive [post /auth/sign-out] response:', signOutResponse.message)
 

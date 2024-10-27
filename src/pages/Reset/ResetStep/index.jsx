@@ -39,13 +39,11 @@ function ResetStep() {
       console.log('Sent form data:', data)
 
       if (isPhone) {
-        console.log('Send [post /verif/send/otp] request')
         const response = await sendOtp(resetKey, true)
         console.log('Receive [post /verif/send/otp] response:', response.message)
 
         to('+', { phone: resetKey })
       } else {
-        console.log('Send [post /verif/send/link] request')
         const response = await sendLink(resetKey, lang)
         console.log('Receive [post /verif/send/link] response:', response.message)
         

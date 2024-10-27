@@ -23,7 +23,6 @@ function Step4() {
   // 處理表單提交事件
   const onAutoSignIn = async () => {
     try {
-      console.log('Send [post /auth/sign-in/auto/:userId] request')
       const response = await autoSignIn(id)
       console.log('Receive [post /auth/sign-in/auto/:userId] response:', response.message)
       console.log('Receive [post /auth/sign-in/auto/:userId] data:', response.accessToken)

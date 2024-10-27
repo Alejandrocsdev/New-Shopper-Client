@@ -1,5 +1,7 @@
 // 模組樣式
 import S from './style.module.css'
+// 工具 (util)
+import { promiseQueue } from '../../utils/promiseQueue'
 // 函式庫 (library)
 import { useEffect, useRef } from 'react'
 import { Outlet } from 'react-router-dom'
@@ -13,14 +15,13 @@ import Error from '../../components/Error'
 
 // 佈局組件
 function Layout() {
-    const { setAuth, clearAuth, user, token } = useRedux()
+  const { setAuth, clearAuth, user, token } = useRedux()
   const triggerCount = useRef(0)
 
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        console.log('%cSend [get /auth/me] request', 'color: orange;')
-        const response = await getAuthUser()
+        const response = await promiseQueue(getAuthUser)
         console.log('%cReceive [get /user/me] response:', 'color: orange;', response.message)
         console.log('%cReceive [get /user/me] data:', 'color: orange;', response.user)
         setAuth({ user: response.user })

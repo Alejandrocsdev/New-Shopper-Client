@@ -32,7 +32,6 @@ function Success() {
   async function onRedirect() {
     try {
       if (isSignUp) {
-        console.log('Send [post /auth/sign-in/auto/:userId] request')
         const response = await autoSignIn(id)
         console.log('Receive [post /auth/sign-in/auto/:userId] response:', response.message)
         console.log('Receive [post /auth/sign-in/auto/:userId] data:', response.accessToken)
@@ -40,13 +39,11 @@ function Success() {
         setAuth({ token: response.accessToken })
         to('/')
       } else if (isReset && phone) {
-        console.log('Send [post /reset/pwd/phone] request')
         const response = await resetPwdPhone(phone)
         console.log('Receive [post /reset/pwd/phone] response:', response.message)
 
         to('/sign-in')
       } else if (isReset && email) {
-        console.log('Send [post /reset/pwd/email] request')
         const response = await resetPwdEmail(email)
         console.log('Receive [post /reset/pwd/email] response:', response.message)
         
