@@ -64,7 +64,7 @@ function OtpForm() {
 
         if (userResponse.user) {
           const { id, username, avatar } = userResponse.user
-          to(4, { id, username, avatar, phone })
+          to(4, { id, username, avatar: avatar.link, phone })
         } else {
           to('+', { phone })
         }

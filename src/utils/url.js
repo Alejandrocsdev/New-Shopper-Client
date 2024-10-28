@@ -9,5 +9,6 @@ const {
 
 const isProduction = VITE_NODE_ENV === 'production'
 
-export const backUrl = isProduction ? VITE_BACK_PROD_BASE_URL : VITE_BACK_DEV_BASE_URL
+export const backUrl = isProduction ? VITE_BACK_PROD_BASE_URL + '/api' : VITE_BACK_DEV_BASE_URL + '/api'
+
 export const frontUrl = isProduction ? VITE_FRONT_PROD_BASE_URL : VITE_FRONT_DEV_BASE_URL

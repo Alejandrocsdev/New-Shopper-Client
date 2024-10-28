@@ -122,7 +122,12 @@
         "autoSignInFail": "自動登入失敗",
         "signInFail": "登入失敗",
         "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼",
-        "signInAgain": "請重新登入"
+        "signInAgain": "請重新登入",
+        "facebookSignInFail": "臉書登入失敗",
+        "gmailSignInFail": "Gmail登入失敗",
+        "removeTempImageFail": "移除本地暫存圖檔失敗",
+        "uploadImageFail": "本地圖檔上傳失敗",
+        "removeImageFail": "移除圖檔失敗"
       }
     }
   },
@@ -250,7 +255,12 @@
         "autoSignInFail": "Automatic sign-in failed",
         "signInFail": "Sign in failed",
         "missingPhoneOrOtp": "Missing phone number or OTP verification code",
-        "signInAgain": "Please sign in again"
+        "signInAgain": "Please sign in again",
+        "facebookSignInFail": "Facebook sign-in failed",
+        "gmailSignInFail": "Gmail sign-in failed",
+        "removeTempImageFail": "Failed to remove local temporary image file",
+        "uploadImageFail": "Failed to upload local image file",
+        "removeImageFail": "Failed to remove image file"
       }
     }
   },
@@ -378,7 +388,12 @@
         "autoSignInFail": "Error en el inicio de sesión automático",
         "signInFail": "Error en el inicio de sesión",
         "missingPhoneOrOtp": "Falta el número de teléfono o el código de verificación OTP",
-        "signInAgain": "Por favor vuelva a iniciar sesión"
+        "signInAgain": "Por favor vuelva a iniciar sesión",
+        "facebookSignInFail": "Error en el inicio de sesión de Facebook",
+        "gmailSignInFail": "Error en el inicio de sesión de Gmail",
+        "removeTempImageFail": "Error al eliminar el archivo de imagen temporal local",
+        "uploadImageFail": "Error al subir el archivo de imagen local",
+        "removeImageFail": "Error al eliminar el archivo de imagen"
       }
     }
   }

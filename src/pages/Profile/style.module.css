@@ -65,6 +65,7 @@
 }
 
 .infoContainer {
+  padding-top: 2rem;
   display: flex;
 }
 
@@ -88,7 +89,23 @@
   border-radius: 50%;
 }
 
-.avatarContainer>button {
+.upload {
+  width: 100%;
+}
+
+.upload>button {
+  width: 100%;
+  padding: .5rem;
+  font-size: 1.25rem;
+  background-color: bisque;
+  cursor: pointer;
+}
+
+.upload>button:hover {
+  background-color: rgb(175, 153, 126);
+}
+
+/* .avatarContainer>button {
   width: 100%;
   padding: .5rem;
   font-size: 1.25rem;
@@ -98,4 +115,4 @@
 
 .avatarContainer>button:hover {
   background-color: rgb(175, 153, 126);
-}
+} */

@@ -1,5 +1,7 @@
 // 模組樣式
 import S from './style.module.css'
+// 工具 (utils)
+import { publicAvatarSrc } from '../../../utils/avatarSrc'
 // 函式庫 (library)
 import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
@@ -10,8 +12,6 @@ import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
 import SubmitButton from '../../../components/SubmitButton'
-// 圖檔
-import avatarPng from '../../../assets/img/default/avatar.png'
 
 function Step4() {
   const { t } = useTranslation()
@@ -38,7 +38,7 @@ function Step4() {
   return (
     <StepCard title={t('title.isYourAccount?')}>
       <div className={S.avatarContainer}>
-        <img className={S.avatar} src={avatar || avatarPng} />
+        <img className={S.avatar} src={publicAvatarSrc(avatar)} />
       </div>
       <div className={S.username}>{username}</div>
       <div className={S.phone}>{phone}</div>
