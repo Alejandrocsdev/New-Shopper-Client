@@ -2,20 +2,15 @@ name: Deploy Action
 
 on:
   workflow_dispatch:
-    inputs:
-      action:
-        required: true
-        default: 'deploy'
-        options:
-          - deploy
 
 jobs:
-  ci:
+  cd:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
       - uses: actions/checkout@v3
+
       - name: Deploy
-        if: github.ref == 'refs/heads/main'
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
