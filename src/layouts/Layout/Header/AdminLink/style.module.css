@@ -1,0 +1,14 @@
+.adminLink {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+}
+
+.admin {
+  font-size: 1.125rem;
+}
+
+.admin:hover {
+  color: var(--link-text-hover);
+}

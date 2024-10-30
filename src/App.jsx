@@ -20,6 +20,7 @@ import SignIn from './pages/SignIn'
 import Reset from './pages/Reset'
 // 保護頁面 (private pages)
 import Profile from './pages/Profile'
+import Admin from './pages/Admin'
 
 function App() {
   return (
@@ -40,8 +41,12 @@ function App() {
                 <Route index element={<Home />} />
 
                 {/* Protected Routes */}
-                <Route element={<ProtectedRoutes />}>
+                <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
                   <Route path="profile" element={<Profile />} />
+                </Route>
+
+                <Route element={<ProtectedRoutes allowedRoles={['admin', 'editor', 'viewer']} />}>
+                  <Route path="admin" element={<Admin />} />
                 </Route>
               </Route>
 

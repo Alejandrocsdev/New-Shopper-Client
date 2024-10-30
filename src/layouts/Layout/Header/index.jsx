@@ -6,6 +6,7 @@ import { privateAvatarSrc } from '../../../utils/avatarSrc'
 import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import ProfileLink from './ProfileLink'
+import AdminLink from './AdminLink'
 import SignLink from './SignLink'
 import ThemeToggle from './ThemeToggle'
 import LangDrop from './LangDrop'
@@ -15,12 +16,19 @@ import Logo from '../../../components/Logo'
 function Header() {
   const { user } = useRedux()
   const avatar = privateAvatarSrc(user?.avatar?.link)
+  const allowedRoles = ['admin', 'editor', 'viewer']
+  let isAllowed
+  if (user) {
+    const roles = user.roles.map((role) => role.name)
+    isAllowed = roles.some((role) => allowedRoles.includes(role))
+  }
 
   return (
     <div className={S.headerWrapper}>
       <nav className={S.nav}>
         <div className={S.navLeft}></div>
         <div className={S.navRight}>
+          {isAllowed && <AdminLink />}
           {user && <ProfileLink avatar={avatar} username={user?.username} />}
           {!user && <SignLink />}
           <ThemeToggle />

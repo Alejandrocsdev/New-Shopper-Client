@@ -9,3 +9,12 @@ export const isTokenExpired = (token) => {
     return true
   }
 }
+
+export const isAllowed = (token, allowedRoles) => {
+  try {
+    const { roles } = jwtDecode(token)
+    return roles.some(role => allowedRoles.includes(role))
+  } catch (error) {
+    return false
+  }
+}

@@ -1,5 +1,5 @@
 // 工具 (util)
-import { isTokenExpired } from '../utils/isTokenExpired'
+import { isTokenExpired, isAllowed } from '../utils/decode'
 import { promiseQueue } from '../utils/promiseQueue'
 // 函式庫 (library)
 import { useLocation, Outlet, Navigate } from 'react-router-dom'
@@ -9,7 +9,7 @@ import { useLang } from '../context/LangContext'
 import { refreshToken } from '../api/axios'
 import useRedux from '../hooks/useRedux'
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes = ({ allowedRoles }) => {
   const { setAuth, clearAuth, token } = useRedux()
   const location = useLocation()
   const { lang } = useLang()
@@ -18,15 +18,20 @@ const ProtectedRoutes = () => {
 
   useEffect(() => {
     const routesAuth = async () => {
-      if (token && !isTokenExpired(token)) {
+      if (token && !isTokenExpired(token) && isAllowed(token, allowedRoles)) {
         setState('valid')
       } else {
         try {
           const response = await promiseQueue(() => refreshToken('(ProtectedRoutes)'))
           console.log('%cReceive [post /auth/refresh] response (Protected Routes):', 'color: aqua;', response.data.message)
           console.log('%cReceive [post /auth/refresh] data (Protected Routes):', 'color: aqua;', response.data.accessToken)
-          setAuth({ token: response.data.accessToken })
-          setState('valid')
+          if (isAllowed(response.data.accessToken, allowedRoles)) {
+            setAuth({ token: response.data.accessToken })
+            setState('valid')
+          } else {
+            clearAuth()
+            setState('invalid')
+          }
         } catch (error) {
           console.error('%cCatch [post /auth/refresh] error (Protected Routes):', 'color: aqua;', error.response.data.message)
           clearAuth()
@@ -39,7 +44,7 @@ const ProtectedRoutes = () => {
 
   if (state === 'loading') return null
 
-  return state === 'valid'
+  return state === 'valid' 
     ? <Outlet />
     : <Navigate to={`/${lang}/sign-in`} state={{ from: location }} replace />
 }
