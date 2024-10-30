@@ -14,6 +14,7 @@ function Profile() {
   const langNavigate = useLangNavigate()
   const { clearAuth, user } = useRedux()
   const avatar = privateAvatarSrc(user?.avatar?.link)
+  console.log('avatar', avatar)
   
   const onSignOut = async () => {
     const response = await signOut()

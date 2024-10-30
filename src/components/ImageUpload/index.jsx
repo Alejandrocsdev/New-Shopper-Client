@@ -45,6 +45,7 @@ function ImageUpload() {
       setAuth({ user: userResponse.user })
     } catch (error) {
       console.error('Error uploading file:', error)
+      setFile(null)
     } finally {
       setIsLoading(false)
       setFile(null)
