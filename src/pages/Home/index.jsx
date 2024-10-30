@@ -7,8 +7,7 @@ import Anchor from '../../components/Anchor'
 function Home() {
   return (
     <main className={S.main}>
-      <Anchor int="/sign-in">Sign In</Anchor>
-      <Anchor int="/profile">Profile</Anchor>
+      <div>Home</div>
     </main>
   )
 }

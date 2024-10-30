@@ -3,7 +3,7 @@ import axiosRequest from '../axiosRequest'
 const base = '/user'
 
 // Private Requests
-export const putUser = (formData) => {
+export const putUserImage = (formData) => {
   console.log('Send [put /user] request')
   return axiosRequest(true, 'put', `${base}`, formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
