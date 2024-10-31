@@ -18,8 +18,10 @@ function PaymentButton({ orderId, TotalAmount, ItemName }) {
       const { ecPayParams } = response
 
       const form = document.createElement('form')
-      form.setAttribute('method', 'post')
-      form.setAttribute('action', 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5')
+      form.method = 'POST';
+      form.action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
+      // form.setAttribute('method', 'post')
+      // form.setAttribute('action', 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5')
 
       Object.keys(ecPayParams).forEach((key) => {
         const input = document.createElement('input')
