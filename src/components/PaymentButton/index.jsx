@@ -1,16 +1,14 @@
 // 模組樣式 (module css)
 import S from './style.module.css'
-// 函式庫 (library)
 // 自訂函式 (custom function)
 import { payment } from '../../api/request/ecpay'
-// 組件 (component)
+// 環境變數
+const { VITE_ECPAY_API } = import.meta.env
 
 // 表單樣板: 密碼登入樣板 / 簡訊登入樣板 / 註冊樣板
 function PaymentButton({ orderId, TotalAmount, ItemName }) {
-  console.log('PaymentButton', orderId)
   const onPayment = async () => {
     try {
-      // Send payment request to backend
       const response = await payment(orderId, TotalAmount, ItemName)
       console.log('Receive [get /ecpay/payment] response:', response.message)
       console.log('Receive [get /ecpay/payment] data:', response.ecPayParams)
@@ -18,10 +16,8 @@ function PaymentButton({ orderId, TotalAmount, ItemName }) {
       const { ecPayParams } = response
 
       const form = document.createElement('form')
-      form.method = 'POST';
-      form.action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
-      // form.setAttribute('method', 'post')
-      // form.setAttribute('action', 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5')
+      form.method = 'POST'
+      form.action = VITE_ECPAY_API
 
       Object.keys(ecPayParams).forEach((key) => {
         const input = document.createElement('input')

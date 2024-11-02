@@ -28,9 +28,6 @@ function ImageUpload() {
   const handleFileUpload = async () => {
     if (!file) return
 
-    // const confirmUpload = window.confirm('text')
-    // if (!confirmUpload) return
-
     setIsLoading(true)
     const formData = new FormData()
     formData.append('image', file)
@@ -44,7 +41,7 @@ function ImageUpload() {
       console.log('%cReceive [get /user/me] data:', 'color: orange;', userResponse.user)
       setAuth({ user: userResponse.user })
     } catch (error) {
-      console.error('Error uploading file:', error)
+      console.error('%cCatch [get /user/me] error:', 'color: orange;', error.message)
       setFile(null)
     } finally {
       setIsLoading(false)
@@ -61,10 +58,14 @@ function ImageUpload() {
         style={{ display: 'none' }}
       />
       <div className={S.chooseBtnContainer}>
-        <button className={S.chooseBtn} onClick={onUpload}>選擇圖片</button>
-        {file && <div className={S.iconContainer}>
-          <Icon style={S.icon} icon="faCircleCheck" />
-        </div>}
+        <button className={S.chooseBtn} onClick={onUpload}>
+          選擇圖片
+        </button>
+        {file && (
+          <div className={S.iconContainer}>
+            <Icon style={S.icon} icon="faCircleCheck" />
+          </div>
+        )}
       </div>
 
       <button className={S.uploadBtn} onClick={handleFileUpload} disabled={isLoading}>

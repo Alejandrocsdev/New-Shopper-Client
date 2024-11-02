@@ -5,9 +5,9 @@
 }
 
 .spinner {
-  height: 1.875rem;
-  border: calc(1.875rem / 100 * 16) solid #d1cfdb;
-  border-top: calc(1.875rem / 100 * 16) solid #219ebc;
+  border-style: solid;
+  border-color: #d1cfdb;
+  border-top-color: #219ebc;
   aspect-ratio: 1/1;
   border-radius: 50%;
   animation: spin 1s linear infinite;

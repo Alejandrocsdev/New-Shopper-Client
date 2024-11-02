@@ -37,7 +37,7 @@ function Success() {
         console.log('Receive [post /auth/sign-in/auto/:userId] data:', response.accessToken)
 
         setAuth({ token: response.accessToken })
-        to('/')
+        to('/profile')
       } else if (isReset && phone) {
         const response = await resetPwdPhone(phone)
         console.log('Receive [post /reset/pwd/phone] response:', response.message)
