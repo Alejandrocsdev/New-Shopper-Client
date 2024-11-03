@@ -27,7 +27,7 @@ import Profile from './pages/Profile'
 import Admin from './pages/Admin'
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useCheckBackend(setLoading)
 
@@ -51,13 +51,7 @@ function App() {
                   <Route index element={<Home />} />
 
                   {/* Protected Routes */}
-                  <Route
-                    element={
-                      <ProtectedRoutes
-                        allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']}
-                      />
-                    }
-                  >
+                  <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
                     <Route path="profile" element={<Profile />} />
                   </Route>
 

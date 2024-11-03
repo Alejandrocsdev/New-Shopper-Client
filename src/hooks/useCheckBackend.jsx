@@ -7,7 +7,6 @@ import { backPublicUrl } from '../utils/url'
 function useCheckBackend(setLoading) {
   useEffect(() => {
     const checkBackend = async () => {
-      setLoading(true)
       try {
         const response = await fetch(backPublicUrl)
         const data = await response.json()
@@ -16,8 +15,6 @@ function useCheckBackend(setLoading) {
         }
       } catch (error) {
         console.error('與後端連線失敗:', error)
-      } finally {
-        setLoading(false)
       }
     }
 
