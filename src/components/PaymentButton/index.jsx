@@ -15,43 +15,20 @@ function PaymentButton({ orderId, TotalAmount, ItemName }) {
 
       const { ecPayParams } = response
 
-      const scriptContent = `
-      (function() {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${VITE_ECPAY_API}';
-        
-        Object.keys(${JSON.stringify(ecPayParams)}).forEach(function(key) {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = key;
-          input.value = ${JSON.stringify(ecPayParams)}[key];
-          form.appendChild(input);
-        });
-        
-        document.body.appendChild(form);
-        form.submit();
-      })();
-    `;
+      const form = document.createElement('form')
+      form.method = 'POST'
+      form.action = VITE_ECPAY_API
 
-      const scriptElement = document.createElement('script')
-      scriptElement.innerHTML = scriptContent
-      document.body.appendChild(scriptElement)
+      Object.keys(ecPayParams).forEach((key) => {
+        const input = document.createElement('input')
+        input.type = 'hidden'
+        input.name = key
+        input.value = ecPayParams[key]
+        form.appendChild(input)
+      })
 
-      // const form = document.createElement('form')
-      // form.method = 'POST'
-      // form.action = VITE_ECPAY_API
-
-      // Object.keys(ecPayParams).forEach((key) => {
-      //   const input = document.createElement('input')
-      //   input.type = 'hidden'
-      //   input.name = key
-      //   input.value = ecPayParams[key]
-      //   form.appendChild(input)
-      // })
-
-      // document.body.appendChild(form)
-      // form.submit()
+      document.body.appendChild(form)
+      form.submit()
     } catch (error) {
       console.error('Catch [get /ecpay/payment] error:', error.message)
     }
@@ -61,24 +38,24 @@ function PaymentButton({ orderId, TotalAmount, ItemName }) {
 
 export default PaymentButton
 
-// Content-Security-Policy:
-// The page’s settings blocked an event handler (script-src-attr) from being executed because it violates the following directive:
-// script-src
-// 'unsafe-eval'
-// 'nonce-ecpay1c29dea951984418bf30ac956b082174'
-// 'sha256-XuXw5GxJ82fkrkfnhlqLJtGpx4+OGrmN33kj5xNQvXQ='
-// 'sha256-6a6dqO3CjATrFWCvTF+8+JFdpbtC9CzljFrI4MVBcXw='
-// 'sha256-HSkDMpuD5tAej9L3qfr2V3/VC0IdudCJuRACzaM50Hw='
-// 'sha256-ZtVIGNkdvlhTvz3C7OC3HPZf644+TRoGnhTvIPbn3So='
-// https://payment-stage.ecpay.com.tw
-// https://gpayment-stage.ecpay.com.tw
-// https://*.googletagmanager.com
-// https://www.googleadservices.com
-// https://googleads.g.doubleclick.net
-// https://www.google.com.tw
-// https://*.google-analytics.com
-// https://analytics.google.com
-// https://payments.developers.google.com
-// https://connect.facebook.net
-// https://*.clarity.ms
+// Content-Security-Policy: 
+// The page’s settings blocked an event handler (script-src-attr) from being executed because it violates the following directive: 
+// script-src 
+// 'unsafe-eval' 
+// 'nonce-ecpay1c29dea951984418bf30ac956b082174' 
+// 'sha256-XuXw5GxJ82fkrkfnhlqLJtGpx4+OGrmN33kj5xNQvXQ=' 
+// 'sha256-6a6dqO3CjATrFWCvTF+8+JFdpbtC9CzljFrI4MVBcXw=' 
+// 'sha256-HSkDMpuD5tAej9L3qfr2V3/VC0IdudCJuRACzaM50Hw=' 
+// 'sha256-ZtVIGNkdvlhTvz3C7OC3HPZf644+TRoGnhTvIPbn3So=' 
+// https://payment-stage.ecpay.com.tw 
+// https://gpayment-stage.ecpay.com.tw 
+// https://*.googletagmanager.com 
+// https://www.googleadservices.com 
+// https://googleads.g.doubleclick.net 
+// https://www.google.com.tw 
+// https://*.google-analytics.com 
+// https://analytics.google.com 
+// https://payments.developers.google.com 
+// https://connect.facebook.net 
+// https://*.clarity.ms 
 // https://*.bing.com”
