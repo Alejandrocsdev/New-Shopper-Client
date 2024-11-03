@@ -1,15 +1,7 @@
 // 環境變數
-const { 
-  VITE_NODE_ENV, 
-  VITE_BACK_STORAGE_TYPE, 
-  VITE_BACK_DEV_BASE_URL, 
-  VITE_BACK_PROD_BASE_URL 
-} = import.meta.env
+const { VITE_NODE_ENV, VITE_BACK_STORAGE_TYPE } = import.meta.env
 
-const isProduction = VITE_NODE_ENV === 'production'
-
-// 後端網域(不含/api)
-const backPublicUrl = isProduction ? VITE_BACK_PROD_BASE_URL : VITE_BACK_DEV_BASE_URL
+import { backPublicUrl } from './url'
 
 // 預設大頭貼(後端public)
 const defaultSrc = `${backPublicUrl}/uploads/default/avatar.png`

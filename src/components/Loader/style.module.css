@@ -1,0 +1,7 @@
+.loader {
+  height: 100vh;
+  background-color: var(--theme-primary-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

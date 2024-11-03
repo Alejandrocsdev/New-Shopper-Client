@@ -2,11 +2,15 @@
 import './assets/css/global.css'
 import './assets/css/font.css'
 // 函式庫 (library)
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 // 自訂函式 (custom function)
 import i18next from './utils/i18next'
 import { ThemeProvider } from './context/ThemeContext'
 import { ErrorProvider } from './context/ErrorContext'
+import useCheckBackend from './hooks/useCheckBackend'
+// 載入組件 (loader)
+import Loader from './components/Loader'
 // 佈局組件 (layouts)
 import Layout from './layouts/Layout'
 import AuthLayout from './layouts/AuthLayout'
@@ -23,39 +27,52 @@ import Profile from './pages/Profile'
 import Admin from './pages/Admin'
 
 function App() {
+  const [loading, setLoading] = useState(false)
+
+  useCheckBackend(setLoading)
+
   return (
     <BrowserRouter>
       <ErrorProvider>
         <ThemeProvider>
-          <Routes>
-            <Route path="/:lang/*" element={<LangRoutes />}>
-              {/* Public Auth Routes */}
-              <Route element={<AuthLayout />}>
-                <Route path="sign-up" element={<SignUp />} />
-                <Route path="sign-in" element={<SignIn />} />
-                <Route path="reset" element={<Reset />} />
-              </Route>
-
-              <Route element={<Layout />}>
-                {/* Semi-Protected Routes */}
-                <Route index element={<Home />} />
-
-                {/* Protected Routes */}
-                <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
-                  <Route path="profile" element={<Profile />} />
+          {loading 
+          ? <Loader loading={loading} />
+          : <Routes>
+              <Route path="/:lang/*" element={<LangRoutes />}>
+                {/* Public Auth Routes */}
+                <Route element={<AuthLayout />}>
+                  <Route path="sign-up" element={<SignUp />} />
+                  <Route path="sign-in" element={<SignIn />} />
+                  <Route path="reset" element={<Reset />} />
                 </Route>
 
-                <Route element={<ProtectedRoutes allowedRoles={['admin', 'editor', 'viewer']} />}>
-                  <Route path="admin" element={<Admin />} />
+                <Route element={<Layout />}>
+                  {/* Semi-Protected Routes */}
+                  <Route index element={<Home />} />
+
+                  {/* Protected Routes */}
+                  <Route
+                    element={
+                      <ProtectedRoutes
+                        allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']}
+                      />
+                    }
+                  >
+                    <Route path="profile" element={<Profile />} />
+                  </Route>
+
+                  <Route element={<ProtectedRoutes allowedRoles={['admin', 'editor', 'viewer']} />}>
+                    <Route path="admin" element={<Admin />} />
+                  </Route>
                 </Route>
+
+                {/* Redirect to host/:lang when the path is not matched */}
+                <Route path="*" element={<Navigate to="/" />} />
               </Route>
 
-              {/* host/:lang/wrong => host/:lang */}
-              <Route path="*" element={<Navigate to="/" />} />
-            </Route>
-            {/* host/ => host/:lang */}
-            <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
-          </Routes>
+              {/* Redirect from root to the default language */}
+              <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
+            </Routes>}
         </ThemeProvider>
       </ErrorProvider>
     </BrowserRouter>

@@ -11,4 +11,7 @@ const isProduction = VITE_NODE_ENV === 'production'
 
 export const backUrl = isProduction ? VITE_BACK_PROD_BASE_URL + '/api' : VITE_BACK_DEV_BASE_URL + '/api'
 
+// 後端網域(不含/api)
+export const backPublicUrl = isProduction ? VITE_BACK_PROD_BASE_URL : VITE_BACK_DEV_BASE_URL
+
 export const frontUrl = isProduction ? VITE_FRONT_PROD_BASE_URL : VITE_FRONT_DEV_BASE_URL
