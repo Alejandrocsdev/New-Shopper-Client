@@ -3,7 +3,6 @@ import S from './style.module.css'
 
 const Loading = ({ height = '1.875rem' }) => {
   const borderThickness = `calc(${height} * 0.16)`
-  console.log(borderThickness)
 
   return (
     <div className={S.loading}>

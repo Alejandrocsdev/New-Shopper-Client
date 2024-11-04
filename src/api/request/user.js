@@ -9,6 +9,10 @@ export const putUserImage = (formData) => {
     headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
+export const putUser = (userId, formData) => {
+  console.log('Send [put /user/:userId] request')
+  return axiosRequest(true, 'put', `${base}/${userId}`, formData)
+}
 
 // Public Requests
 export const findUserByInfo = (userInfo) => {

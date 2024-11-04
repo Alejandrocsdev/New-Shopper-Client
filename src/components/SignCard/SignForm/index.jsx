@@ -48,7 +48,7 @@ const SignForm = () => {
 
     try {
       if (isSignUp || isSmsSignIn) {
-        const response = await sendOtp(phone)
+        const response = await sendOtp(phone, 'phone')
         console.log('Receive [post /verif/send/otp] response:', response.message)
 
         to('+', { phone })

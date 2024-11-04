@@ -11,6 +11,7 @@ import { signOut } from '../../api/request/auth'
 // 組件
 import ImageUpload from '../../components/ImageUpload'
 import Loading from '../../components/Laoding'
+import PersonalData from './PersonalData'
 
 // 首頁
 function Profile() {
@@ -18,6 +19,7 @@ function Profile() {
   const { clearAuth, user } = useRedux()
   const avatar = privateAvatarSrc(user?.avatar?.link)
   const [isLoading, setIsLoading] = useState(false)
+  const [section, setSection] = useState(0)
 
   const onSignOut = async () => {
     setIsLoading(true)
@@ -42,25 +44,16 @@ function Profile() {
             <span>{user?.username}</span>
           </div>
           <ul className={S.list}>
-            <li>個人資料</li>
+            <li onClick={() => setSection(0)}>個人資料</li>
+            <li onClick={() => setSection(1)}>地址</li>
             <li className={S.signOut} onClick={onSignOut}>
               {isLoading ? <Loading height="1rem" /> : '登出'}
             </li>
           </ul>
         </div>
         <div className={S.content}>
-          <div className={S.header}>個人資料</div>
-          <div className={S.infoContainer}>
-            <div className={S.info}>個人資料</div>
-            <div className={S.avatarContainer}>
-              <img src={avatar} />
-              <ImageUpload />
-              <div className={S.rules}>
-                <div>檔案大小&#65306; &lt; 3MB</div>
-                <div>檔案格式&#65306; JPEG / PNG</div>
-              </div>
-            </div>
-          </div>
+          {section === 0 && <PersonalData name="個人資料" />}
+          {section === 1 && <PersonalData name="地址" />}
         </div>
       </div>
     </main>

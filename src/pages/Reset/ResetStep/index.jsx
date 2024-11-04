@@ -39,7 +39,7 @@ function ResetStep() {
       console.log('Sent form data:', data)
 
       if (isPhone) {
-        const response = await sendOtp(resetKey, true)
+        const response = await sendOtp(resetKey, 'phone', true)
         console.log('Receive [post /verif/send/otp] response:', response.message)
 
         to('+', { phone: resetKey })

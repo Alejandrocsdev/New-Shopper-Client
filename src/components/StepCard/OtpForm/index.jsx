@@ -39,7 +39,7 @@ function OtpForm() {
     try {
       formContext.clearErrors('root')
 
-      const response = await sendOtp(phone)
+      const response = await sendOtp(phone, 'phone')
       console.log('Receive [post /verif/send/otp] Response:', response.message)
 
       startCountdown()
@@ -56,7 +56,7 @@ function OtpForm() {
 
       if (isSignUp) {
         const [otpResponse, userResponse] = await Promise.all([
-          verifyOtp(phone, otp),
+          verifyOtp(phone, 'phone', otp),
           findUserByInfo(`phone:${phone}`)
         ])
         console.log('Receive [post /verif/verify/otp] response:', otpResponse.message)
@@ -76,13 +76,13 @@ function OtpForm() {
         setAuth({ token: response.accessToken })
         to('sign-in')
       } else if (isReset) {
-        const response = await verifyOtp(phone, otp)
+        const response = await verifyOtp(phone, 'phone', otp)
         console.log('Receive [post /verif/verify/otp] response:', response.message)
-        
+
         to('+', { phone })
       }
     } catch (error) {
-      console.error(`Catch ${error.endpoint} error:`,error.message)
+      console.error(`Catch ${error.endpoint} error:`, error.message)
       if (isSmsSignIn) {
         setErrMsg(error.i18n)
         clearAuth()
@@ -110,14 +110,16 @@ function OtpForm() {
 
       {/* OTP發送倒數 & 重新傳送 */}
       <div className={isCounting ? S.countdown : S.resend}>
-        {isCounting 
-        ? <div>
+        {isCounting ? (
+          <div>
             <Trans i18nKey="otpForm.counting" count={count} components={[<span key="0" />]} />
           </div>
-        : <div className={S.resendText}>
+        ) : (
+          <div className={S.resendText}>
             <span>{t('otpForm.otpNotReceived')}</span>{' '}
             <span onClick={onResend}>{t('otpForm.resend')}</span>
-          </div>}
+          </div>
+        )}
       </div>
     </Form>
   )
