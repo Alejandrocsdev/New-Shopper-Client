@@ -62,11 +62,11 @@
 
 /* 圖示 */
 .image {
-  width: 5.00rem;
-  padding: 0.31rem;
+  width: 5rem;
+  padding: .31rem;
   background-color: white;
-  border: 0.12rem solid gray;
-  border-radius: 0.62rem;
+  border: .12rem solid gray;
+  border-radius: .62rem;
   object-fit: contain;
 
   @media (max-width: 81.25rem) {

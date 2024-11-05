@@ -1,0 +1,26 @@
+.expressMap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* .addBtn {} */
+
+.stores {
+  display: flex;
+  gap: 1rem;
+}
+
+.image {
+  width: 3rem;
+  padding: .31rem;
+  background-color: white;
+  border: .15rem solid gray;
+  border-radius: .62rem;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.image:hover {
+  border-color: orangered;
+}

@@ -58,3 +58,7 @@
   width: 100%;
   padding: 0 2rem;
 }
+
+.active {
+  background-color: var(--theme-background-hover)!important;
+}

@@ -8,6 +8,7 @@
 }
 
 .infoContainer {
+  width: 60rem;
   padding: 2rem 0;
   display: flex;
 }

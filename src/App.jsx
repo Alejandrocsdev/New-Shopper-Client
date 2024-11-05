@@ -24,6 +24,8 @@ import SignIn from './pages/SignIn'
 import Reset from './pages/Reset'
 // 保護頁面 (private pages)
 import Profile from './pages/Profile'
+import Info from './pages/Profile/Info'
+import Address from './pages/Profile/Address'
 import Admin from './pages/Admin'
 
 function App() {
@@ -52,7 +54,13 @@ function App() {
 
                   {/* Protected Routes */}
                   <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
-                    <Route path="profile" element={<Profile />} />
+                    {/* <Route path="profile" element={<Profile />} /> */}
+                    <Route path="profile" element={<Profile />}>
+                      <Route path="info" element={<Info />} />
+                      <Route path="address" element={<Address />} />
+                      {/* Redirect to info by default if no subpath is specified */}
+                      <Route index element={<Navigate to="info" />} />
+                    </Route>
                   </Route>
 
                   <Route element={<ProtectedRoutes allowedRoles={['admin', 'editor', 'viewer']} />}>

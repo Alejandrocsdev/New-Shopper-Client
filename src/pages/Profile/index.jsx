@@ -4,6 +4,7 @@ import S from './style.module.css'
 import { privateAvatarSrc } from '../../utils/avatarSrc'
 // 函式庫 (library)
 import { useState } from 'react'
+import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 // 自訂函式 (custom function)
 import useRedux from '../../hooks/useRedux'
 import useLangNavigate from '../../hooks/useLangNavigate'
@@ -11,15 +12,17 @@ import { signOut } from '../../api/request/auth'
 // 組件
 import ImageUpload from '../../components/ImageUpload'
 import Loading from '../../components/Laoding'
-import PersonalData from './PersonalData'
+import Info from './Info'
+import Address from './Address'
 
 // 首頁
 function Profile() {
+  const navigate = useNavigate()
+  const location = useLocation()
   const langNavigate = useLangNavigate()
   const { clearAuth, user } = useRedux()
   const avatar = privateAvatarSrc(user?.avatar?.link)
   const [isLoading, setIsLoading] = useState(false)
-  const [section, setSection] = useState(0)
 
   const onSignOut = async () => {
     setIsLoading(true)
@@ -35,6 +38,9 @@ function Profile() {
     }
   }
 
+  const isInfo = location.pathname.includes('info')
+  const isAddress = location.pathname.includes('address')
+
   return (
     <main className={S.main}>
       <div className={S.container}>
@@ -44,16 +50,19 @@ function Profile() {
             <span>{user?.username}</span>
           </div>
           <ul className={S.list}>
-            <li onClick={() => setSection(0)}>個人資料</li>
-            <li onClick={() => setSection(1)}>地址</li>
+            <li onClick={() => navigate('info')} className={isInfo ? S.active : ''}>
+              個人資料
+            </li>
+            <li onClick={() => navigate('address')} className={isAddress ? S.active : ''}>
+              地址
+            </li>
             <li className={S.signOut} onClick={onSignOut}>
               {isLoading ? <Loading height="1rem" /> : '登出'}
             </li>
           </ul>
         </div>
         <div className={S.content}>
-          {section === 0 && <PersonalData name="個人資料" />}
-          {section === 1 && <PersonalData name="地址" />}
+          <Outlet />
         </div>
       </div>
     </main>

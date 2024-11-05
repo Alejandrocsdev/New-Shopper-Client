@@ -14,7 +14,7 @@ import ImageUpload from '../../../components/ImageUpload'
 import LabeledInput from './LabeledInput'
 
 // 首頁
-function PersonalData({ name }) {
+function Info() {
   const { setAuth, user } = useRedux()
   const { setErrMsg } = useError()
   const avatar = privateAvatarSrc(user?.avatar?.link)
@@ -43,7 +43,7 @@ function PersonalData({ name }) {
 
   return (
     <>
-      <div className={S.header}>{name}</div>
+      <div className={S.header}>個人資料</div>
       <div className={S.infoContainer}>
         <div className={S.info}>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -110,4 +110,4 @@ function PersonalData({ name }) {
   )
 }
 
-export default PersonalData
+export default Info

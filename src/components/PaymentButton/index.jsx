@@ -1,9 +1,11 @@
 // 模組樣式 (module css)
 import S from './style.module.css'
+// 工具 (util)
+import { ecpayForm } from '../../utils/ecpayForm'
 // 自訂函式 (custom function)
 import { payment } from '../../api/request/ecpay'
 // 環境變數
-const { VITE_ECPAY_API } = import.meta.env
+const { VITE_PAYMENT_ECPAY_API } = import.meta.env
 
 // 表單樣板: 密碼登入樣板 / 簡訊登入樣板 / 註冊樣板
 function PaymentButton({ orderId, TotalAmount, ItemName }) {
@@ -15,20 +17,9 @@ function PaymentButton({ orderId, TotalAmount, ItemName }) {
 
       const { ecPayParams } = response
 
-      const form = document.createElement('form')
-      form.method = 'POST'
-      form.action = VITE_ECPAY_API
+      const action = `${VITE_PAYMENT_ECPAY_API}/Cashier/AioCheckOut/V5`
 
-      Object.keys(ecPayParams).forEach((key) => {
-        const input = document.createElement('input')
-        input.type = 'hidden'
-        input.name = key
-        input.value = ecPayParams[key]
-        form.appendChild(input)
-      })
-
-      document.body.appendChild(form)
-      form.submit()
+      ecpayForm(action, ecPayParams)
     } catch (error) {
       console.error('Catch [get /ecpay/payment] error:', error.message)
     }
