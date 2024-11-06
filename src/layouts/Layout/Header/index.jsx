@@ -11,6 +11,7 @@ import SignLink from './SignLink'
 import ThemeToggle from './ThemeToggle'
 import LangDrop from './LangDrop'
 import Logo from '../../../components/Logo'
+import Icon from '../../../components/Icon'
 
 // 頁首
 function Header() {
@@ -38,6 +39,16 @@ function Header() {
       <header className={S.header}>
         <Logo style={`${S.logo} ${S.large}`} isBanner />
         <Logo style={`${S.logo} ${S.small}`} shape="round" text />
+        <div className={S.searchContainer}>
+          <input className={S.searchInput} type="text" placeholder="請輸入搜尋關鍵字" />
+          <button className={S.searchButton}>
+            <Icon style={S.searchIcon} icon='faMagnifyingGlass' />
+          </button>
+        </div>
+        {/* 購物車 */}
+        <div className={S.cartContainer}>
+          <Icon style={S.cartIcon} icon='faCartShopping' />
+        </div>
       </header>
     </div>
   )

@@ -11,7 +11,13 @@ import {
   faArrowLeftLong,
   faArrowRightLong,
   faCheck,
-  faEnvelopeCircleCheck
+  faEnvelopeCircleCheck,
+  faMagnifyingGlass,
+  faCartShopping,
+  faCaretRight,
+  faCaretLeft,
+  faForwardStep,
+  faBackwardStep
 } from '@fortawesome/free-solid-svg-icons'
 
 // Icon mapping
@@ -29,7 +35,13 @@ const iconMap = {
   faArrowLeftLong,
   faArrowRightLong,
   faCheck,
-  faEnvelopeCircleCheck
+  faEnvelopeCircleCheck,
+  faMagnifyingGlass,
+  faCartShopping,
+  faCaretRight,
+  faCaretLeft,
+  faForwardStep,
+  faBackwardStep
 }
 
 // 圖示

@@ -16,11 +16,12 @@ import okMartPng from '../../../assets/img/ecpay/okMart.png'
 // 首頁
 function Address() {
   const { setAuth, user } = useRedux()
-  const [stores, setStores] = useState(user?.stores || [])
+  const [stores, setStores] = useState([])
 
   useEffect(() => {
     if (user?.stores) {
-      setStores(user?.stores)
+      const sortedStores = [...user.stores].sort((a, b) => b.isDefault - a.isDefault)
+      setStores(sortedStores)
     }
   }, [user?.stores])
 

@@ -1,0 +1,41 @@
+.paginator {
+  display: flex;
+  gap: 3rem;
+
+  @media (max-width: 43.75rem) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 31.25rem) {
+    gap: 1.5rem;
+  }
+}
+
+.page {
+  width: 2rem;
+  font-size: 1.6rem;
+  border-radius: 10%;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.page:hover {
+  background-color: #ff927f;
+}
+
+.clicked {
+  background-color: orangered;
+}
+
+.clicked:hover {
+  background-color: orangered;
+}
+
+.closed {
+  color: #808080;
+  cursor: default;
+}
+
+.closed:hover {
+  background-color: transparent;
+}

@@ -1,19 +1,61 @@
 // 樣式模組 (css module)
 import S from './style.module.css'
+// 函式庫 (library)
+import { useState, useEffect } from 'react'
+// 自訂函式 (custom function)
+import { getProducts } from '../../api/request/product'
 // 組件 (component)
-import Anchor from '../../components/Anchor'
-import PaymentButton from '../../components/PaymentButton'
+import Paginator from './Paginator'
 
 // 首頁
 function Home() {
+  const [products, setProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  const limit = 9
+
+  useEffect(() => {
+    const onGetProducts = async () => {
+      try {
+        const response = await getProducts({ page: currentPage, limit })
+        console.log('Receive [get /product] response:', response.message)
+        console.log('Receive [get /product] data:', response.data)
+        const { totalItems, totalPages, products } = response.data
+        setProducts(products)
+        setTotalPages(totalPages)
+      } catch (error) {
+        console.error('Catch [get /product] error:', error.message)
+      }
+    }
+    onGetProducts()
+  }, [currentPage])
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page)
+    }
+  }
+
   return (
     <main className={S.main}>
-      <div>Home</div>
-      {/* <PaymentButton
-        orderId="12345"
-        TotalAmount="10710"
-        ItemName="鋼彈 x 2 x 100#金鋼狼 x 1 x 500#蜘蛛人 x 10 x 10000#膽小狗英雄x 1 x 10"
-      /> */}
+      <div className={S.productsContainer}>
+        {products.map((product, index) => (
+          <div className={S.product} key={index}>
+            <div className={S.imgContainer}>
+              <img className={S.image} src={product.image} />
+            </div>
+            <div className={S.name}>{product.name}</div>
+            <div className={S.category}>{product.category}</div>
+            <div className={S.price}>${product.price}</div>
+          </div>
+        ))}
+      </div>
+      <Paginator
+        currentPage={currentPage}
+        totalPage={totalPages}
+        onPageChange={handlePageChange}
+        showPages={3}
+      />
     </main>
   )
 }
