@@ -9,14 +9,16 @@ const LoaderContext = createContext()
 export const LoaderProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const location = useLocation()
+  const [backendReady, setBackendReady] = useState(false)
 
-  // 初始後端連線
+  // Backend check (only once initially and in intervals)
   useEffect(() => {
     const checkBackend = async () => {
       try {
         const response = await fetch(backPublicUrl)
         const data = await response.json()
         if (data.status === 'ok') {
+          setBackendReady(true)
           setIsLoading(false)
           clearInterval(interval)
         }
@@ -30,18 +32,18 @@ export const LoaderProvider = ({ children }) => {
     return () => clearInterval(interval)
   }, [])
 
-  // 切換路徑載入
+  // For page-specific data fetching, allow manual control of `isLoading`
   useEffect(() => {
-    setIsLoading(true)
-    const timeout = setTimeout(() => {
-      setIsLoading(false)
-    }, 500)
+    if (backendReady) {
+      setIsLoading(true)
+    }
+  }, [location, backendReady])
 
-    return () => clearTimeout(timeout)
-  }, [location])
+  const startLoading = () => setIsLoading(true)
+  const stopLoading = () => setIsLoading(false)
 
   return (
-    <LoaderContext.Provider value={{ isLoading }}>
+    <LoaderContext.Provider value={{ isLoading, startLoading, stopLoading }}>
       {children}
     </LoaderContext.Provider>
   )
