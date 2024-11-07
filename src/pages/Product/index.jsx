@@ -7,7 +7,6 @@ import { getProduct } from '../../api/request/product'
 import { postUserCart } from '../../api/request/user'
 // 自訂函式 (custom function)
 import { useMessage } from '../../context/MessageContext'
-import { useLoader } from '../../context/LoaderContext'
 import useRedux from '../../hooks/useRedux'
 
 // 賣家中心
@@ -17,11 +16,9 @@ function Product() {
   const [stock, setStock] = useState(1)
   const { setSucMsg } = useMessage()
   const { setAuth, user } = useRedux()
-  const { startLoading, stopLoading } = useLoader()
 
   useEffect(() => {
     const onGetProduct = async () => {
-      startLoading()
       try {
         const response = await getProduct(productId)
         console.log('Receive [get /product] response:', response.message)
@@ -30,8 +27,6 @@ function Product() {
         setStock(1)
       } catch (error) {
         console.error('Catch [get /product] error:', error.message)
-      } finally {
-        stopLoading()
       }
     }
 

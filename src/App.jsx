@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import i18next from './utils/i18next'
 import { ThemeProvider } from './context/ThemeContext'
 import { MessageProvider } from './context/MessageContext'
-import { LoaderProvider, useLoader } from './context/LoaderContext'
+import useLoader from './hooks/useLoader'
 // 載入組件 (loader)
 import Loader from './components/Loader'
 // 佈局組件 (layouts)
@@ -32,62 +32,60 @@ import Seller from './pages/Seller'
 import Product from './pages/Product'
 
 function App() {
-  const isLoading = useLoader()
+  const loading = useLoader()
+
+  if (loading) {
+    return <Loader loading={true} />
+  }
 
   return (
     <BrowserRouter>
-      <LoaderProvider>
-        <MessageProvider>
-          <ThemeProvider>
-            {isLoading 
-            ? <Loader loading={true} />
-            : <Routes>
-                <Route path="/:lang/*" element={<LangRoutes />}>
-                  {/* Public Auth Routes */}
-                  <Route element={<AuthLayout />}>
-                    <Route path="sign-up" element={<SignUp />} />
-                    <Route path="sign-in" element={<SignIn />} />
-                    <Route path="reset" element={<Reset />} />
+      <MessageProvider>
+        <ThemeProvider>
+          <Routes>
+            <Route path="/:lang/*" element={<LangRoutes />}>
+              {/* Public Auth Routes */}
+              <Route element={<AuthLayout />}>
+                <Route path="sign-up" element={<SignUp />} />
+                <Route path="sign-in" element={<SignIn />} />
+                <Route path="reset" element={<Reset />} />
+              </Route>
+
+              <Route element={<Layout />}>
+                {/* Semi-Protected Routes */}
+                <Route index element={<Home />} />
+                <Route path="product/:productId" element={<Product />} />
+
+                {/* Protected Routes */}
+                <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
+                  <Route path="profile" element={<Profile />}>
+                    <Route path="info" element={<Info />} />
+                    <Route path="address" element={<Address />} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="kyc" element={<Kyc />} />
+                    {/* Redirect to info by default if no subpath is specified */}
+                    <Route index element={<Navigate to="info" />} />
                   </Route>
-
-                  <Route element={<Layout />}>
-                    {/* Semi-Protected Routes */}
-                    <Route index element={<Home />} />
-                    <Route path="product/:productId" element={<Product />} />
-
-                    {/* Protected Routes */}
-                    <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
-                      <Route path="profile" element={<Profile />}>
-                        <Route path="info" element={<Info />} />
-                        <Route path="address" element={<Address />} />
-                        <Route path="cart" element={<Cart />} />
-                        <Route path="kyc" element={<Kyc />} />
-                        {/* Redirect to info by default if no subpath is specified */}
-                        <Route index element={<Navigate to="info" />} />
-                      </Route>
-                    </Route>
-
-                    <Route element={<ProtectedRoutes allowedRoles={['seller', 'admin', 'editor', 'viewer']} />}>
-                      <Route path="seller" element={<Seller />} />
-                    </Route>
-
-                    <Route
-                      element={<ProtectedRoutes allowedRoles={['admin', 'editor', 'viewer']} />}
-                    >
-                      <Route path="admin" element={<Admin />} />
-                    </Route>
-                  </Route>
-
-                  {/* Redirect to host/:lang when the path is not matched */}
-                  <Route path="*" element={<Navigate to="/" />} />
                 </Route>
 
-                {/* Redirect from root to the default language */}
-                <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
-              </Routes>}
-          </ThemeProvider>
-        </MessageProvider>
-      </LoaderProvider>
+                <Route element={<ProtectedRoutes allowedRoles={['seller', 'admin', 'editor', 'viewer']} />}>
+                  <Route path="seller" element={<Seller />} />
+                </Route>
+
+                <Route element={<ProtectedRoutes allowedRoles={['admin', 'editor', 'viewer']} />}>
+                  <Route path="admin" element={<Admin />} />
+                </Route>
+              </Route>
+
+              {/* Redirect to host/:lang when the path is not matched */}
+              <Route path="*" element={<Navigate to="/" />} />
+            </Route>
+
+            {/* Redirect from root to the default language */}
+            <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
+          </Routes>
+        </ThemeProvider>
+      </MessageProvider>
     </BrowserRouter>
   )
 }
