@@ -8,7 +8,24 @@
   align-items: center;
 }
 
-/* .navLeft {} */
+.navLeft {
+  padding-left: 1rem;
+}
+
+.sellerLink {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+}
+
+.seller {
+  font-size: 1.125rem;
+}
+
+.seller:hover {
+  color: var(--link-text-hover);
+}
 
 .navRight {
   display: flex;

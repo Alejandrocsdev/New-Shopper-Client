@@ -42,7 +42,7 @@ function Home() {
         {products.map((product, index) => (
           <div className={S.product} key={index}>
             <div className={S.imgContainer}>
-              <img className={S.image} src={product.image} />
+              <img className={S.image} src={product.image.link} />
             </div>
             <div className={S.name}>{product.name}</div>
             <div className={S.category}>{product.category}</div>

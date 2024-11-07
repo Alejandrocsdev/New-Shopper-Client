@@ -123,7 +123,7 @@
         "autoSignInFail": "自動登入失敗",
         "signInFail": "登入失敗",
         "missingPhoneOrOtp": "缺少電話號碼或OTP驗證碼",
-        "signInAgain": "請重新登入",
+        "signInAgain": "權限不足或尚未登入",
         "facebookSignInFail": "臉書登入失敗",
         "gmailSignInFail": "Gmail登入失敗",
         "removeTempImageFail": "移除本地暫存圖檔失敗",

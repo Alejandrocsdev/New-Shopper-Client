@@ -12,6 +12,7 @@ import ThemeToggle from './ThemeToggle'
 import LangDrop from './LangDrop'
 import Logo from '../../../components/Logo'
 import Icon from '../../../components/Icon'
+import Anchor from '../../../components/Anchor'
 
 // 頁首
 function Header() {
@@ -27,7 +28,12 @@ function Header() {
   return (
     <div className={S.headerWrapper}>
       <nav className={S.nav}>
-        <div className={S.navLeft}></div>
+        <div className={S.navLeft}>
+          {/* 賣家中心 */}
+          <Anchor style={S.sellerLink} int="/seller">
+            <div className={S.seller}>Seller Center</div>
+          </Anchor>
+        </div>
         <div className={S.navRight}>
           {isAllowed && <AdminLink />}
           {user && <ProfileLink avatar={avatar} username={user?.username} />}
@@ -42,13 +48,13 @@ function Header() {
         <div className={S.searchContainer}>
           <input className={S.searchInput} type="text" placeholder="請輸入搜尋關鍵字" />
           <button className={S.searchButton}>
-            <Icon style={S.searchIcon} icon='faMagnifyingGlass' />
+            <Icon style={S.searchIcon} icon="faMagnifyingGlass" />
           </button>
         </div>
         {/* 購物車 */}
-        <div className={S.cartContainer}>
-          <Icon style={S.cartIcon} icon='faCartShopping' />
-        </div>
+        <Anchor style={S.cartContainer} int="/profile/cart">
+          <Icon style={S.cartIcon} icon="faCartShopping" />
+        </Anchor>
       </header>
     </div>
   )

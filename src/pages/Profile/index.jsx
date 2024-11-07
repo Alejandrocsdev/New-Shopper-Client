@@ -12,8 +12,6 @@ import { signOut } from '../../api/request/auth'
 // 組件
 import ImageUpload from '../../components/ImageUpload'
 import Loading from '../../components/Laoding'
-import Info from './Info'
-import Address from './Address'
 
 // 首頁
 function Profile() {
@@ -40,6 +38,8 @@ function Profile() {
 
   const isInfo = location.pathname.includes('info')
   const isAddress = location.pathname.includes('address')
+  const isCart = location.pathname.includes('cart')
+  const isKyc = location.pathname.includes('kyc')
 
   return (
     <main className={S.main}>
@@ -54,7 +54,13 @@ function Profile() {
               個人資料
             </li>
             <li onClick={() => navigate('address')} className={isAddress ? S.active : ''}>
-              地址
+              門市地址
+            </li>
+            <li onClick={() => navigate('cart')} className={isCart ? S.active : ''}>
+              購物清單
+            </li>
+            <li onClick={() => navigate('kyc')} className={isKyc ? S.active : ''}>
+              身分驗證
             </li>
             <li className={S.signOut} onClick={onSignOut}>
               {isLoading ? <Loading height="1rem" /> : '登出'}

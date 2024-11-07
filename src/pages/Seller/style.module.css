@@ -1,0 +1,6 @@
+.main {
+  padding: 2rem 10rem;
+  min-height: calc(100vh - var(--nav-height) - var(--header-height));
+  display: flex;
+  justify-content: center;
+}

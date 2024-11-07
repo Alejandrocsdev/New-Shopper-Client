@@ -60,7 +60,7 @@ function Address() {
 
   return (
     <>
-      <div className={S.header}>地址</div>
+      <div className={S.header}>門市地址</div>
       <div className={S.infoContainer}>
         <GetStore />
         <div className={S.storeAddresses}>

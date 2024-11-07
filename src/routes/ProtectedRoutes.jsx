@@ -15,6 +15,7 @@ const ProtectedRoutes = ({ allowedRoles }) => {
   const { lang } = useLang()
 
   const [state, setState] = useState('loading')
+  const [errMsg, setErrMsg] = useState(null)
 
   useEffect(() => {
     const routesAuth = async () => {
@@ -31,22 +32,24 @@ const ProtectedRoutes = ({ allowedRoles }) => {
           } else {
             clearAuth()
             setState('invalid')
+            setErrMsg('error.signInAgain')
           }
         } catch (error) {
           console.error('%cCatch [post /auth/refresh] error (Protected Routes):', 'color: aqua;', error.response.data.message)
           clearAuth()
           setState('invalid')
+          setErrMsg(error.response.data.i18n)
         }
       }
     }
     routesAuth()
-  }, [token])
+  }, [token, location.pathname])
 
   if (state === 'loading') return null
 
   return state === 'valid' 
     ? <Outlet />
-    : <Navigate to={`/${lang}/sign-in`} state={{ from: location }} replace />
+    : <Navigate to={`/${lang}/sign-in`} state={{ from: location, errMsg }} replace />
 }
 
 export default ProtectedRoutes

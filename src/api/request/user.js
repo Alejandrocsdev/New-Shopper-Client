@@ -13,6 +13,10 @@ export const putUser = (userId, formData) => {
   console.log('Send [put /user/:userId] request')
   return axiosRequest(true, 'put', `${base}/${userId}`, formData)
 }
+export const postUserRole = (role) => {
+  console.log('Send [post /user/role] request')
+  return axiosRequest(true, 'post', `${base}/role`, { role })
+}
 
 // Public Requests
 export const findUserByInfo = (userInfo) => {
