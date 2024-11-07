@@ -19,6 +19,12 @@ function useCheckBackend(setLoading) {
     }
 
     checkBackend()
+
+    const interval = setInterval(() => {
+      checkBackend()
+    }, 5000)
+
+    return () => clearInterval(interval)
   }, [])
 }
 

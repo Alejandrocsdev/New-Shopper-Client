@@ -21,6 +21,10 @@ export const postUserCart = (productId, quantity, unitPrice) => {
   console.log('Send [post /user/cart/:productId] request')
   return axiosRequest(true, 'post', `${base}/cart/${productId}`, { quantity, unitPrice })
 }
+export const deleteUserCart = (productId) => {
+  console.log('Send [delete /user/cart/:productId] request')
+  return axiosRequest(true, 'delete', `${base}/cart/${productId}`)
+}
 
 // Public Requests
 export const findUserByInfo = (userInfo) => {

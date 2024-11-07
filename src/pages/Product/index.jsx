@@ -15,7 +15,7 @@ function Product() {
   const [product, setProduct] = useState(null)
   const [stock, setStock] = useState(1)
   const { setSucMsg } = useMessage()
-  const { user } = useRedux()
+  const { setAuth, user } = useRedux()
 
   useEffect(() => {
     const onGetProduct = async () => {
@@ -39,7 +39,9 @@ function Product() {
     try {
       const response = await postUserCart(productId, stock, product.price)
       console.log('Receive [post /user/cart/:productId] response:', response.message)
-      console.log('Receive [post /user/cart/:productId] data:', response.cartItem)
+      console.log('Receive [post /user/cart/:productId] data:', response.cartItems)
+      
+      setAuth({ user: { ...user, cart: { ...user.cart, items: response.cartItems } } })
       setSucMsg(response.message)
     } catch (error) {
       console.error('Catch [post /user/cart/:productId] error:', error.message)
@@ -94,7 +96,9 @@ function Product() {
           <p>{product?.description}</p>
           {user && (
             <div className={S.purchase}>
-              <button className={S.addToCart} onClick={onAddCart}>加到購物車</button>
+              <button className={S.addToCart} onClick={onAddCart}>
+                加到購物車
+              </button>
               <button className={S.directPurchase}>直接購買</button>
             </div>
           )}

@@ -5,18 +5,15 @@ import S from './style.module.css'
 import { useState, useEffect } from 'react'
 // 自訂函式 (custom function)
 import useRedux from '../../../hooks/useRedux'
+import { useMessage } from '../../../context/MessageContext'
 import { postUserRole } from '../../../api/request/user'
-// 組件 (component)
-// 圖檔 (image)
 
 // 身分驗證
 function Kyc() {
+  const { setSucMsg } = useMessage()
   const { setAuth, user } = useRedux()
   const [roles, setRoles] = useState(user?.roles || [])
   const isAllowed = roles.some((role) => role.name === 'seller')
-
-  console.log('roles', roles)
-  console.log('user?.roles', user?.roles)
 
   useEffect(() => {
     if (user?.roles) {
@@ -31,6 +28,7 @@ function Kyc() {
       console.log('Receive [post /user/role] data:', response.roles)
       setAuth({ user: { ...user, roles: response.roles } })
       setRoles(response.roles)
+      setSucMsg(response.message)
     } catch (error) {
       console.error('Catch [delete /store/:storeId] error:', error.message)
     }
@@ -42,11 +40,9 @@ function Kyc() {
     <>
       <div className={S.header}>身分驗證</div>
       <div className={S.infoContainer}>
-        {isAllowed ? (
-          <div className={S.verified}>完成驗證</div>
-        ) : (
-          <div className={S.unverified}>尚未驗證</div>
-        )}
+        {isAllowed 
+        ? <div className={S.verified}>完成驗證</div>
+        : <div className={S.unverified}>尚未驗證</div>}
         {!isAllowed && (
           <button className={S.btn} type="button" onClick={handleVerification}>
             驗證

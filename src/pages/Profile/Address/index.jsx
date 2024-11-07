@@ -3,8 +3,11 @@ import S from './style.module.css'
 // 工具 (utils)
 // 函式庫 (library)
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 // 自訂函式 (custom function)
 import useRedux from '../../../hooks/useRedux'
+import useQuery from '../../../hooks/useQuery'
+import { useMessage } from '../../../context/MessageContext'
 import { deleteStore, putStoreDefault } from '../../../api/request/store'
 // 組件 (component)
 import GetStore from '../../../components/GetStore'
@@ -15,13 +18,21 @@ import okMartPng from '../../../assets/img/ecpay/okMart.png'
 
 // 首頁
 function Address() {
+  const navigate = useNavigate()
+  const { setSucMsg } = useMessage()
   const { setAuth, user } = useRedux()
+  const { success } = useQuery()
   const [stores, setStores] = useState([])
 
   useEffect(() => {
     if (user?.stores) {
       const sortedStores = [...user.stores].sort((a, b) => b.isDefault - a.isDefault)
       setStores(sortedStores)
+    }
+    if (success === 'true') {
+      setSucMsg('新增門市地址成功')
+
+      navigate('', { replace: true })
     }
   }, [user?.stores])
 
@@ -31,6 +42,7 @@ function Address() {
       console.log('Receive [delete /store/:storeId] response:', response.message)
       console.log('Receive [delete /store/:storeId] data:', response.stores)
       setAuth({ user: { ...user, stores: response.stores } })
+      setSucMsg(response.message)
     } catch (error) {
       console.error('Catch [delete /store/:storeId] error:', error.message)
     }
@@ -42,6 +54,7 @@ function Address() {
       console.log('Receive [put /store/:storeId/default] response:', response.message)
       console.log('Receive [put /store/:storeId/default] data:', response.stores)
       setAuth({ user: { ...user, stores: response.stores } })
+      setSucMsg(response.message)
     } catch (error) {
       console.error('Catch [put /store/:storeId/default] error:', error.message)
     }
