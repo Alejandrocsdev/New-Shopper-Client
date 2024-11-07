@@ -8,7 +8,7 @@ import { autoSignIn } from '../../../api/request/auth'
 import { resetPwdPhone, resetPwdEmail } from '../../../api/request/notif'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
-import { useError } from '../../../context/ErrorContext'
+import { useMessage } from '../../../context/MessageContext'
 import useRedux from '../../../hooks/useRedux'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件
@@ -22,7 +22,7 @@ function Success() {
   const { isSignUp, isReset } = useAuthMode().modeStates
   const { count, startCountdown } = useCountdown(10, onRedirect, { once: true })
   const { id, phone, email } = user
-  const { setErrMsg } = useError()
+  const { setErrMsg } = useMessage()
   const { setAuth, clearAuth } = useRedux()
 
   useEffect(() => {

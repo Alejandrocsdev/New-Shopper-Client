@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { getProducts } from '../../api/request/product'
 // 組件 (component)
 import Paginator from './Paginator'
+import Anchor from '../../components/Anchor'
 
 // 首頁
 function Home() {
@@ -18,13 +19,13 @@ function Home() {
     const onGetProducts = async () => {
       try {
         const response = await getProducts({ page: currentPage, limit })
-        console.log('Receive [get /product] response:', response.message)
-        console.log('Receive [get /product] data:', response.data)
+        console.log('Receive [get /product/all] response:', response.message)
+        console.log('Receive [get /product/all] data:', response.data)
         const { totalItems, totalPages, products } = response.data
         setProducts(products)
         setTotalPages(totalPages)
       } catch (error) {
-        console.error('Catch [get /product] error:', error.message)
+        console.error('Catch [get /product/all] error:', error.message)
       }
     }
     onGetProducts()
@@ -42,7 +43,9 @@ function Home() {
         {products.map((product, index) => (
           <div className={S.product} key={index}>
             <div className={S.imgContainer}>
-              <img className={S.image} src={product.image.link} />
+              <Anchor int={`/product/${product.id}`} >
+                <img className={S.image} src={product.image.link} />
+              </Anchor>
             </div>
             <div className={S.name}>{product.name}</div>
             <div className={S.category}>{product.category}</div>

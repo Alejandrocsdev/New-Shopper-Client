@@ -17,6 +17,10 @@ export const postUserRole = (role) => {
   console.log('Send [post /user/role] request')
   return axiosRequest(true, 'post', `${base}/role`, { role })
 }
+export const postUserCart = (productId, quantity, unitPrice) => {
+  console.log('Send [post /user/cart/:productId] request')
+  return axiosRequest(true, 'post', `${base}/cart/${productId}`, { quantity, unitPrice })
+}
 
 // Public Requests
 export const findUserByInfo = (userInfo) => {

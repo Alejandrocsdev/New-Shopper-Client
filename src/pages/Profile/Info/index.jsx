@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 // 自訂函式 (custom function)
 import useRedux from '../../../hooks/useRedux'
 import { putUser } from '../../../api/request/user'
-import { useError } from '../../../context/ErrorContext'
+import { useMessage } from '../../../context/MessageContext'
 // 組件
 import ImageUpload from '../../../components/ImageUpload'
 import LabeledInput from './LabeledInput'
@@ -16,7 +16,7 @@ import LabeledInput from './LabeledInput'
 // 首頁
 function Info() {
   const { setAuth, user } = useRedux()
-  const { setErrMsg } = useError()
+  const { setErrMsg } = useMessage()
   const avatar = privateAvatarSrc(user?.avatar?.link)
 
   const { handleSubmit, reset, register } = useForm()

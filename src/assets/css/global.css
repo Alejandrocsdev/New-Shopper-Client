@@ -35,6 +35,8 @@ a {
   --error-red: #ff424f;
   --error-background: #ffdae0;
   --valid-green: #66CC00;
+  --success-green: rgb(0, 182, 55);
+  --success-background: rgb(183, 255, 205);
   --active-yelow: #FCC30E;
 }
 

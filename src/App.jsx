@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 // 自訂函式 (custom function)
 import i18next from './utils/i18next'
 import { ThemeProvider } from './context/ThemeContext'
-import { ErrorProvider } from './context/ErrorContext'
+import { MessageProvider } from './context/MessageContext'
 import useCheckBackend from './hooks/useCheckBackend'
 // 載入組件 (loader)
 import Loader from './components/Loader'
@@ -30,6 +30,7 @@ import Cart from './pages/Profile/Cart'
 import Kyc from './pages/Profile/Kyc'
 import Admin from './pages/Admin'
 import Seller from './pages/Seller'
+import Product from './pages/Product'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ErrorProvider>
+      <MessageProvider>
         <ThemeProvider>
           {loading 
           ? <Loader loading={loading} />
@@ -54,6 +55,7 @@ function App() {
                 <Route element={<Layout />}>
                   {/* Semi-Protected Routes */}
                   <Route index element={<Home />} />
+                  <Route path="product/:productId" element={<Product />} />
 
                   {/* Protected Routes */}
                   <Route element={<ProtectedRoutes allowedRoles={['buyer', 'seller', 'admin', 'editor', 'viewer']} />}>
@@ -85,7 +87,7 @@ function App() {
               <Route path="/" element={<Navigate to={`/${i18next.language}`} />} />
             </Routes>}
         </ThemeProvider>
-      </ErrorProvider>
+      </MessageProvider>
     </BrowserRouter>
   )
 }

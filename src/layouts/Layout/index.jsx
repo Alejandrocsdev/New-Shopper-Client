@@ -11,7 +11,7 @@ import { getAuthUser } from '../../api/request/auth'
 // 組件 (component)
 import Header from './Header'
 import Footer from '../Footer'
-import Error from '../../components/Error'
+import Message from '../../components/Message'
 
 // 佈局組件
 function Layout() {
@@ -46,7 +46,7 @@ function Layout() {
   return (
     <>
       <Header />
-      <Error />
+      <Message />
       <div className={S.container}>
         <Outlet />
       </div>

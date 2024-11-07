@@ -1,0 +1,21 @@
+.error {
+  height: 2.5rem;
+  width: 100%;
+  color: var(--error-red);
+  background-color: var(--error-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.success {
+  height: 2.5rem;
+  width: 100%;
+  color: var(--success-green);
+  background-color: var(--success-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}

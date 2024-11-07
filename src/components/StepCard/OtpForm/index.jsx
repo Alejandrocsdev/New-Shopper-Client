@@ -10,7 +10,7 @@ import { findUserByInfo } from '../../../api/request/user'
 import { smsSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
-import { useError } from '../../../context/ErrorContext'
+import { useMessage } from '../../../context/MessageContext'
 import useRedux from '../../../hooks/useRedux'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件 (component)
@@ -24,7 +24,7 @@ function OtpForm() {
   const { count, isCounting, startCountdown } = useCountdown(60)
   const [formContext, setFormContext] = useState(null)
   const { phone } = user
-  const { setErrMsg } = useError()
+  const { setErrMsg } = useMessage()
   const { setAuth, clearAuth } = useRedux()
 
   const schema = Joi.object({

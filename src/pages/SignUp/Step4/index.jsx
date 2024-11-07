@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
 import { autoSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
-import { useError } from '../../../context/ErrorContext'
+import { useMessage } from '../../../context/MessageContext'
 import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import StepCard from '../../../components/StepCard'
@@ -17,7 +17,7 @@ function Step4() {
   const { t } = useTranslation()
   const { user, to } = useAuthStep()
   const { id, username, avatar, phone } = user
-  const { setErrMsg } = useError()
+  const { setErrMsg } = useMessage()
   const { setAuth, clearAuth } = useRedux()
 
   // 處理表單提交事件

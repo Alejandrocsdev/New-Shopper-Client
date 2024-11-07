@@ -4,7 +4,7 @@ import S from './style.module.css'
 import { useState, useEffect } from 'react'
 // 自訂函式 (custom function)
 import { sendOtpPrivate, verifyOtpPrivate } from '../../../../api/request/verif'
-import { useError } from '../../../../context/ErrorContext'
+import { useMessage } from '../../../../context/MessageContext'
 
 // 首頁
 function LabeledInput({ label, id, type, placeholder, dataValue, isUsername, resetData, register }) {
@@ -19,7 +19,7 @@ function LabeledInput({ label, id, type, placeholder, dataValue, isUsername, res
 
   const { reset, resetTrigger } = resetData
 
-  const { setErrMsg } = useError()
+  const { setErrMsg } = useMessage()
 
   useEffect(() => {
     setValue('')

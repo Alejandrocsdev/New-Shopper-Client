@@ -9,7 +9,7 @@ import { sendOtp } from '../../../api/request/verif'
 import { pwdSignIn } from '../../../api/request/auth'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useAuthMode } from '../../../context/AuthModeContext'
-import { useError } from '../../../context/ErrorContext'
+import { useMessage } from '../../../context/MessageContext'
 import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
 import Form from '../../Form'
@@ -21,7 +21,7 @@ import PhoneInput from '../../Input/PhoneInput'
 const SignForm = () => {
   const { t } = useTranslation()
   const { to } = useAuthStep()
-  const { setErrMsg } = useError()
+  const { setErrMsg } = useMessage()
   const { setAuth, clearAuth } = useRedux()
 
   const [formContext, setFormContext] = useState(null)
