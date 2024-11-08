@@ -4,16 +4,30 @@ import S from './style.module.css'
 import { useState, useEffect } from 'react'
 // 自訂函式 (custom function)
 import { getProducts } from '../../api/request/product'
+import useLocalStorage from '../../hooks/useLocalStorage'
+import useLangNavigate from '../../hooks/useLangNavigate'
 // 組件 (component)
 import Paginator from './Paginator'
 import Anchor from '../../components/Anchor'
 
 // 首頁
 function Home() {
+  const { getValue, setValue } = useLocalStorage()
+  const langNavigate = useLangNavigate()
   const [products, setProducts] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const limit = 9
+
+  // 取得page便刪除local storage
+  useEffect(() => {
+    const storedPage = getValue('page')
+    if (storedPage) {
+      setCurrentPage(Number(storedPage))
+    }
+
+    setValue('page', null)
+  }, [])
 
   useEffect(() => {
     const onGetProducts = async () => {
@@ -37,15 +51,21 @@ function Home() {
     }
   }
 
+  // 前往product頁面前存入page至local storage
+  const handleProductClick = (productId) => {
+    setValue('page', currentPage)
+    langNavigate(`/product/${productId}`)
+  }
+
   return (
     <main className={S.main}>
       <div className={S.productsContainer}>
         {products.map((product, index) => (
           <div className={S.product} key={index}>
-            <div className={S.imgContainer}>
-              <Anchor int={`/product/${product.id}`} >
+            <div className={S.imgContainer} onClick={() => handleProductClick(product.id)}>
+              {/* <Anchor int={`/product/${product.id}`}> */}
                 <img className={S.image} src={product.image.link} />
-              </Anchor>
+              {/* </Anchor> */}
             </div>
             <div className={S.name}>{product.name}</div>
             <div className={S.category}>{product.category}</div>
