@@ -31,6 +31,7 @@ import Admin from './pages/Admin'
 import Seller from './pages/Seller'
 import Product from './pages/Product'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
 
 function App() {
   const loading = useLoader()
@@ -68,6 +69,7 @@ function App() {
                     <Route index element={<Navigate to="info" />} />
                   </Route>
                   <Route path="cart" element={<Cart />} />
+                  <Route path="checkout" element={<Checkout />} />
                 </Route>
 
                 <Route element={<ProtectedRoutes allowedRoles={['seller', 'admin', 'editor', 'viewer']} />}>

@@ -8,8 +8,9 @@ import { useMessage } from '../../context/MessageContext'
 import { putUserCart, deleteUserCart } from '../../api/request/user'
 // 組件 (component)
 import StockCount from '../../components/StockCount'
+import Anchor from '../../components/Anchor'
 
-// 首頁
+// 購物車
 function Cart() {
   const { setSucMsg } = useMessage()
   const { setAuth, user } = useRedux()
@@ -17,7 +18,6 @@ function Cart() {
 
   useEffect(() => {
     if (user?.cart?.items) {
-      console.log(user?.cart?.items)
       setCartItems(user?.cart?.items)
     }
   }, [user?.cart?.items])
@@ -57,10 +57,9 @@ function Cart() {
           <div className={S.header}>購物車</div>
           <div className={S.infoContainer}>
             <div className={S.cartItems}>
-              {cartItems.length === 0 ? (
-                <div className={S.emptyMessage}>購物車是空的</div>
-              ) : (
-                cartItems.map((cartItem, index) => (
+              {cartItems.length === 0 
+              ? <div className={S.emptyMessage}>購物車是空的</div>
+              : cartItems.map((cartItem, index) => (
                   <div key={index} className={S.cartItem}>
                     <div className={S.imgContainer}>
                       <img src={cartItem.product.image.link} className={S.image} />
@@ -81,15 +80,16 @@ function Cart() {
                       </div>
                     </div>
                   </div>
-                ))
-              )}
+                ))}
             </div>
             {cartItems.length !== 0 && (
               <div className={S.purchase}>
                 <span className={S.purchaseAmount}>
                   總金額:<span>${totalAmount}</span>
                 </span>
-                <button className={S.purchaseBtn}>結帳</button>
+                <Anchor int="/checkout">
+                  <button className={S.purchaseBtn}>結帳</button>
+                </Anchor>
               </div>
             )}
           </div>
