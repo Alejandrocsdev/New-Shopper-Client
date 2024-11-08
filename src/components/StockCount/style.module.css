@@ -1,0 +1,24 @@
+.countBtn {
+  height: 2rem;
+  width: 2rem;
+  font-weight: 700;
+  color: var(--theme-primary-text);
+  background-color: var(--theme-tertiary-background);
+  cursor: pointer;
+}
+
+.countBtn:hover {
+  background-color: var(--theme-background-hover);
+}
+
+.red {
+  color: red;
+}
+
+.stock {
+  width: 2rem;
+  height: 2rem;
+  color: black;
+  text-align: center;
+  background-color: white;
+}

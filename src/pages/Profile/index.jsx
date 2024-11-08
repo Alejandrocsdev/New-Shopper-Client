@@ -38,7 +38,7 @@ function Profile() {
 
   const isInfo = location.pathname.includes('info')
   const isAddress = location.pathname.includes('address')
-  const isCart = location.pathname.includes('cart')
+  const isHistory = location.pathname.includes('history')
   const isKyc = location.pathname.includes('kyc')
 
   return (
@@ -56,8 +56,8 @@ function Profile() {
             <li onClick={() => navigate('address')} className={isAddress ? S.active : ''}>
               門市地址
             </li>
-            <li onClick={() => navigate('cart')} className={isCart ? S.active : ''}>
-              購物清單
+            <li onClick={() => navigate('history')} className={isHistory ? S.active : ''}>
+              購物紀錄
             </li>
             <li onClick={() => navigate('kyc')} className={isKyc ? S.active : ''}>
               身分驗證

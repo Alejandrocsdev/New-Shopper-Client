@@ -25,11 +25,12 @@ import Reset from './pages/Reset'
 import Profile from './pages/Profile'
 import Info from './pages/Profile/Info'
 import Address from './pages/Profile/Address'
-import Cart from './pages/Profile/Cart'
+import History from './pages/Profile/History'
 import Kyc from './pages/Profile/Kyc'
 import Admin from './pages/Admin'
 import Seller from './pages/Seller'
 import Product from './pages/Product'
+import Cart from './pages/Cart'
 
 function App() {
   const loading = useLoader()
@@ -61,11 +62,12 @@ function App() {
                   <Route path="profile" element={<Profile />}>
                     <Route path="info" element={<Info />} />
                     <Route path="address" element={<Address />} />
-                    <Route path="cart" element={<Cart />} />
+                    <Route path="History" element={<History />} />
                     <Route path="kyc" element={<Kyc />} />
                     {/* Redirect to info by default if no subpath is specified */}
                     <Route index element={<Navigate to="info" />} />
                   </Route>
+                  <Route path="cart" element={<Cart />} />
                 </Route>
 
                 <Route element={<ProtectedRoutes allowedRoles={['seller', 'admin', 'editor', 'viewer']} />}>

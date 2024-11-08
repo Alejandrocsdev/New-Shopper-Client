@@ -8,6 +8,9 @@ import { postUserCart } from '../../api/request/user'
 // 自訂函式 (custom function)
 import { useMessage } from '../../context/MessageContext'
 import useRedux from '../../hooks/useRedux'
+// 組件 (component)
+import Anchor from '../../components/Anchor'
+import StockCount from '../../components/StockCount'
 
 // 賣家中心
 function Product() {
@@ -40,23 +43,11 @@ function Product() {
       const response = await postUserCart(productId, stock, product.price)
       console.log('Receive [post /user/cart/:productId] response:', response.message)
       console.log('Receive [post /user/cart/:productId] data:', response.cartItems)
-      
+
       setAuth({ user: { ...user, cart: { ...user.cart, items: response.cartItems } } })
       setSucMsg(response.message)
     } catch (error) {
       console.error('Catch [post /user/cart/:productId] error:', error.message)
-    }
-  }
-
-  const handleIncrement = () => {
-    if (stock < product?.stock) {
-      setStock(stock + 1)
-    }
-  }
-
-  const handleDecrement = () => {
-    if (stock > 1) {
-      setStock(stock - 1)
     }
   }
 
@@ -70,27 +61,7 @@ function Product() {
           <h1>{product?.name}</h1>
           <p>價格: ${product?.price}</p>
           <div className={S.stockCountContainer}>
-            {user && (
-              <div className={S.stockCount}>
-                <button
-                  className={S.countBtn}
-                  type="button"
-                  onClick={handleDecrement}
-                  disabled={stock <= 1}
-                >
-                  -
-                </button>
-                <input className={S.stock} value={stock} readOnly />
-                <button
-                  className={S.countBtn}
-                  type="button"
-                  onClick={handleIncrement}
-                  disabled={stock >= product?.stock}
-                >
-                  +
-                </button>
-              </div>
-            )}
+            {user && <StockCount style={S.stockCount} stock={stock} setStock={setStock} totalStock={product?.stock} />}
             <span className={S.stockLeft}>還剩{product?.stock}件</span>
           </div>
           <p>{product?.description}</p>
@@ -99,7 +70,9 @@ function Product() {
               <button className={S.addToCart} onClick={onAddCart}>
                 加到購物車
               </button>
-              <button className={S.directPurchase}>直接購買</button>
+              <Anchor int="/cart">
+                <button className={S.directPurchase}>直接購買</button>
+              </Anchor>
             </div>
           )}
         </div>

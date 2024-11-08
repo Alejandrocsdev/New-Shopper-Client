@@ -52,7 +52,7 @@ function Header() {
           </button>
         </div>
         {/* 購物車 */}
-        <Anchor style={S.cartContainer} int="/profile/cart">
+        <Anchor style={S.cartContainer} int="/cart">
           <Icon style={S.cartIcon} icon="faCartShopping" />
         </Anchor>
       </header>
