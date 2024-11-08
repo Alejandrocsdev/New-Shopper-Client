@@ -42,6 +42,7 @@ function Home() {
         console.error('Catch [get /product/all] error:', error.message)
       }
     }
+    window.scrollTo(0, 0)
     onGetProducts()
   }, [currentPage])
 
@@ -63,9 +64,7 @@ function Home() {
         {products.map((product, index) => (
           <div className={S.product} key={index}>
             <div className={S.imgContainer} onClick={() => handleProductClick(product.id)}>
-              {/* <Anchor int={`/product/${product.id}`}> */}
-                <img className={S.image} src={product.image.link} />
-              {/* </Anchor> */}
+              <img className={S.image} src={product.image.link} />
             </div>
             <div className={S.name}>{product.name}</div>
             <div className={S.category}>{product.category}</div>

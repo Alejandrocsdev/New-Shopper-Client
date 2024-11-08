@@ -12,6 +12,7 @@ import { getAuthUser } from '../../api/request/auth'
 import Header from './Header'
 import Footer from '../Footer'
 import Message from '../../components/Message'
+import ScrollToTop from '../../components/ScrollToTop'
 
 // 佈局組件
 function Layout() {
@@ -45,6 +46,7 @@ function Layout() {
 
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Message />
       <div className={S.container}>
