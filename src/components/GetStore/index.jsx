@@ -22,7 +22,8 @@ function GetStore() {
 
   const onGetStore = async (LogisticsSubType) => {
     try {
-      const response = await getStore(id, LogisticsSubType, lang)
+      const path = `/${lang}/profile/address`
+      const response = await getStore(id, LogisticsSubType, path)
       console.log('Receive [get /ecpay/express-map] response:', response.message)
       console.log('Receive [get /ecpay/express-map] data:', response.ecPayParams)
 

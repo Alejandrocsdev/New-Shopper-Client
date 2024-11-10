@@ -21,7 +21,7 @@ function Address() {
   const navigate = useNavigate()
   const { setSucMsg } = useMessage()
   const { setAuth, user } = useRedux()
-  const { success } = useQuery()
+  const { s } = useQuery()
   const [stores, setStores] = useState([])
 
   useEffect(() => {
@@ -29,9 +29,9 @@ function Address() {
       const sortedStores = [...user.stores].sort((a, b) => b.isDefault - a.isDefault)
       setStores(sortedStores)
     }
-    if (success === 'true') {
+    // (success=true)
+    if (s === 't') {
       setSucMsg('新增門市地址成功')
-
       navigate('', { replace: true })
     }
   }, [user?.stores])

@@ -1,0 +1,38 @@
+/* .tableWrapper {} */
+
+/* .tableWrapper table {} */
+
+/* .tableWrapper table>colgroup {} */
+
+/* .tableWrapper table>thead {} */
+
+/* .tableWrapper table>thead>tr {} */
+
+.tableWrapper table>thead>tr>th {
+  text-align: center!important;
+  color: var(--theme-primary-text)!important;
+  background-color: var(--theme-secondary-background)!important;
+}
+
+.tableWrapper table>thead>tr>th::before {
+  content: "";
+  display: none;
+}
+
+.tableWrapper table>thead>tr>th svg {
+  fill: green;
+}
+
+/* .tableWrapper table>tbody {} */
+
+/* .tableWrapper table>tbody>tr {} */
+
+.tableWrapper table>tbody>tr>td {
+  text-align: center;
+  color: var(--theme-primary-text);
+  background-color: var(--theme-primary-background)!important;
+}
+
+.tableWrapper .ant-table-filter-trigger {
+  color: white!important;
+}

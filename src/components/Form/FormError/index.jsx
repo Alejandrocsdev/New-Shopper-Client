@@ -4,9 +4,9 @@ import S from './style.module.css'
 import Icon from '../../Icon'
 
 // 表單錯誤
-const FormError = ({ message }) => {
+const FormError = ({ style, message }) => {
   return (
-    <div className={S.formError}>
+    <div className={`${S.formError} ${style}`}>
       <div className={S.crossIcon}>
         <Icon icon="faCircleXmark" />
       </div>

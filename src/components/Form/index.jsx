@@ -7,7 +7,7 @@ import FormError from './FormError'
 import SubmitButton from '../SubmitButton'
 
 // 錨點
-function Form({ schema, onSubmit, submitText, setFormContext, children }) {
+function Form({ style, formStyle, schema, onSubmit, submitText, setFormContext, children }) {
   const methods = useForm({
     resolver: schema ? joiResolver(schema) : undefined,
     mode: 'onChange',
@@ -31,8 +31,8 @@ function Form({ schema, onSubmit, submitText, setFormContext, children }) {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
-        {errors.root && <FormError message={errors.root.message} />}
+      <form className={style} onSubmit={methods.handleSubmit(onSubmit)}>
+        {errors.root && <FormError style={formStyle} message={errors.root.message} />}
         {children}
         <SubmitButton isValid={isValid} isSubmitting={isSubmitting}>
           {submitText}

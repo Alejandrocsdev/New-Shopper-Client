@@ -4,13 +4,13 @@ import S from './style.module.css'
 import { useState, useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-// 錨點
+// 輸入欄標籤
 function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) {
   const { register, formState: { errors }, clearErrors } = useFormContext()
   const [errorCleared, setErrorCleared] = useState(false)
 
   // 輸入時, 移除Form錯誤訊息
-  const errorClear = (e) => {
+  const errorClear = () => {
     if (!errorCleared && errors.root) {
       clearErrors('root')
       setErrorCleared(true)
@@ -31,7 +31,7 @@ function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) 
         type={type}
         placeholder={placeholder}
         maxLength={maxLength}
-        {...register(name, { onChange: (e) => errorClear(e) })}
+        {...register(name, { onChange: () => errorClear() })}
       />
       {/* 錯誤訊息 */}
       {!errOff && <div className={S.errMsg}>{errors[name] ? errMsg : ''}</div>}
