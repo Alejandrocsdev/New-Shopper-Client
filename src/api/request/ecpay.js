@@ -9,6 +9,10 @@ export const payment = (orderId, TotalAmount, ItemName) => {
     params: { orderId, TotalAmount, ItemName }
   })
 }
+export const getPaymentOrder = (MerchantTradeNo) => {
+  console.log('Send [get /ecpay/payment/order] request')
+  return axiosRequest(true, 'post', `${base}/payment/order`, { MerchantTradeNo })
+}
 export const getStoreList = (CvsType) => {
   console.log('Send [get /ecpay/logisticts/store/list/params] request')
   return axiosRequest(true, 'get', `${base}/logisticts/store/list/params`, {

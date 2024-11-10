@@ -97,7 +97,7 @@ function GetGovWordSetting() {
 
       {source.length !== 0 && (
         <Table
-          style={S.table}
+          style={`${S.table} ${isVisible ? '' : S.hide}`}
           titles={titles}
           source={source}
           idColumn={!source[0]?.message}

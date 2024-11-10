@@ -9,6 +9,8 @@ import useLangNavigate from '../../hooks/useLangNavigate'
 // 組件 (component)
 import Paginator from './Paginator'
 import Anchor from '../../components/Element/Anchor'
+import PaymentButton from '../../components/Ecpay/PaymentButton'
+import GetPaymentOrder from '../../components/Ecpay/GetPaymentOrder'
 
 // 首頁
 function Home() {
@@ -60,6 +62,8 @@ function Home() {
 
   return (
     <main className={S.main}>
+      <PaymentButton orderId="1234" TotalAmount="1000" ItemName="Toy" />
+      <GetPaymentOrder MerchantTradeNo="12341731230728076" />
       <div className={S.productsContainer}>
         {products.map((product, index) => (
           <div className={S.product} key={index}>

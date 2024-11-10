@@ -7,7 +7,6 @@ import { payment } from '../../../api/request/ecpay'
 // 環境變數
 const { VITE_PAYMENT_ECPAY_API } = import.meta.env
 
-// 表單樣板: 密碼登入樣板 / 簡訊登入樣板 / 註冊樣板
 function PaymentButton({ orderId, TotalAmount, ItemName }) {
   const onPayment = async () => {
     try {

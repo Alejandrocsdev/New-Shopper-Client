@@ -1,0 +1,61 @@
+.main {
+  padding: 2rem 10rem;
+  min-height: calc(100vh - var(--nav-height) - var(--header-height));
+  display: flex;
+  flex-direction: column;
+}
+
+/* .container {} */
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.removeBtn {
+  width: 10rem;
+  margin-right: 1rem;
+}
+
+.form {
+  width: 10rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formError {
+  margin: 0;
+}
+
+.label {
+  color: green;
+}
+
+.select {
+  height: 2rem;
+  margin: auto 0;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.table {
+  margin-bottom: 1rem;
+}
+
+.alert {
+  margin-top: .5rem;
+  color: orangered;
+}

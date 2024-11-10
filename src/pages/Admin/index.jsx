@@ -4,14 +4,16 @@ import S from './style.module.css'
 import GetGovWordSetting from './GetGovWordSetting'
 import GetWordSetting from './GetWordSetting'
 import AddWordSetting from './AddWordSetting'
+import SetWordStatus from './SetWordStatus'
 
 // 後台
 function Admin() {
   return (
     <main className={S.main}>
       <GetGovWordSetting />
-      <GetWordSetting/>
-      <AddWordSetting/>
+      <GetWordSetting />
+      <AddWordSetting />
+      <SetWordStatus />
     </main>
   )
 }
