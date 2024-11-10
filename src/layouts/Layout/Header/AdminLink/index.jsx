@@ -1,7 +1,7 @@
 // 樣式模組 (css module)
 import S from './style.module.css'
 // 組件 (component)
-import Anchor from '../../../../components/Anchor'
+import Anchor from '../../../../components/Element/Anchor'
 
 // 後台 連結
 function AdminLink() {

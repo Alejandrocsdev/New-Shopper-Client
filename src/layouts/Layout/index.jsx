@@ -11,8 +11,8 @@ import { getAuthUser } from '../../api/request/auth'
 // 組件 (component)
 import Header from './Header'
 import Footer from '../Footer'
-import Message from '../../components/Message'
-import ScrollToTop from '../../components/ScrollToTop'
+import Message from '../../components/Global/Message'
+import ScrollToTop from '../../components/Global/ScrollToTop'
 
 // 佈局組件
 function Layout() {

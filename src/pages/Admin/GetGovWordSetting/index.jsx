@@ -6,10 +6,10 @@ import { useState } from 'react'
 // 自訂函式 (custom function)
 import { getGovWordSetting } from '../../../api/request/ecpay'
 // 組件 (component)
-import Form from '../../../components/Form'
-import Select from '../../../components/Select'
-import Table from '../../../components/Table'
-import SubmitButton from '../../../components/SubmitButton'
+import Form from '../../../components/Element/Form'
+import Select from '../../../components/Element/Select'
+import Table from '../../../components/Element/Table'
+import SubmitButton from '../../../components/UI/Button/SubmitButton'
 
 // 查詢財政部配號結果
 function GetGovWordSetting() {

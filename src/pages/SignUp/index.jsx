@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useAuthMode } from '../../context/AuthModeContext'
 import { useAuthStep } from '../../context/AuthStepContext'
 // 組件
-import SignCard from '../../components/SignCard'
+import SignCard from '../../components/UI/Card/SignCard'
 import Step1 from './Step1'
 import Step2 from './Step2'
 import Step3 from './Step3'

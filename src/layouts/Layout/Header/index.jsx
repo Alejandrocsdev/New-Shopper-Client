@@ -10,9 +10,9 @@ import AdminLink from './AdminLink'
 import SignLink from './SignLink'
 import ThemeToggle from './ThemeToggle'
 import LangDrop from './LangDrop'
-import Logo from '../../../components/Logo'
-import Icon from '../../../components/Icon'
-import Anchor from '../../../components/Anchor'
+import Logo from '../../../components/UI/Logo'
+import Icon from '../../../components/Element/Icon'
+import Anchor from '../../../components/Element/Anchor'
 
 // 頁首
 function Header() {

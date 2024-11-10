@@ -10,7 +10,7 @@ import useQuery from '../../../hooks/useQuery'
 import { useMessage } from '../../../context/MessageContext'
 import { deleteStore, putStoreDefault } from '../../../api/request/store'
 // 組件 (component)
-import GetStore from '../../../components/GetStore'
+import GetStore from '../../../components/Ecpay/GetStore'
 // 圖檔 (image)
 import sevenElevenPng from '../../../assets/img/ecpay/sevenEleven.png'
 import familyMartPng from '../../../assets/img/ecpay/familyMart.png'

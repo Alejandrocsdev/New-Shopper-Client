@@ -10,8 +10,8 @@ import useRedux from '../../hooks/useRedux'
 import useLangNavigate from '../../hooks/useLangNavigate'
 import { signOut } from '../../api/request/auth'
 // 組件
-import ImageUpload from '../../components/ImageUpload'
-import Loading from '../../components/Laoding'
+import ImageUpload from '../../components/UI/Button/ImageUpload'
+import Loading from '../../components/UI/Laoding'
 
 // 首頁
 function Profile() {

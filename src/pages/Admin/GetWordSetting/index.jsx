@@ -6,11 +6,11 @@ import { useState } from 'react'
 // 自訂函式 (custom function)
 import { getWordSetting } from '../../../api/request/ecpay'
 // 組件 (component)
-import Form from '../../../components/Form'
-import Select from '../../../components/Select'
-import Table from '../../../components/Table'
-import Input from '../../../components/Input'
-import SubmitButton from '../../../components/SubmitButton'
+import Form from '../../../components/Element/Form'
+import Select from '../../../components/Element/Select'
+import Table from '../../../components/Element/Table'
+import Input from '../../../components/Element/Input'
+import SubmitButton from '../../../components/UI/Button/SubmitButton'
 
 // 查詢字軌
 function GetWordSetting() {
@@ -81,7 +81,7 @@ function GetWordSetting() {
         onSubmit={onSource}
         submitText="查詢"
         setFormContext={setFormContext}
-        formStyle={S.formError}
+        errorStyle={S.formError}
       >
         <label className={S.label} htmlFor="2InvoiceYear">
           發票年度:

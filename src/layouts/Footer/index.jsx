@@ -10,7 +10,7 @@ import sevenElevenPng from '../../assets/img/ecpay/sevenEleven.png'
 import familyMartPng from '../../assets/img/ecpay/familyMart.png'
 import okMartPng from '../../assets/img/ecpay/okMart.png'
 // 組件 (component)
-import Icon from '../../components/Icon'
+import Icon from '../../components/Element/Icon'
 
 // 頁首
 function Footer() {

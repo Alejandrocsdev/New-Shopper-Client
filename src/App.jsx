@@ -9,7 +9,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import { MessageProvider } from './context/MessageContext'
 import useLoader from './hooks/useLoader'
 // 載入組件 (loader)
-import Loader from './components/Loader'
+import Loader from './components/Global/Loader'
 // 佈局組件 (layouts)
 import Layout from './layouts/Layout'
 import AuthLayout from './layouts/AuthLayout'

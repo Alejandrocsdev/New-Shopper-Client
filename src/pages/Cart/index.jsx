@@ -7,8 +7,8 @@ import useRedux from '../../hooks/useRedux'
 import { useMessage } from '../../context/MessageContext'
 import { putUserCart, deleteUserCart } from '../../api/request/user'
 // 組件 (component)
-import StockCount from '../../components/StockCount'
-import Anchor from '../../components/Anchor'
+import StockCount from '../../components/UI/StockCount'
+import Anchor from '../../components/Element/Anchor'
 
 // 購物車
 function Cart() {

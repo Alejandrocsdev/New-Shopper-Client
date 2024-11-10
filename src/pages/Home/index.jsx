@@ -8,7 +8,7 @@ import useLocalStorage from '../../hooks/useLocalStorage'
 import useLangNavigate from '../../hooks/useLangNavigate'
 // 組件 (component)
 import Paginator from './Paginator'
-import Anchor from '../../components/Anchor'
+import Anchor from '../../components/Element/Anchor'
 
 // 首頁
 function Home() {

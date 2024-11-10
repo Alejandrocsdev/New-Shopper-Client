@@ -8,7 +8,7 @@ import { AuthStepProvider } from '../../context/AuthStepContext'
 // 組件 (component)
 import AuthHeader from './AuthHeader'
 import Footer from '../Footer'
-import Message from '../../components/Message'
+import Message from '../../components/Global/Message'
 
 // 佈局組件 (Auth)
 function AuthLayout() {

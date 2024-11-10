@@ -7,9 +7,9 @@ import { sendOtp, sendLink } from '../../../api/request/verif'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import { useLang } from '../../../context/LangContext'
 // 組件 (component)
-import StepCard from '../../../components/StepCard'
-import Form from '../../../components/Form'
-import Input from '../../../components/Input'
+import StepCard from '../../../components/UI/Card/StepCard'
+import Form from '../../../components/Element/Form'
+import Input from '../../../components/Element/Input'
 
 function ResetStep() {
   const { t } = useTranslation()

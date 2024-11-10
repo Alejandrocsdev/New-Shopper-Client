@@ -6,7 +6,7 @@ import { useAuthMode } from '../../context/AuthModeContext'
 import { useAuthStep } from '../../context/AuthStepContext'
 import { useMessage } from '../../context/MessageContext'
 // 組件
-import SignCard from '../../components/SignCard'
+import SignCard from '../../components/UI/Card/SignCard'
 import Step1 from './Step1'
 
 // 登入流程

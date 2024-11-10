@@ -6,7 +6,7 @@ import { useState, useRef } from 'react'
 import { useLang } from '../../../../context/LangContext'
 import useClickOutside from '../../../../hooks/useClickOutside'
 // 組件 (component)
-import Icon from '../../../../components/Icon'
+import Icon from '../../../../components/Element/Icon'
 // 資料 (data)
 import languages from '../../../../assets/locales/languages'
 

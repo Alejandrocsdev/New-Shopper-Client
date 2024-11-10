@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next'
 // 自訂函式 (custom function)
 import { useAuthStep } from '../../../context/AuthStepContext'
 // 組件 (component)
-import Icon from '../../../components/Icon'
-import SubmitButton from '../../../components/SubmitButton'
-import StepCard from '../../../components/StepCard'
-import OtpForm from '../../../components/StepCard/OtpForm'
+import Icon from '../../../components/Element/Icon'
+import SubmitButton from '../../../components/UI/Button/SubmitButton'
+import StepCard from '../../../components/UI/Card/StepCard'
+import OtpForm from '../../../components/UI/Card/StepCard/OtpForm'
 
 function Step1() {
   const { t } = useTranslation()

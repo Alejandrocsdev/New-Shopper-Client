@@ -1,7 +1,7 @@
 // 樣式模組 (css module)
 import S from './style.module.css'
 // 組件 (component)
-import Icon from '../../../components/Icon'
+import Icon from '../../../components/Element/Icon'
 
 // 首頁
 function Paginator({ showPages, currentPage, totalPage, onPageChange }) {

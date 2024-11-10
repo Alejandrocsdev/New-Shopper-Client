@@ -9,8 +9,8 @@ import { postUserCart } from '../../api/request/user'
 import { useMessage } from '../../context/MessageContext'
 import useRedux from '../../hooks/useRedux'
 // 組件 (component)
-import Anchor from '../../components/Anchor'
-import StockCount from '../../components/StockCount'
+import Anchor from '../../components/Element/Anchor'
+import StockCount from '../../components/UI/StockCount'
 
 // 賣家中心
 function Product() {

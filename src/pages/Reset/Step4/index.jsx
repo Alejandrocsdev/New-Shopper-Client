@@ -7,9 +7,9 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useAuthStep } from '../../../context/AuthStepContext'
 import useCountdown from '../../../hooks/useCountdown'
 // 組件 (component)
-import Icon from '../../../components/Icon'
-import SubmitButton from '../../../components/SubmitButton'
-import StepCard from '../../../components/StepCard'
+import Icon from '../../../components/Element/Icon'
+import SubmitButton from '../../../components/UI/Button/SubmitButton'
+import StepCard from '../../../components/UI/Card/StepCard'
 
 function Step4() {
   const { t } = useTranslation()

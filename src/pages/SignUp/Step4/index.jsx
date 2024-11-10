@@ -10,8 +10,8 @@ import { useAuthStep } from '../../../context/AuthStepContext'
 import { useMessage } from '../../../context/MessageContext'
 import useRedux from '../../../hooks/useRedux'
 // 組件 (component)
-import StepCard from '../../../components/StepCard'
-import SubmitButton from '../../../components/SubmitButton'
+import StepCard from '../../../components/UI/Card/StepCard'
+import SubmitButton from '../../../components/UI/Button/SubmitButton'
 
 function Step4() {
   const { t } = useTranslation()

@@ -10,7 +10,7 @@ import useRedux from '../../../hooks/useRedux'
 import { putUser } from '../../../api/request/user'
 import { useMessage } from '../../../context/MessageContext'
 // 組件
-import ImageUpload from '../../../components/ImageUpload'
+import ImageUpload from '../../../components/UI/Button/ImageUpload'
 import LabeledInput from './LabeledInput'
 
 // 首頁

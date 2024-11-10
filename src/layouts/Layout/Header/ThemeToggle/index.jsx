@@ -3,7 +3,7 @@ import S from './style.module.css'
 // 函式庫 (library)
 import { useTheme } from '../../../../context/ThemeContext'
 // 組件 (component)
-import Icon from '../../../../components/Icon'
+import Icon from '../../../../components/Element/Icon'
 
 // 主題切換
 function ThemeToggle() {
