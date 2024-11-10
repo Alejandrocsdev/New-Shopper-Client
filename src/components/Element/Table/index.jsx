@@ -4,7 +4,7 @@ import S from './style.module.css'
 import { Table as AntTable } from 'antd'
 
 // 表格
-function Table({ style, titles, source, idColumn }) {
+function Table({ style, titles, source, idColumn, columnConfig }) {
   const { Column } = AntTable
 
   const dataSource = source.map((data, index) => ({
@@ -17,24 +17,23 @@ function Table({ style, titles, source, idColumn }) {
   return (
     <AntTable className={`${S.tableWrapper} ${style}`} dataSource={dataSource} pagination={true}>
       {idColumn && <Column title="編號" key="index" render={(text, record, index) => index + 1} />}
-      {dataKeys.map((key, index) => (
-        <Column
-          title={titles[index]}
-          dataIndex={key}
-          key={key}
-          filters={
-            titles[index] === '發票期別'
-              ? [
-                  { text: '1', value: 1 },
-                  { text: '2', value: 2 }
-                ]
-              : null
-          }
-          onFilter={(value, record) => record[key] === value}
-          sorter={titles[index] === '發票期別' ? (a, b) => a.InvoiceTerm - b.InvoiceTerm : null}
-          sortDirections={['ascend', 'descend']}
-        />
-      ))}
+      {dataKeys.map((key, index) => {
+        const config = columnConfig[index] || {}
+        const onFilter = (value, record) => record[key] === value
+        const sorter = (a, b) => a[key] - b[key]
+        const sortDirections = ['ascend', 'descend']
+        return (
+          <Column
+            title={titles[index]}
+            dataIndex={key}
+            key={key}
+            filters={config.filters || null}
+            onFilter={config.filters ? onFilter : null}
+            sorter={config.sorter ? sorter : null}
+            sortDirections={config.sorter ? sortDirections : null}
+          />
+        )
+      })}
     </AntTable>
   )
 }

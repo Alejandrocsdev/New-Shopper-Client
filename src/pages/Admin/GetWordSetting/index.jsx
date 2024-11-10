@@ -11,18 +11,22 @@ import Select from '../../../components/Element/Select'
 import Table from '../../../components/Element/Table'
 import Input from '../../../components/Element/Input'
 import SubmitButton from '../../../components/UI/Button/SubmitButton'
+import ToggleButton from '../ToggleButton'
 
 // 查詢字軌
 function GetWordSetting() {
   const [formContext, setFormContext] = useState(null)
   const [source, setSource] = useState([])
+  const [isVisible, setIsVisible] = useState(false)
+
+  const toggleVisibility = () => setIsVisible((prev) => !prev)
 
   const onSource = async (data) => {
     try {
       const response = await getWordSetting(data)
       console.log('Receive [post /ecpay/einvoice/get-word-setting] response:', response.message)
       console.log('Receive [post /ecpay/einvoice/get-word-setting] data:', response.result)
-      setSource(response.result?.InvoiceInfo || [{ message: response.message }])
+      setSource(response.result?.InvoiceInfo || [{ message: response.result.RtnMsg }])
     } catch (error) {
       formContext.setError('root', { message: error.message })
       console.error('Catch [post /ecpay/einvoice/get-word-setting] error:', error.message)
@@ -40,9 +44,13 @@ function GetWordSetting() {
       .pattern(/^[0-6]$/)
       .required(),
     InvoiceHeader: Joi.string()
-      .length(2)
-      .pattern(/^[A-Z]{2}$/)
-      .required()
+      .allow('')
+      .optional()
+      .when(Joi.string().min(1), {
+        then: Joi.string()
+          .length(2)
+          .pattern(/^[A-Z]{2}$/)
+      })
   })
 
   const titles = source[0]?.message
@@ -62,10 +70,56 @@ function GetWordSetting() {
         '產品服務別代號'
       ]
 
+  const columnConfig = [
+    // 字軌號碼ID
+    { sorter: true },
+    // 發票年度
+    {},
+    // 發票期別
+    {
+      filters: [
+        { text: '1: 1-2月', value: 1 },
+        { text: '2: 3-4月', value: 2 },
+        { text: '3: 5-6月', value: 3 },
+        { text: '4: 7-8月', value: 4 },
+        { text: '5: 9-10月', value: 5 },
+        { text: '6: 11-12月', value: 6 }
+      ]
+    },
+    // 發票類別
+    {},
+    // 字軌類別
+    {},
+    // 字軌名稱
+    {},
+    // 起始發票編號
+    { sorter: true },
+    // 結束發票編號
+    { sorter: true },
+    // 目前已使用號碼
+    {},
+    // 使用狀態
+    {
+      filters: [
+        { text: '1: 未啟用', value: 1 },
+        { text: '2: 使用中', value: 2 },
+        { text: '3: 已停用', value: 3 },
+        { text: '4: 暫停中', value: 4 },
+        { text: '5: 待審核', value: 5 },
+        { text: '6: 審核不通過', value: 6 }
+      ]
+    },
+    // 特店編號
+    {},
+    // 產品服務別代
+    {}
+  ]
+
   return (
     <div className={S.container}>
       <div className={S.titleContainer}>
         <h3 className={S.title}>2. 查詢字軌</h3>
+        <ToggleButton style={S.toggleButton} onClick={toggleVisibility} isVisible={isVisible} />
         <SubmitButton
           type="button"
           style={`${S.removeBtn} ${source.length ? '' : S.hide}`}
@@ -76,7 +130,7 @@ function GetWordSetting() {
       </div>
 
       <Form
-        style={S.form}
+        style={`${S.form} ${isVisible ? '' : S.hide}`}
         schema={schema}
         onSubmit={onSource}
         submitText="查詢"
@@ -121,13 +175,20 @@ function GetWordSetting() {
         <Input
           id="2InvoiceHeader"
           name="InvoiceHeader"
-          placeholder={'請輸入正確字軌名稱格式'}
+          placeholder={'請輸入字軌名稱'}
           errMsg={'正確格式: CK, LX'}
           maxLength="2"
+          hide
         />
       </Form>
       {source.length !== 0 && (
-        <Table style={S.table} titles={titles} source={source} idColumn={!source[0]?.message} />
+        <Table
+          style={S.table}
+          titles={titles}
+          source={source}
+          idColumn={!source[0]?.message}
+          columnConfig={columnConfig}
+        />
       )}
     </div>
   )

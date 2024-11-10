@@ -17,7 +17,9 @@ import {
   faCaretRight,
   faCaretLeft,
   faForwardStep,
-  faBackwardStep
+  faBackwardStep,
+  faPlus,
+  faMinus
 } from '@fortawesome/free-solid-svg-icons'
 
 // Icon mapping
@@ -41,7 +43,9 @@ const iconMap = {
   faCaretRight,
   faCaretLeft,
   faForwardStep,
-  faBackwardStep
+  faBackwardStep,
+  faPlus,
+  faMinus
 }
 
 // 圖示

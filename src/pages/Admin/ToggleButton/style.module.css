@@ -1,0 +1,15 @@
+.toggleButton {
+  height: 2.5rem;
+  width: 10rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--theme-primary-text);
+  background-color: var(--theme-primary-background);
+  border-radius: .3125rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  background-color: var(--theme-submit-background-hover);
+}

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 // 輸入欄標籤
-function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) {
+function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff, hide }) {
   const { register, formState: { errors }, clearErrors } = useFormContext()
   const [errorCleared, setErrorCleared] = useState(false)
 
@@ -24,6 +24,14 @@ function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) 
     }
   }, [errors.root])
 
+  const hideErr = () => {
+    if (hide) {
+      return errors[name]
+    } else {
+      return true
+    }
+  }
+
   return (
     <>
       <input
@@ -34,7 +42,7 @@ function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff }) 
         {...register(name, { onChange: () => errorClear() })}
       />
       {/* 錯誤訊息 */}
-      {!errOff && <div className={S.errMsg}>{errors[name] ? errMsg : ''}</div>}
+      {!errOff && hideErr() && <div className={S.errMsg}>{errors[name] ? errMsg : ''}</div>}
     </>
   )
 }
