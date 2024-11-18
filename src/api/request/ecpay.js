@@ -5,13 +5,15 @@ const base = '/ecpay'
 // Private Requests
 export const payment = (orderId, TotalAmount, ItemName) => {
   console.log('Send [get /ecpay/payment/params] request')
-  return axiosRequest(true, 'get', `${base}/payment/params`, {
-    params: { orderId, TotalAmount, ItemName }
+  return axiosRequest(true, 'post', `${base}/payment/params`, {
+    orderId, TotalAmount, ItemName
   })
 }
 export const getPaymentOrder = (MerchantTradeNo) => {
   console.log('Send [get /ecpay/payment/order] request')
-  return axiosRequest(true, 'post', `${base}/payment/order`, { MerchantTradeNo })
+  return axiosRequest(true, 'post', `${base}/payment/order`, {
+    MerchantTradeNo
+  })
 }
 export const getStoreList = (CvsType) => {
   console.log('Send [get /ecpay/logisticts/store/list/params] request')
@@ -21,8 +23,8 @@ export const getStoreList = (CvsType) => {
 }
 export const getStore = (userId, LogisticsSubType, path) => {
   console.log('Send [get /ecpay/logisticts/store/params] request')
-  return axiosRequest(true, 'get', `${base}/logisticts/store/params`, {
-    params: { userId, LogisticsSubType, path }
+  return axiosRequest(true, 'post', `${base}/logisticts/store/params`, {
+    userId, LogisticsSubType, path
   })
 }
 export const getGovWordSetting = (payload) => {
