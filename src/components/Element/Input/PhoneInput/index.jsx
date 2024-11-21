@@ -15,13 +15,7 @@ const PhoneInput = ({ name }) => {
 
   return (
     <div className={S.inputWrapper}>
-      <Input
-        name={name}
-        type="tel"
-        placeholder={t('input.phoneNumber')}
-        maxLength="10"
-        errMsg={t('input.fillPhone')}
-      />
+      <Input name={name} type="tel" placeholder={t('input.phoneNumber')} maxLength="10" errMsg={t('input.fillPhone')} />
       {isValid && (
         <div className={S.iconContainer}>
           <Icon style={S.icon} icon="faCircleCheck" />

@@ -3,7 +3,7 @@ export const ecpayForm = (action, params) => {
   form.method = 'POST'
   form.action = action
 
-  Object.keys(params).forEach((key) => {
+  Object.keys(params).forEach(key => {
     const input = document.createElement('input')
     input.type = 'hidden'
     input.name = key

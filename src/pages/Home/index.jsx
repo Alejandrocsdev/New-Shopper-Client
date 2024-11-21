@@ -8,7 +8,6 @@ import useLocalStorage from '../../hooks/useLocalStorage'
 import useLangNavigate from '../../hooks/useLangNavigate'
 // 組件 (component)
 import Paginator from './Paginator'
-import Anchor from '../../components/Element/Anchor'
 import PaymentButton from '../../components/Ecpay/PaymentButton'
 import GetPaymentOrder from '../../components/Ecpay/GetPaymentOrder'
 
@@ -37,7 +36,7 @@ function Home() {
         const response = await getProducts({ page: currentPage, limit })
         console.log('Receive [get /product/all] response:', response.message)
         console.log('Receive [get /product/all] data:', response.data)
-        const { totalItems, totalPages, products } = response.data
+        const { totalPages, products } = response.data
         setProducts(products)
         setTotalPages(totalPages)
       } catch (error) {
@@ -48,14 +47,14 @@ function Home() {
     onGetProducts()
   }, [currentPage])
 
-  const handlePageChange = (page) => {
+  const handlePageChange = page => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page)
     }
   }
 
   // 前往product頁面前存入page至local storage
-  const handleProductClick = (productId) => {
+  const handleProductClick = productId => {
     setValue('page', currentPage)
     langNavigate(`/product/${productId}`)
   }
@@ -76,12 +75,7 @@ function Home() {
           </div>
         ))}
       </div>
-      <Paginator
-        currentPage={currentPage}
-        totalPage={totalPages}
-        onPageChange={handlePageChange}
-        showPages={3}
-      />
+      <Paginator currentPage={currentPage} totalPage={totalPages} onPageChange={handlePageChange} showPages={3} />
     </main>
   )
 }

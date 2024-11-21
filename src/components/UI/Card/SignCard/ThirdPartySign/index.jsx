@@ -1,7 +1,7 @@
 // 模組樣式 (module css)
 import S from './style.module.css'
 // 工具 (utils)
-import { backUrl } from '../../../../../utils/url'
+import { backUrl } from '../../../../../utils/url.mjs'
 // 圖檔 (image)
 import facebookPng from '../../../../../assets/img/thirdParty/facebook.png'
 import googlePng from '../../../../../assets/img/thirdParty/google.png'

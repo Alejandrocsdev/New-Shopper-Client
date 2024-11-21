@@ -3,7 +3,7 @@ import S from './style.module.css'
 // 組件 (component)
 import Anchor from '../../../../components/Element/Anchor'
 
-// 會員頭像　連結
+// 會員頭像 連結
 function ProfileLink({ avatar, username }) {
   return (
     <Anchor style={S.profileLink} int="/profile">

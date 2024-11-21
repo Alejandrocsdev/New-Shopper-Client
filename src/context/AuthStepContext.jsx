@@ -16,33 +16,25 @@ export const AuthStepProvider = ({ children }) => {
   const to = (step, user = {}) => {
     if (Number.isInteger(step)) {
       setStep(step)
-    } 
-    else if (step === '+') {
-      setStep((prevStep) => prevStep + 1)
-    } 
-    else if (step === '-') {
-      setStep((prevStep) => prevStep - 1)
-    } 
-    else if (step === 'sign-in') {
+    } else if (step === '+') {
+      setStep(prevStep => prevStep + 1)
+    } else if (step === '-') {
+      setStep(prevStep => prevStep - 1)
+    } else if (step === 'sign-in') {
       const from = location.state?.from?.pathname
       langNavigate(from || '/', { replace: true })
       setStep(0)
-    }
-    else if (step.startsWith('/')) {
+    } else if (step.startsWith('/')) {
       langNavigate(step)
       setStep(0)
     }
-  
+
     if (typeof user === 'object' && Object.keys(user).length > 0) {
       setUser(user)
     }
   }
 
-  return (
-    <AuthStepContext.Provider value={{ step, user, to }}>
-      {children}
-    </AuthStepContext.Provider>
-  )
+  return <AuthStepContext.Provider value={{ step, user, to }}>{children}</AuthStepContext.Provider>
 }
 
 // (2) Hook

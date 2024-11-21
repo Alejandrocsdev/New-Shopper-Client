@@ -10,7 +10,7 @@ import { useMessage } from '../../../context/MessageContext'
 // 全域錯誤訊息
 function Message() {
   const { t } = useTranslation()
-  const { errMsg, setErrMsg, sucMsg, setSucMsg  } = useMessage()
+  const { errMsg, setErrMsg, sucMsg, setSucMsg } = useMessage()
   const location = useLocation()
 
   // 顯示五秒後移除
@@ -40,7 +40,7 @@ function Message() {
   if (errMsg) {
     return <div className={S.error}>{t(errMsg)}</div>
   }
-  
+
   if (sucMsg) {
     return <div className={S.success}>{t(sucMsg)}</div>
   }

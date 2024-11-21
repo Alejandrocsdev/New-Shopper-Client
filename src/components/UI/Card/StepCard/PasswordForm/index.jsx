@@ -10,7 +10,6 @@ import { putPwdByInfo } from '../../../../../api/request/user'
 import { useAuthStep } from '../../../../../context/AuthStepContext'
 import { useAuthMode } from '../../../../../context/AuthModeContext'
 // 組件 (component)
-import Icon from '../../../../Element/Icon'
 import PasswordInput from '../../../../Element/Input/PasswordInput'
 import Form from '../../../../Element/Form'
 
@@ -27,7 +26,7 @@ function PasswordForm() {
     password: Joi.string().min(8).max(16).regex(/[a-z]/).regex(/[A-Z]/).regex(/\d/).required()
   })
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const { password } = data
       console.log('Sent form data:', data)
@@ -35,7 +34,7 @@ function PasswordForm() {
       if (isSignUp) {
         const response = await signUp(phone, password)
         console.log('Receive [post /auth/sign-up] response:', response.message)
-        
+
         const { id } = response.user
         to('+', { id, phone })
       } else if (isReset) {
@@ -50,7 +49,7 @@ function PasswordForm() {
         to('+', phone ? { phone } : { email })
       }
     } catch (error) {
-      console.error(`Catch ${error.endpoint} error:`,error.message)
+      console.error(`Catch ${error.endpoint} error:`, error.message)
       formContext.setError('root', { message: t(error.i18n) })
     }
   }

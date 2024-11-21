@@ -17,7 +17,7 @@ function ImageUpload() {
   const [isLoading, setIsLoading] = useState(false)
   const fileInputRef = useRef(null)
 
-  const handleFileChange = (event) => {
+  const handleFileChange = event => {
     setFile(event.target.files[0])
   }
 
@@ -51,12 +51,7 @@ function ImageUpload() {
 
   return (
     <div className={S.imageUpload}>
-      <input
-        type="file"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        style={{ display: 'none' }}
-      />
+      <input type="file" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} />
       <div className={S.chooseBtnContainer}>
         <button className={S.chooseBtn} onClick={onUpload}>
           選擇圖片

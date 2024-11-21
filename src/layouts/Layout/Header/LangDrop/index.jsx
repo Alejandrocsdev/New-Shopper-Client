@@ -14,7 +14,7 @@ import languages from '../../../../assets/locales/languages'
 function LangDrop() {
   // 選單開關
   const [showDropdown, setShowDropdown] = useState(false)
-  const toggleDropdown = () => setShowDropdown((prevState) => !prevState)
+  const toggleDropdown = () => setShowDropdown(prevState => !prevState)
 
   // 點擊外部 (關閉選單)
   const dropdownRef = useRef(null)
@@ -35,11 +35,8 @@ function LangDrop() {
         </div>
       </button>
       {/* 下拉選單 */}
-      <ul
-        className={`${S.dropdown} ${showDropdown ? S.show : ''}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {languages.map((language) => (
+      <ul className={`${S.dropdown} ${showDropdown ? S.show : ''}`} onClick={e => e.stopPropagation()}>
+        {languages.map(language => (
           <li
             key={language.code}
             className={`${S.li} ${lang === language.code ? S.active : ''}`}

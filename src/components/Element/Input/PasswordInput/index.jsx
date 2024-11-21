@@ -1,7 +1,6 @@
 // 模組樣式 (module css)
 import S from './style.module.css'
 // 函式庫 (library)
-import Joi from 'joi'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useFormContext } from 'react-hook-form'

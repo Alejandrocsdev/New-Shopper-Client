@@ -4,7 +4,7 @@ let isProcessing = null
 // 任務列隊
 const queue = []
 
-export const promiseQueue = (promise) => {
+export const promiseQueue = promise => {
   return new Promise((resolve, reject) => {
     // 將請求推入列隊中
     queue.push({ promise, resolve, reject })
@@ -24,10 +24,10 @@ const executeNext = () => {
   const { promise, resolve, reject } = queue.shift()
 
   isProcessing = promise()
-    .then((result) => {
+    .then(result => {
       resolve(result)
     })
-    .catch((error) => {
+    .catch(error => {
       reject(error)
     })
     .finally(() => {

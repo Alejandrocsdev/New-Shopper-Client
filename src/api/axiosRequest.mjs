@@ -1,5 +1,5 @@
 // 自訂函式 (custom function)
-import { axiosPublic, axiosPrivate } from './axios'
+import { axiosPublic, axiosPrivate } from './axios.mjs'
 
 // Request
 const axiosRequest = async (isPrivate, method, url, second, third) => {

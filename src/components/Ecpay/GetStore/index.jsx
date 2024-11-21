@@ -16,11 +16,11 @@ import okMartPng from '../../../assets/img/ecpay/okMart.png'
 
 // 表單樣板: 密碼登入樣板 / 簡訊登入樣板 / 註冊樣板
 function GetStore() {
-  const { setAuth, user } = useRedux()
+  const { user } = useRedux()
   const { lang } = useLang()
   const id = user?.id
 
-  const onGetStore = async (LogisticsSubType) => {
+  const onGetStore = async LogisticsSubType => {
     try {
       const path = `/${lang}/profile/address`
       const response = await getStore(id, LogisticsSubType, path)

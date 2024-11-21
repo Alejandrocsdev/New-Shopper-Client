@@ -24,8 +24,16 @@ const ProtectedRoutes = ({ allowedRoles }) => {
       } else {
         try {
           const response = await promiseQueue(() => refreshToken('(ProtectedRoutes)'))
-          console.log('%cReceive [post /auth/refresh] response (Protected Routes):', 'color: aqua;', response.data.message)
-          console.log('%cReceive [post /auth/refresh] data (Protected Routes):', 'color: aqua;', response.data.accessToken)
+          console.log(
+            '%cReceive [post /auth/refresh] response (Protected Routes):',
+            'color: aqua;',
+            response.data.message
+          )
+          console.log(
+            '%cReceive [post /auth/refresh] data (Protected Routes):',
+            'color: aqua;',
+            response.data.accessToken
+          )
           if (isAllowed(response.data.accessToken, allowedRoles)) {
             setAuth({ token: response.data.accessToken })
             setState('valid')
@@ -35,7 +43,11 @@ const ProtectedRoutes = ({ allowedRoles }) => {
             setErrMsg('error.signInAgain')
           }
         } catch (error) {
-          console.error('%cCatch [post /auth/refresh] error (Protected Routes):', 'color: aqua;', error.response.data.message)
+          console.error(
+            '%cCatch [post /auth/refresh] error (Protected Routes):',
+            'color: aqua;',
+            error.response.data.message
+          )
           clearAuth()
           setState('invalid')
           setErrMsg(error.response.data.i18n)
@@ -47,9 +59,11 @@ const ProtectedRoutes = ({ allowedRoles }) => {
 
   if (state === 'loading') return null
 
-  return state === 'valid' 
-    ? <Outlet />
-    : <Navigate to={`/${lang}/sign-in`} state={{ from: location, errMsg }} replace />
+  return state === 'valid' ? (
+    <Outlet />
+  ) : (
+    <Navigate to={`/${lang}/sign-in`} state={{ from: location, errMsg }} replace />
+  )
 }
 
 export default ProtectedRoutes

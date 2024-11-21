@@ -1,39 +1,39 @@
 // 函式庫 (library)
 import axios from 'axios'
 // 自訂函式 (custom function)
-import { store } from '../redux/store'
-import { setCredentials, clearCredentials } from '../redux/authSlice'
+import { store } from '../redux/store.mjs'
+import { setCredentials, clearCredentials } from '../redux/authSlice.mjs'
 // 工具 (utils)
-import { backUrl } from '../utils/url'
+import { backUrl } from '../utils/url.mjs'
 // Public
 export const axiosPublic = axios.create({ baseURL: backUrl })
 // Private
 const axiosPrivate = axios.create({ baseURL: backUrl, withCredentials: true })
 // Refresh Token
-export const refreshToken = async (name) => {
+export const refreshToken = async name => {
   console.log(`%cSend [post /auth/refresh] request ${name}`, 'color: aqua;')
   return await axios.post(`${backUrl}/auth/refresh`, {}, { withCredentials: true })
 }
 
 // Request Interceptor
 axiosPrivate.interceptors.request.use(
-  (config) => {
+  config => {
     console.log('%cRequest interceptor:', 'color: green;', config)
     const token = store.getState().auth.token
     // 有 授權憑證 即發送 認證標頭
     if (token) config.headers['Authorization'] = `Bearer ${token}`
     return config
   },
-  (error) => Promise.reject(error)
+  error => Promise.reject(error)
 )
 
 // Response Interceptor
 axiosPrivate.interceptors.response.use(
-  (response) => {
+  response => {
     console.log('%cResponse interceptor:', 'color: green;', response)
     return response
   },
-  async (error) => {
+  async error => {
     const originalRequest = error.config
     const { method, url } = originalRequest
     const status = error.response.status
@@ -56,7 +56,7 @@ axiosPrivate.interceptors.response.use(
 
         // 存儲憑證
         store.dispatch(setCredentials({ token: newToken }))
-        
+
         // 重新發送請求
         console.log(`%cRetry [${method} ${url}] request`, 'color: yellow;')
         originalRequest.headers['Authorization'] = `Bearer ${newToken}`

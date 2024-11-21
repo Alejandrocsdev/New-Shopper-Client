@@ -8,7 +8,6 @@ import { addWordSetting } from '../../../api/request/ecpay'
 // 組件 (component)
 import Form from '../../../components/Element/Form'
 import Select from '../../../components/Element/Select'
-import Table from '../../../components/Element/Table'
 import Input from '../../../components/Element/Input'
 import SubmitButton from '../../../components/UI/Button/SubmitButton'
 import ToggleButton from '../ToggleButton'
@@ -19,9 +18,9 @@ function AddWordSetting() {
   const [result, setResult] = useState('')
   const [isVisible, setIsVisible] = useState(false)
 
-  const toggleVisibility = () => setIsVisible((prev) => !prev)
+  const toggleVisibility = () => setIsVisible(prev => !prev)
 
-  const onSource = async (data) => {
+  const onSource = async data => {
     try {
       const response = await addWordSetting(data)
       console.log('Receive [post /ecpay/einvoice/add-word-setting] response:', response.message)
@@ -48,11 +47,11 @@ function AddWordSetting() {
     InvoiceHeader: Joi.string()
       .length(2)
       .pattern(/^[A-Z]{2}$/),
-      InvoiceStart: Joi.string()
+    InvoiceStart: Joi.string()
       .pattern(/^[0-9]{6}(00|50)$/)
       .required(),
     InvoiceEnd: Joi.string()
-      .pattern(/^[0-9]{6}(49|99)$/) 
+      .pattern(/^[0-9]{6}(49|99)$/)
       .required()
   })
 
@@ -61,11 +60,7 @@ function AddWordSetting() {
       <div className={S.titleContainer}>
         <h3 className={S.title}>3. 新增字軌與配號</h3>
         <ToggleButton style={S.toggleButton} onClick={toggleVisibility} isVisible={isVisible} />
-        <SubmitButton
-          type="button"
-          style={`${S.removeBtn} ${result ? '' : S.hide}`}
-          onClick={() => setResult('')}
-        >
+        <SubmitButton type="button" style={`${S.removeBtn} ${result ? '' : S.hide}`} onClick={() => setResult('')}>
           取消
         </SubmitButton>
       </div>

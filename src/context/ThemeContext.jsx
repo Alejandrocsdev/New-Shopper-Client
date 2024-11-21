@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
   })
 
   const toggleTheme = () => {
-    setIsDark((prev) => {
+    setIsDark(prev => {
       const newTheme = !prev
       // boolan => theme
       localStorage.setItem('theme', newTheme ? 'dark' : 'light')

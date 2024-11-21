@@ -32,7 +32,7 @@ function Paginator({ showPages, currentPage, totalPage, onPageChange }) {
       >
         <Icon icon="faCaretLeft" />
       </button>
-      {pages.map((page) => (
+      {pages.map(page => (
         <button
           className={`${S.page} ${page === currentPage ? S.clicked : ''}`}
           onClick={() => onPageChange(page)}

@@ -8,7 +8,6 @@ import { issueInvoice } from '../../../api/request/ecpay'
 // 組件 (component)
 import Form from '../../../components/Element/Form'
 import Select from '../../../components/Element/Select'
-import Table from '../../../components/Element/Table'
 import Input from '../../../components/Element/Input'
 import SubmitButton from '../../../components/UI/Button/SubmitButton'
 import ToggleButton from '../ToggleButton'
@@ -19,14 +18,14 @@ function SetWordStatus() {
   const [result, setResult] = useState('')
   const [isVisible, setIsVisible] = useState(false)
 
-  const toggleVisibility = () => setIsVisible((prev) => !prev)
+  const toggleVisibility = () => setIsVisible(prev => !prev)
 
-  const onSource = async (data) => {
+  const onSource = async data => {
     try {
       const response = await issueInvoice(data)
       console.log('Receive [post /ecpay/einvoice/issue] response:', response.message)
       console.log('Receive [post /ecpay/einvoice/issue] data:', response.result)
-      const { RtnCode, RtnMsg, TrackID } = response.result
+      const { RtnCode, RtnMsg } = response.result
       if (RtnCode === 1) {
         setResult(`設定${RtnMsg}`)
       } else {
@@ -52,11 +51,7 @@ function SetWordStatus() {
       <div className={S.titleContainer}>
         <h3 className={S.title}>4. 設定字軌號碼狀態</h3>
         <ToggleButton style={S.toggleButton} onClick={toggleVisibility} isVisible={isVisible} />
-        <SubmitButton
-          type="button"
-          style={`${S.removeBtn} ${result ? '' : S.hide}`}
-          onClick={() => setResult('')}
-        >
+        <SubmitButton type="button" style={`${S.removeBtn} ${result ? '' : S.hide}`} onClick={() => setResult('')}>
           取消
         </SubmitButton>
       </div>

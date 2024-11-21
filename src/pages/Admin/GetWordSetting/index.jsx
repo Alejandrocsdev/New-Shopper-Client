@@ -19,9 +19,9 @@ function GetWordSetting() {
   const [source, setSource] = useState([])
   const [isVisible, setIsVisible] = useState(false)
 
-  const toggleVisibility = () => setIsVisible((prev) => !prev)
+  const toggleVisibility = () => setIsVisible(prev => !prev)
 
-  const onSource = async (data) => {
+  const onSource = async data => {
     try {
       const response = await getWordSetting(data)
       console.log('Receive [post /ecpay/einvoice/get-word-setting] response:', response.message)

@@ -16,7 +16,7 @@ function AuthLayout() {
     <AuthModeProvider>
       <AuthStepProvider>
         <AuthHeader />
-        <Message/>
+        <Message />
         <div className={S.container}>
           <Outlet />
         </div>

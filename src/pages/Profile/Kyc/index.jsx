@@ -13,7 +13,7 @@ function Kyc() {
   const { setSucMsg } = useMessage()
   const { setAuth, user } = useRedux()
   const [roles, setRoles] = useState(user?.roles || [])
-  const isAllowed = roles.some((role) => role.name === 'seller')
+  const isAllowed = roles.some(role => role.name === 'seller')
 
   useEffect(() => {
     if (user?.roles) {
@@ -40,9 +40,7 @@ function Kyc() {
     <>
       <div className={S.header}>身分驗證</div>
       <div className={S.infoContainer}>
-        {isAllowed 
-        ? <div className={S.verified}>完成驗證</div>
-        : <div className={S.unverified}>尚未驗證</div>}
+        {isAllowed ? <div className={S.verified}>完成驗證</div> : <div className={S.unverified}>尚未驗證</div>}
         {!isAllowed && (
           <button className={S.btn} type="button" onClick={handleVerification}>
             驗證

@@ -15,7 +15,7 @@ export const LangProvider = ({ children }) => {
 
   // 自訂 useState
   const lang = i18next.language
-  const setLang = (lang) => {
+  const setLang = lang => {
     i18next.changeLanguage(lang)
     localStorage.setItem('lang', lang)
   }
@@ -34,7 +34,7 @@ export const LangProvider = ({ children }) => {
   }, [langParam])
 
   // 語言切換
-  const switchLang = (code) => {
+  const switchLang = code => {
     setLang(code)
     const newPath = location.pathname.replace(`/${langParam}`, `/${code}`)
     navigate(newPath)

@@ -18,15 +18,16 @@ function GetGovWordSetting() {
   const [source, setSource] = useState([])
   const [isVisible, setIsVisible] = useState(false)
 
-  const toggleVisibility = () => setIsVisible((prev) => !prev)
+  const toggleVisibility = () => setIsVisible(prev => !prev)
 
-  const onSource = async (data) => {
+  const onSource = async data => {
     try {
       const response = await getGovWordSetting(data)
       console.log('Receive [post /ecpay/einvoice/get-gov-word-setting] response:', response.message)
       console.log('Receive [post /ecpay/einvoice/get-gov-word-setting] data:', response.result)
       setSource(response.result?.InvoiceInfo || [{ message: response.result.RtnMsg }])
     } catch (error) {
+      formContext.setError('root', { message: error.message })
       console.error('Catch [post /ecpay/einvoice/get-gov-word-setting] error:', error.message)
     }
   }

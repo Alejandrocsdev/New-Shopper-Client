@@ -18,7 +18,8 @@ function Step1() {
   return (
     <StepCard title={t('title.enterCode')} back>
       {phone && <OtpForm />}
-      {email && <>
+      {email && (
+        <>
           <div className={S.iconContainer}>
             <Icon style={S.emailIcon} icon="faEnvelopeCircleCheck" />
           </div>
@@ -31,7 +32,8 @@ function Step1() {
           <SubmitButton type="button" onClick={() => to('/sign-in')}>
             {t('success.backToSignIn')}
           </SubmitButton>
-        </>}
+        </>
+      )}
     </StepCard>
   )
 }

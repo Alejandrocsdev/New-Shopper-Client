@@ -10,7 +10,6 @@ import useRedux from '../../hooks/useRedux'
 import useLangNavigate from '../../hooks/useLangNavigate'
 import { signOut } from '../../api/request/auth'
 // 組件
-import ImageUpload from '../../components/UI/Button/ImageUpload'
 import Loading from '../../components/UI/Laoding'
 
 // 首頁

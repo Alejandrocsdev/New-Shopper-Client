@@ -11,7 +11,10 @@ import Icon from '../../../Icon'
 const Criteria = ({ name }) => {
   const { t } = useTranslation()
 
-  const { watch, formState: { dirtyFields } } = useFormContext()
+  const {
+    watch,
+    formState: { dirtyFields }
+  } = useFormContext()
   const password = watch(name, '')
   const isDirty = dirtyFields.password
 
@@ -35,17 +38,17 @@ const Criteria = ({ name }) => {
     { rule: 'length', message: t('password.length') }
   ]
 
-  const isValid = (ruleName) => {
+  const isValid = ruleName => {
     if (!error) return true
-    return !error.details.some((detail) => detail.context.key === ruleName)
+    return !error.details.some(detail => detail.context.key === ruleName)
   }
 
-  const getCriteriaClass = (ruleName) => {
+  const getCriteriaClass = ruleName => {
     if (!isDirty) return ''
     return isValid(ruleName) ? S.valid : S.invalid
   }
 
-  const getIcon = (ruleName) => {
+  const getIcon = ruleName => {
     return isValid(ruleName) ? 'faCircleCheck' : 'faCircleXmark'
   }
 

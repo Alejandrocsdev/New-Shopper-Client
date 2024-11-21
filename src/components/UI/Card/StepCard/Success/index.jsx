@@ -46,12 +46,12 @@ function Success() {
       } else if (isReset && email) {
         const response = await resetPwdEmail(email)
         console.log('Receive [post /reset/pwd/email] response:', response.message)
-        
+
         to('/sign-in')
       }
-    } catch (err) {
+    } catch (error) {
       console.error(`Catch ${error.endpoint} error:`, error.message)
-      setErrMsg(err.i18n)
+      setErrMsg(error.i18n)
       if (isSignUp) {
         clearAuth()
       }
@@ -80,7 +80,7 @@ function Success() {
             i18nKey="success.redirectMessage"
             count={count}
             values={{ page: t(isSignUp ? 'success.home' : 'success.signIn') }}
-            components={[<span className={S.count} />]}
+            components={[<span key={0} className={S.count} />]}
           />
         </div>
       </div>

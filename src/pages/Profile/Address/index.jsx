@@ -36,7 +36,7 @@ function Address() {
     }
   }, [user?.stores])
 
-  const handleDelete = async (storeId) => {
+  const handleDelete = async storeId => {
     try {
       const response = await deleteStore(storeId)
       console.log('Receive [delete /store/:storeId] response:', response.message)
@@ -48,7 +48,7 @@ function Address() {
     }
   }
 
-  const handleDefault = async (storeId) => {
+  const handleDefault = async storeId => {
     try {
       const response = await putStoreDefault(storeId)
       console.log('Receive [put /store/:storeId/default] response:', response.message)
@@ -60,7 +60,7 @@ function Address() {
     }
   }
 
-  const storeLogo = (store) => {
+  const storeLogo = store => {
     switch (store) {
       case 'UNIMARTC2C':
         return sevenElevenPng

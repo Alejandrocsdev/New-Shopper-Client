@@ -24,11 +24,11 @@ function Info() {
   const [resetTrigger, setResetTrigger] = useState(false)
 
   const handleReset = () => {
-    setResetTrigger((prev) => !prev)
+    setResetTrigger(prev => !prev)
     reset()
   }
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const response = await putUser(user?.id, data)
       console.log('Receive [put /user/:userId] response:', response.message)

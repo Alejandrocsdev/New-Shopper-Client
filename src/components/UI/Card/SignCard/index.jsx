@@ -53,15 +53,15 @@ function SignCard() {
         <ThirdPartySign />
 
         {/* 條款與政策 */}
-        {isSignUp && <div className={S.policy}>
-          <Trans i18nKey="signCard.agreement" components={[<span className={S.link} />]} />
-        </div>}
+        {isSignUp && (
+          <div className={S.policy}>
+            <Trans i18nKey="signCard.agreement" components={[<span key={0} className={S.link} />]} />
+          </div>
+        )}
 
         {/* 切換 */}
         <div className={S.switch}>
-          <span className={S.text}>
-            {t(isSignUp ? 'signCard.alreadyHaveAnAccount?' : 'signCard.newToShopper?')}
-          </span>
+          <span className={S.text}>{t(isSignUp ? 'signCard.alreadyHaveAnAccount?' : 'signCard.newToShopper?')}</span>
           {/* 返回註冊頁及返回步驟0 */}
           <Anchor style={S.link} int={isSignUp ? '/sign-in' : '/sign-up'}>
             {t(isSignUp ? 'sign.signIn' : 'sign.signUp')}

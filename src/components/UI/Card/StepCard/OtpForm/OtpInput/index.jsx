@@ -8,7 +8,7 @@ const OtpInput = ({ length = 6, name }) => {
   const inputRefs = useRef([])
   const [otp, setOtp] = useState(new Array(length).fill(''))
 
-  const {register, setValue} = useFormContext()
+  const { register, setValue } = useFormContext()
 
   // 聚焦於第一個輸入欄
   useEffect(() => {
@@ -36,7 +36,7 @@ const OtpInput = ({ length = 6, name }) => {
   }
 
   // Click 監聽器
-  const handleClick = (index) => {
+  const handleClick = index => {
     inputRefs.current[index].setSelectionRange(1, 1)
 
     if (index > 0 && !otp[index - 1]) {
@@ -58,11 +58,11 @@ const OtpInput = ({ length = 6, name }) => {
         <input
           key={index}
           type="text"
-          ref={(input) => (inputRefs.current[index] = input)}
+          ref={input => (inputRefs.current[index] = input)}
           value={value}
-          onChange={(e) => handleChange(index, e)}
+          onChange={e => handleChange(index, e)}
           onClick={() => handleClick(index)}
-          onKeyDown={(e) => handleKeyDown(index, e)}
+          onKeyDown={e => handleKeyDown(index, e)}
           className={S.otpInput}
         />
       ))}

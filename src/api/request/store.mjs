@@ -1,12 +1,12 @@
-import axiosRequest from '../axiosRequest'
+import axiosRequest from '../axiosRequest.mjs'
 
 const base = '/store'
 
 // Private Requests
-export const deleteStore = (storeId) => {
+export const deleteStore = storeId => {
   return axiosRequest(true, 'delete', `${base}/${storeId}`)
 }
-export const putStoreDefault = (storeId) => {
+export const putStoreDefault = storeId => {
   return axiosRequest(true, 'put', `${base}/${storeId}/default`)
 }
 

@@ -7,13 +7,15 @@ function Anchor({ int, ext, style, target, onClick, children }) {
 
   return (
     <>
-      {int 
-      ? <Link to={`/${lang}${int !== '/' ? int : ''}`} className={style} target={target || '_self'} onClick={onClick}>
+      {int ? (
+        <Link to={`/${lang}${int !== '/' ? int : ''}`} className={style} target={target || '_self'} onClick={onClick}>
           {children}
         </Link>
-      : <a href={ext} className={style} target={target || '_blank'} onClick={onClick}>
+      ) : (
+        <a href={ext} className={style} target={target || '_blank'} onClick={onClick}>
           {children}
-        </a>}
+        </a>
+      )}
     </>
   )
 }

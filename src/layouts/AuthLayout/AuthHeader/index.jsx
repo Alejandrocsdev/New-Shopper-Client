@@ -11,7 +11,7 @@ import Logo from '../../../components/UI/Logo'
 function AuthHeader() {
   const { t } = useTranslation()
   const { mode } = useAuthMode()
-  
+
   return (
     <header className={S.header}>
       <Logo style={S.logo} isBanner contrast />

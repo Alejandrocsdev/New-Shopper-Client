@@ -12,7 +12,7 @@ function LabeledInput({ label, id, type, placeholder, dataValue, isUsername, res
   const [otpValue, setOtpValue] = useState('')
 
   const [mode, setMode] = useState(false)
-  const toggleMode = () => setMode((prev) => !prev)
+  const toggleMode = () => setMode(prev => !prev)
 
   const [firstOk, setFirstOk] = useState(false)
   const [secondOk, setSecondOk] = useState(false)
@@ -65,9 +65,7 @@ function LabeledInput({ label, id, type, placeholder, dataValue, isUsername, res
     <>
       <label className={S.label} htmlFor={id}>
         <span>{label}</span>
-        {isUsername.state && !isUsername.value && (
-          <span className={S.once}> (帳號僅能修改一次)</span>
-        )}
+        {isUsername.state && !isUsername.value && <span className={S.once}> (帳號僅能修改一次)</span>}
       </label>
       <div className={S.inputField}>
         {mode ? (
@@ -79,14 +77,14 @@ function LabeledInput({ label, id, type, placeholder, dataValue, isUsername, res
               type={type}
               placeholder={placeholder}
               value={value}
-              onChange={(e) => setValue(e.target.value)}
+              onChange={e => setValue(e.target.value)}
             />
             {id === 'phone' || id === 'email' ? (
               <input
                 className={S.otpInput}
                 type="text"
                 value={otpValue}
-                onChange={(e) => setOtpValue(e.target.value)}
+                onChange={e => setOtpValue(e.target.value)}
                 placeholder="驗證碼"
                 maxLength="6"
               />

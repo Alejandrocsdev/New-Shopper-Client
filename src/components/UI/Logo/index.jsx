@@ -1,5 +1,5 @@
 // 工具 (utils)
-import { frontUrl } from '../../../utils/url'
+import { frontUrl } from '../../../utils/url.mjs'
 // 自訂函式 (custom function)
 import { useTheme } from '../../../context/ThemeContext'
 // 組件 (component)
@@ -10,14 +10,14 @@ function Logo({ style, isBanner, shape, text, unlink, contrast }) {
   const { isDark } = useTheme()
 
   let color
-  
+
   if (contrast) {
     color = isDark ? 'light' : 'dark'
   } else {
     color = isDark ? 'dark' : 'light'
   }
 
-  const src = (color) => {
+  const src = color => {
     if (isBanner) {
       return `${frontUrl}/img/logo/banner-${color}.png`
     } else {
@@ -27,9 +27,15 @@ function Logo({ style, isBanner, shape, text, unlink, contrast }) {
 
   return (
     <>
-      {unlink 
-      ? <div className={style}><img src={src(color)} /></div>
-      : <Anchor style={style} int="/"><img src={src(color)} /></Anchor>}
+      {unlink ? (
+        <div className={style}>
+          <img src={src(color)} />
+        </div>
+      ) : (
+        <Anchor style={style} int="/">
+          <img src={src(color)} />
+        </Anchor>
+      )}
     </>
   )
 }

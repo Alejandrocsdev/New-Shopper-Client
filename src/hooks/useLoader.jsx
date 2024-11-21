@@ -1,7 +1,7 @@
 // 函式庫 (library)
 import { useState, useEffect } from 'react'
 // 工具 (util)
-import { backPublicUrl } from '../utils/url'
+import { backPublicUrl } from '../utils/url.mjs'
 
 function useLoader() {
   const [loading, setLoading] = useState(true)

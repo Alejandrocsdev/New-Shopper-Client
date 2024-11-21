@@ -4,7 +4,6 @@ import S from './style.module.css'
 import { useState, useEffect } from 'react'
 // 自訂函式 (custom function)
 import useRedux from '../../hooks/useRedux'
-import { useMessage } from '../../context/MessageContext'
 // 圖檔 (image)
 import sevenElevenPng from '../../assets/img/ecpay/sevenEleven.png'
 import familyMartPng from '../../assets/img/ecpay/familyMart.png'
@@ -12,8 +11,7 @@ import okMartPng from '../../assets/img/ecpay/okMart.png'
 
 // 結帳
 function Checkout() {
-  const { setSucMsg } = useMessage()
-  const { setAuth, user } = useRedux()
+  const { user } = useRedux()
   const [cartItems, setCartItems] = useState([])
   const [stores, setStores] = useState([])
 
@@ -33,7 +31,7 @@ function Checkout() {
     return sum + cartItem.product.price * cartItem.quantity
   }, 0)
 
-  const storeLogo = (store) => {
+  const storeLogo = store => {
     switch (store) {
       case 'UNIMARTC2C':
         return sevenElevenPng
@@ -44,7 +42,7 @@ function Checkout() {
     }
   }
 
-  const defaultStore = stores.find((store) => store.isDefault)
+  const defaultStore = stores.find(store => store.isDefault)
 
   return (
     <main className={S.main}>
@@ -53,9 +51,10 @@ function Checkout() {
           <div className={S.header}>結帳</div>
           <div className={S.infoContainer}>
             <div className={S.cartItems}>
-              {cartItems.length === 0 
-              ? <div className={S.emptyMessage}>購物車是空的</div>
-              : cartItems.map((cartItem, index) => (
+              {cartItems.length === 0 ? (
+                <div className={S.emptyMessage}>購物車是空的</div>
+              ) : (
+                cartItems.map((cartItem, index) => (
                   <div key={index} className={S.cartItem}>
                     <div className={S.imgContainer}>
                       <img src={cartItem.product.image.link} className={S.image} />
@@ -64,17 +63,16 @@ function Checkout() {
                       <div className={S.productName}>{cartItem.product.name}</div>
                       <div className={S.productPrice}>${cartItem.product.price}</div>
                       <div className={S.quantity}>{cartItem.quantity}</div>
-                      <div className={S.totalAmount}>
-                        ${cartItem.quantity * cartItem.product.price}
-                      </div>
+                      <div className={S.totalAmount}>${cartItem.quantity * cartItem.product.price}</div>
                     </div>
                   </div>
-                ))}
+                ))
+              )}
             </div>
             <div className={S.stores}>
               <div className={S.storeAddresses}>
-                {defaultStore 
-                ? <div className={S.storeAddress}>
+                {defaultStore ? (
+                  <div className={S.storeAddress}>
                     <div className={S.left}>
                       <div className={S.storeLogo}>
                         <img className={S.image} src={storeLogo(defaultStore.logisticsSubType)} />
@@ -88,7 +86,9 @@ function Checkout() {
                       </div>
                     </div>
                   </div>
-                : <div className={S.emptyMessage}>請至個人頁面選取門市</div>}
+                ) : (
+                  <div className={S.emptyMessage}>請至個人頁面選取門市</div>
+                )}
               </div>
             </div>
             <div className={S.purchase}>

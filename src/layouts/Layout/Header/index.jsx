@@ -21,8 +21,8 @@ function Header() {
   const allowedRoles = ['admin', 'editor', 'viewer']
   let isAllowed
   if (user) {
-    const roles = user.roles.map((role) => role.name)
-    isAllowed = roles.some((role) => allowedRoles.includes(role))
+    const roles = user.roles.map(role => role.name)
+    isAllowed = roles.some(role => allowedRoles.includes(role))
   }
 
   return (

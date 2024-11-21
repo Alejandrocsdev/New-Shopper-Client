@@ -10,7 +10,7 @@ import Icon from '../../../../Element/Icon'
 function StepsView() {
   const { t } = useTranslation()
   const { step } = useAuthStep()
-  const stepState = (currentStep) => currentStep <= step
+  const stepState = currentStep => currentStep <= step
 
   return (
     <div className={S.steps}>
@@ -20,7 +20,7 @@ function StepsView() {
         <div className={`${S.circleText} ${stepState(1) ? S.colorOn : ''}`}>{t('stepsView.step1')}</div>
       </div>
       <div className={`${S.arrow} ${stepState(2) ? S.colorOn : ''}`}>
-        <Icon icon='faArrowRightLong' />
+        <Icon icon="faArrowRightLong" />
       </div>
       {/* 步驟2 */}
       <div className={S.step}>
@@ -28,12 +28,12 @@ function StepsView() {
         <div className={`${S.circleText} ${stepState(2) ? S.colorOn : ''}`}>{t('stepsView.step2')}</div>
       </div>
       <div className={`${S.arrow} ${stepState(3) ? S.colorOn : ''}`}>
-        <Icon icon='faArrowRightLong' />
+        <Icon icon="faArrowRightLong" />
       </div>
       {/* 步驟3 */}
       <div className={S.step}>
         <div className={`${S.circle} ${stepState(3) ? S.bgOn : ''}`}>
-          <Icon style={S.checkIcon} icon='faCheck' />
+          <Icon style={S.checkIcon} icon="faCheck" />
         </div>
         <div className={`${S.circleText} ${stepState(3) ? S.colorOn : ''}`}>{t('stepsView.step3')}</div>
       </div>

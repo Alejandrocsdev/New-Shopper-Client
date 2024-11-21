@@ -1,5 +1,3 @@
-// 模組樣式
-import S from './style.module.css'
 // 函式庫 (library)
 import Joi from 'joi'
 import { useTranslation } from 'react-i18next'
@@ -42,7 +40,7 @@ const SignForm = () => {
     if (reset) reset()
   }, [isSignIn, isPwdSignIn, isSmsSignIn])
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const { signInKey, password, phone } = data
     console.log('Sent form data:', data)
 
@@ -56,12 +54,12 @@ const SignForm = () => {
         const response = await pwdSignIn(signInKey, password)
         console.log('Receive [post /auth/sign-in/pwd] response:', response.message)
         console.log('Receive [post /auth/sign-in/pwd] data:', response.accessToken)
-        
+
         setAuth({ token: response.accessToken })
         to('sign-in')
       }
     } catch (error) {
-      console.error(`Catch ${error.endpoint} error:`,error.message)
+      console.error(`Catch ${error.endpoint} error:`, error.message)
       if (isPwdSignIn) {
         setErrMsg(error.i18n)
         clearAuth()
@@ -79,13 +77,7 @@ const SignForm = () => {
       setFormContext={setFormContext}
     >
       {/* signInKey */}
-      {isPwdSignIn && (
-        <Input
-          name="signInKey"
-          placeholder={t('input.phoneUserEmail')}
-          errMsg={t('input.fillInput')}
-        />
-      )}
+      {isPwdSignIn && <Input name="signInKey" placeholder={t('input.phoneUserEmail')} errMsg={t('input.fillInput')} />}
 
       {/* password */}
       {isPwdSignIn && <PasswordInput name="password" />}

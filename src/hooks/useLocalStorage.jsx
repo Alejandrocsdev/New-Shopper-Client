@@ -1,8 +1,5 @@
-// 函式庫 (library)
-import { useState } from 'react'
-
 function useLocalStorage() {
-  const getValue = (key) => {
+  const getValue = key => {
     return localStorage.getItem(key)
   }
 

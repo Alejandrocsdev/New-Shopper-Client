@@ -22,7 +22,7 @@ function Cart() {
     }
   }, [user?.cart?.items])
 
-  const onRemoveCart = async (productId) => {
+  const onRemoveCart = async productId => {
     try {
       const response = await deleteUserCart(productId)
       console.log('Receive [delete /user/cart/:productId] response:', response.message)
@@ -57,9 +57,10 @@ function Cart() {
           <div className={S.header}>購物車</div>
           <div className={S.infoContainer}>
             <div className={S.cartItems}>
-              {cartItems.length === 0 
-              ? <div className={S.emptyMessage}>購物車是空的</div>
-              : cartItems.map((cartItem, index) => (
+              {cartItems.length === 0 ? (
+                <div className={S.emptyMessage}>購物車是空的</div>
+              ) : (
+                cartItems.map((cartItem, index) => (
                   <div key={index} className={S.cartItem}>
                     <div className={S.imgContainer}>
                       <img src={cartItem.product.image.link} className={S.image} />
@@ -71,7 +72,7 @@ function Cart() {
                       <div className={S.quantity}>
                         <StockCount
                           stock={cartItem.quantity}
-                          setStock={(newStock) => onUpdateCart(cartItem.productId, newStock)}
+                          setStock={newStock => onUpdateCart(cartItem.productId, newStock)}
                           totalStock={cartItem.product.stock}
                         />
                       </div>
@@ -80,7 +81,8 @@ function Cart() {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))
+              )}
             </div>
             {cartItems.length !== 0 && (
               <div className={S.purchase}>

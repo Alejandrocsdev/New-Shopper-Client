@@ -3,7 +3,7 @@ import axiosRequest from '../axiosRequest'
 const base = '/auth'
 
 // Private Requests
-export const autoSignIn = (userId) => {
+export const autoSignIn = userId => {
   console.log('Send [post /auth/sign-in/auto/:userId] request')
   return axiosRequest(true, 'post', `${base}/sign-in/auto/${userId}`)
 }

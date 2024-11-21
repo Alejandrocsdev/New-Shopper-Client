@@ -20,20 +20,25 @@ function ResetStep() {
   const [isPhone, setIsPhone] = useState(false)
 
   const schema = Joi.object({
-    resetKey: Joi.string().required()
+    resetKey: Joi.string()
+      .required()
       // 如輸入值都是數字 => phone
       .when(Joi.string().regex(/^\d+$/), {
         // phone
-        then: Joi.string().regex(/^09\d{8}$/, { name: 'phone' }).required(),
+        then: Joi.string()
+          .regex(/^09\d{8}$/, { name: 'phone' })
+          .required(),
         // email
         // tlds (Top-Level Domains)
         // 允許像 test@example.local 這樣的域名，而不僅僅是 .com, .org 等常見TLD
         // if { tlds: { allow: true } } => Error Message: Uncaught e2.exports: Built-in TLD list disabled
-        otherwise: Joi.string().email({ tlds: { allow: false } }).required()
+        otherwise: Joi.string()
+          .email({ tlds: { allow: false } })
+          .required()
       })
   })
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const { resetKey } = data
       console.log('Sent form data:', data)
@@ -46,11 +51,11 @@ function ResetStep() {
       } else {
         const response = await sendLink(resetKey, lang)
         console.log('Receive [post /verif/send/link] response:', response.message)
-        
+
         to('+', { email: resetKey })
       }
     } catch (error) {
-      console.error(`Catch ${error.endpoint} error:`,error.message)
+      console.error(`Catch ${error.endpoint} error:`, error.message)
       formContext.setError('root', { message: t(error.i18n) })
     }
   }
@@ -58,7 +63,7 @@ function ResetStep() {
   useEffect(() => {
     if (formContext) {
       // Watch for changes to the resetKey field and trigger side effects
-      const subscription = formContext.watch((value) => {
+      const subscription = formContext.watch(value => {
         const { error } = schema.validate(value, { abortEarly: false })
         if (error?.details[0]?.context?.name === 'phone') {
           setIsPhone(true)
@@ -73,12 +78,7 @@ function ResetStep() {
 
   return (
     <StepCard title={t('title.resetPassword')} back="/sign-in">
-      <Form
-        schema={schema}
-        submitText={t('step.next')}
-        onSubmit={onSubmit}
-        setFormContext={setFormContext}
-      >
+      <Form schema={schema} submitText={t('step.next')} onSubmit={onSubmit} setFormContext={setFormContext}>
         {/* resetKey */}
         <Input
           name="resetKey"

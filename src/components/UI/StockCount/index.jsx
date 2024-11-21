@@ -16,7 +16,12 @@ function StockCount({ style, stock, setStock, totalStock }) {
 
   return (
     <div className={style}>
-      <button className={`${S.countBtn} ${stock === 1 ? S.red : ''}`} type="button" onClick={handleDecrement} disabled={stock <= 1}>
+      <button
+        className={`${S.countBtn} ${stock === 1 ? S.red : ''}`}
+        type="button"
+        onClick={handleDecrement}
+        disabled={stock <= 1}
+      >
         {stock === 1 ? 'X' : '-'}
       </button>
       <input className={S.stock} value={stock} readOnly />

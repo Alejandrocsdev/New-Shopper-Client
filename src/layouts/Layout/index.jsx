@@ -16,7 +16,7 @@ import ScrollToTop from '../../components/Global/ScrollToTop'
 
 // 佈局組件
 function Layout() {
-  const { setAuth, clearAuth, user, token } = useRedux()
+  const { setAuth, clearAuth, token } = useRedux()
   const triggerCount = useRef(0)
 
   useEffect(() => {

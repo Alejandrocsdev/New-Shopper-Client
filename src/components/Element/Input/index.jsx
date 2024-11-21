@@ -6,7 +6,11 @@ import { useFormContext } from 'react-hook-form'
 
 // 輸入欄標籤
 function Input({ name, type = 'text', placeholder, maxLength, errMsg, errOff, hide }) {
-  const { register, formState: { errors }, clearErrors } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+    clearErrors
+  } = useFormContext()
   const [errorCleared, setErrorCleared] = useState(false)
 
   // 輸入時, 移除Form錯誤訊息

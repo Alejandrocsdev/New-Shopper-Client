@@ -6,13 +6,13 @@ import { setCredentials, clearCredentials } from '../redux/authSlice'
 const useRedux = () => {
   const dispatch = useDispatch()
 
-  const setAuth = (authData) => dispatch(setCredentials(authData))
+  const setAuth = authData => dispatch(setCredentials(authData))
 
   const clearAuth = () => dispatch(clearCredentials())
 
-  const user = useSelector((state) => state.auth.user)
+  const user = useSelector(state => state.auth.user)
 
-  const token = useSelector((state) => state.auth.token)
+  const token = useSelector(state => state.auth.token)
 
   return { setAuth, clearAuth, user, token }
 }

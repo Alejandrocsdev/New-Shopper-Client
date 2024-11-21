@@ -6,12 +6,7 @@ import HashLoader from 'react-spinners/HashLoader'
 const Loader = ({ loading, size, color, override }) => {
   return (
     <div className={S.loader}>
-      <HashLoader
-        loading={loading}
-        size={size}
-        color={color || 'var(--theme-primary-text)'}
-        cssOverride={override}
-      />
+      <HashLoader loading={loading} size={size} color={color || 'var(--theme-primary-text)'} cssOverride={override} />
     </div>
   )
 }

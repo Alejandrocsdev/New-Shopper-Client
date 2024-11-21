@@ -1,5 +1,3 @@
-// 模組樣式 (module css)
-import S from './style.module.css'
 // 工具 (util)
 import { ecpayForm } from '../../../utils/ecpayForm'
 // 自訂函式 (custom function)

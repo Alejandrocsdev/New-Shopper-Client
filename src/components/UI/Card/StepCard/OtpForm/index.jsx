@@ -49,7 +49,7 @@ function OtpForm() {
     }
   }
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const { otp } = data
       console.log('Sent form data:', data)
@@ -71,7 +71,7 @@ function OtpForm() {
       } else if (isSmsSignIn) {
         const response = await smsSignIn(phone, otp)
         console.log('Receive [post /auth/sign-in/sms] response:', response.message)
-        console.log('Receive [post /auth/sign-in/sms] data:', userResponse.accessToken)
+        console.log('Receive [post /auth/sign-in/sms] data:', response.accessToken)
 
         setAuth({ token: response.accessToken })
         to('sign-in')
@@ -93,12 +93,7 @@ function OtpForm() {
   }
 
   return (
-    <Form
-      schema={schema}
-      submitText={t('step.next')}
-      onSubmit={onSubmit}
-      setFormContext={setFormContext}
-    >
+    <Form schema={schema} submitText={t('step.next')} onSubmit={onSubmit} setFormContext={setFormContext}>
       {/* 表單文字 */}
       <div className={S.cardText}>
         <div className={S.text}>{t('otpForm.otpSent')}</div>
@@ -116,8 +111,7 @@ function OtpForm() {
           </div>
         ) : (
           <div className={S.resendText}>
-            <span>{t('otpForm.otpNotReceived')}</span>{' '}
-            <span onClick={onResend}>{t('otpForm.resend')}</span>
+            <span>{t('otpForm.otpNotReceived')}</span> <span onClick={onResend}>{t('otpForm.resend')}</span>
           </div>
         )}
       </div>

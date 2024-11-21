@@ -33,7 +33,7 @@ function Step4() {
           <Trans
             i18nKey="emailError.redirectMessage"
             count={count}
-            components={[<span className={S.count} />]}
+            components={[<span key={0} className={S.count} />]}
           />
         </div>
       </div>

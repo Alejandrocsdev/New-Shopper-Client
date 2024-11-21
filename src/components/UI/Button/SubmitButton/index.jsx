@@ -7,17 +7,19 @@ import Loading from '../../Laoding'
 const SubmitButton = ({ type = 'submit', isValid, isSubmitting, style, onClick, children }) => {
   return (
     <>
-      {type === 'submit' 
-      ? <button
+      {type === 'submit' ? (
+        <button
           className={`${S.submit} ${isValid ? S.allowed : S.notAllowed}`}
           type={type}
           disabled={!isValid || isSubmitting}
         >
           {isSubmitting ? <Loading /> : children}
         </button>
-      : <button className={`${S.submit} ${style}`} type={type} onClick={onClick}>
+      ) : (
+        <button className={`${S.submit} ${style}`} type={type} onClick={onClick}>
           {children}
-        </button>}
+        </button>
+      )}
     </>
   )
 }

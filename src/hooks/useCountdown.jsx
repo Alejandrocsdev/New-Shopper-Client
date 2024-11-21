@@ -13,7 +13,7 @@ const useCountdown = (initialCount, onFinish, options = { once: true }) => {
     // 倒數中
     if (isCounting && count > 0) {
       timer = setInterval(() => {
-        setCount((prevCount) => prevCount - 1)
+        setCount(prevCount => prevCount - 1)
       }, 1000)
     }
     // 歸零

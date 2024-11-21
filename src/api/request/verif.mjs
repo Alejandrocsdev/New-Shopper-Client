@@ -1,4 +1,4 @@
-import axiosRequest from '../axiosRequest'
+import axiosRequest from '../axiosRequest.mjs'
 
 const base = '/verif'
 
