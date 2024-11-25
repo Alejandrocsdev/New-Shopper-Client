@@ -7,9 +7,15 @@ const ThemeContext = createContext()
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     const storedTheme = localStorage.getItem('theme')
+    if (storedTheme) {
+      return storedTheme === 'dark'
+    }
+    const htmlTag = document.documentElement.getAttribute('data-theme')
+    localStorage.setItem('theme', htmlTag)
     // theme => boolan
-    return storedTheme === 'dark'
+    return htmlTag === 'dark'
   })
+  console.log(isDark)
 
   const toggleTheme = () => {
     setIsDark(prev => {
