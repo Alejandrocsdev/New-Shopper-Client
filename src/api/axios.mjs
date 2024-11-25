@@ -42,7 +42,10 @@ axiosPrivate.interceptors.response.use(
 
     // 401: Unauthorized
     // 403: Forbidden
-    if ((status === 401 || status === 403) && !originalRequest.retry) {
+    if ((status === 401 || status === 403 || status === 500) && !originalRequest.retry) {
+      if (status === 500) {
+        console.log('**尚未排除bug**')
+      }
       // 標記已重新發送請求
       originalRequest.retry = true
 

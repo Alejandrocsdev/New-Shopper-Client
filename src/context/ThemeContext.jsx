@@ -15,7 +15,6 @@ export const ThemeProvider = ({ children }) => {
     // theme => boolan
     return htmlTag === 'dark'
   })
-  console.log(isDark)
 
   const toggleTheme = () => {
     setIsDark(prev => {
